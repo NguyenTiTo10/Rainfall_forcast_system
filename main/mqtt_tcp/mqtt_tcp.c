@@ -109,13 +109,13 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     }
 }
 
-#define CONFIG_BROKER_URL "mqtt://flespi.io"
+#define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
 
 static void mqtt_app_start(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = {
         .broker.address.uri                   = CONFIG_BROKER_URL,
-        .broker.address.port                  = 8883,
+        .broker.address.port                  = 1883,
         .credentials.username                 = "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc",
         .credentials.authentication.password  = "",
     };
