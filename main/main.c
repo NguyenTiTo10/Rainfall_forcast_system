@@ -10,7 +10,7 @@ void app_main(void)
   #endif
 
   #ifdef TEST_I2C
-    // do sth
+    oled_i2c_test ();
   #endif
 
 }

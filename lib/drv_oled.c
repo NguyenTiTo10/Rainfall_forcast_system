@@ -219,7 +219,7 @@ void task_sh1106_display_text(const void *arg_text)
   }
 }
 
-void app_main(void)
+void oled_i2c_test (void)
 {
   i2c_master_init();
   sh1106_init();
