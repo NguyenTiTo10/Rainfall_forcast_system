@@ -225,9 +225,11 @@ void oled_i2c_test (void)
   sh1106_init();
 
   task_sh1106_display_pattern(NULL);
-  vTaskDelay(1000 / portTICK_PERIOD_MS);
+  vTaskDelay(500 / portTICK_PERIOD_MS);
 
   task_sh1106_display_clear(NULL);
+
+  vTaskDelay(500 / portTICK_PERIOD_MS);
 
   task_sh1106_display_text("Hello!\nMultiline OK!\nAnother line.");
   // xTaskCreate(&task_sh1106_contrast, "ssid1306_contrast", 2048, NULL, 6, NULL);

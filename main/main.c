@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "mqtt_tcp.h"
+#include "drv_oled.h"
 
 // #define TEST_MQTT
 
