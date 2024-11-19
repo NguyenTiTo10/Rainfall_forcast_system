@@ -19,12 +19,6 @@
 #include "sdkconfig.h" 
 
 
-
-
-// OLED display parameters
-#define OLED_WIDTH 132
-#define OLED_HEIGHT 64
-
 // Function prototypes
 void i2c_master_init(void);
 void sh1106_init(void);

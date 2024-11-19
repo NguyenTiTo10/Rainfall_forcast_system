@@ -2,12 +2,15 @@
 
 #include "drv_oled.h"
 
+// OLED display parameters
+#define OLED_WIDTH  128
+#define OLED_HEIGHT 64
 
 #define TEST_FONT_DEFAULT
 
 #ifdef TEST_FONT_DEFAULT
     #include "font.h"
-#elif
+#else
     #include "font8x8_basic.h"
 #endif
 
@@ -132,6 +135,6 @@ void oled_i2c_test()
 
     vTaskDelay(2000 / portTICK_PERIOD_MS);
 
-    sh1106_display_text("Hello, OLED!", 0);
+    sh1106_display_text(" Hello, OLED!", 0);
 
 }
