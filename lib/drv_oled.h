@@ -18,13 +18,7 @@
 #include <string.h>
 #include "sdkconfig.h" 
 
-#define TEST_FONT
 
-#ifdef TEST_FONT
-  #include "font.h"  
-#elif
-  #include "font8x8_basic.h"
-#endif
 
 
 // OLED display parameters

@@ -1,6 +1,9 @@
 // File: main/sh1106_driver.c
 
 #include "drv_oled.h"
+#include "font.h"  
+#include "font8x8_basic.h"
+
 
 #define I2C_MASTER_NUM         I2C_NUM_0
 #define I2C_MASTER_FREQ_HZ     400000  // Fast mode
@@ -71,7 +74,7 @@ void sh1106_display_text(const char *text, uint8_t page) {
     
     for (size_t i = 0; i < text_len && i < OLED_WIDTH / 6; i++) {
         for (uint8_t j = 0; j < 5; j++) {
-            buffer[i * 6 + j] = font[text[i] - 32][j];  // Map character to font data
+            buffer[i * 6 + j] = font_format[text[i] - 32][j];  // Map character to font data
         }
         buffer[i * 6 + 5] = 0x00;  // Add space between characters
     }
