@@ -22,7 +22,7 @@
 
 
 // OLED display parameters
-#define OLED_WIDTH 128
+#define OLED_WIDTH 132
 #define OLED_HEIGHT 64
 
 // Function prototypes

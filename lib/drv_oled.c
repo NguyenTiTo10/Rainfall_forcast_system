@@ -126,15 +126,12 @@ void sh1106_init()
 // Main task to test the SH1106 OLED display
 void oled_i2c_test()
 {
-    // Initialize the display
     sh1106_init();
 
-    // Display text on the first page (top of the screen)
-    sh1106_display_text("Hello, OLED!", 0);
+    sh1106_clear_display();
 
-    // Delay to view the text
     vTaskDelay(2000 / portTICK_PERIOD_MS);
 
-    // Clear the display after viewing
-    sh1106_clear_display();
+    sh1106_display_text("Hello, OLED!", 0);
+
 }
