@@ -88,7 +88,7 @@ void sh1106_display_text(const char *text, uint8_t page)
     {
         for (uint8_t j = 0; j < 5; j++)
         {
-            buffer[i * 6 + j] = font_format[text[i] - 32][j]; // Map character to font data
+            buffer[i * 6 + j] = font[text[i] - 32][j]; // Map character to font data
         }
         buffer[i * 6 + 5] = 0x00; // Add space between characters
     }
