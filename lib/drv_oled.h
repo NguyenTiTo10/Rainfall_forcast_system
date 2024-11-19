@@ -18,7 +18,13 @@
 #include <string.h>
 #include "sdkconfig.h" 
 
-#include "font8x8_basic.h"  // Custom header for the 5x7 font array
+#define TEST_FONT
+
+#ifdef TEST_FONT
+  #include "font.h"  
+#elif
+  #include "font8x8_basic.h"
+#endif
 
 
 // OLED display parameters
