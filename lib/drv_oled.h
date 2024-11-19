@@ -3,8 +3,23 @@
 #ifndef SH1106_DRIVER_H
 #define SH1106_DRIVER_H
 
-#include <stdint.h>  // For uint8_t
-#include <stddef.h>  // For size_t
+#include "esp_log.h"
+
+#include "driver/i2c.h"
+#include "driver/gpio.h"
+
+#include "esp_err.h"
+
+#include "freertos/task.h"
+#include "freertos/FreeRTOS.h"
+
+#include <stdint.h>  
+#include <stddef.h>  
+#include <string.h>
+#include "sdkconfig.h" 
+
+#include "font8x8_basic.h"  // Custom header for the 5x7 font array
+
 
 // OLED display parameters
 #define OLED_WIDTH 128
