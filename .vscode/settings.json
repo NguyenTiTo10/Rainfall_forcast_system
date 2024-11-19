@@ -15,7 +15,8 @@
   "idf.pythonBinPathWin": "C:\\Users\\MTC-TTM\\.espressif\\python_env\\idf5.2_py3.11_env\\Scripts\\python.exe",
   "idf.toolsPathWin": "C:\\Users\\MTC-TTM\\.espressif",
   "files.associations": {
-    "mqtt_client.h": "c"
+    "mqtt_client.h": "c",
+    "i2c.h": "c"
   },
   "idf.flashType": "UART"
 }

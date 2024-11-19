@@ -19,4 +19,6 @@ void sh1106_clear_display(void);
 void sh1106_display_text(const char *text, uint8_t page);
 void sh1106_display_image(const uint8_t *image_data, size_t size);
 
+void oled_i2c_test (void);
+
 #endif // SH1106_DRIVER_H
