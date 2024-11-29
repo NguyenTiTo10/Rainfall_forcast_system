@@ -194,7 +194,7 @@ esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str)
     uint8_t start_x = x + 2;            // Adjust start position for SH1106 offset
     while (*str) 
     {
-        esp_err_t ret = drv_sh1106_write_char_test(start_x, y, *str++);
+        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
         if (ret != ESP_OK)
             return ret; 
 

@@ -23,15 +23,12 @@ static void system_oled_test_gui()
 
   drv_sh1106_display_text_center(0, date_time);
 
-  // drv_sh1106_display_text_center(4, "Temp: ");
-  // drv_sh1106_display_text_center(5, "Humid: ");
-  // drv_sh1106_display_text_center(3, "Air press:");
-  drv_sh1106_display_text_center(1, temp);
-  // drv_sh1106_display_text_center(5, "ANOTHER LINE 5");
+  drv_sh1106_display_text_center(3, "TEMP: ");
+  drv_sh1106_display_text_center(4, "HUMID: ");
+  drv_sh1106_display_text_center(5, "AIR PRESS:");
 
-  drv_sh1106_display_text_center(2, location);
-  drv_sh1106_display_text_center(3, location);
-  drv_sh1106_display_text_center(4, location);
+
+  drv_sh1106_display_text_center(7, location);
 
 
 }
