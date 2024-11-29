@@ -9,7 +9,6 @@
 
 #include "drv_sh1106.h"
 
-#include "image_128x64.h"
 
 void system_manage_loop (void);
 

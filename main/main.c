@@ -37,7 +37,7 @@ void app_main(void)
     else 
         printf("Failed to initialize I2C.\n");
 
-    void system_manage_loop();    
+    system_manage_loop();    
 
 #ifdef TEST_MQTT
   mqtt_main();

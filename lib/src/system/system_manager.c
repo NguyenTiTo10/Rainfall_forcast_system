@@ -1,19 +1,21 @@
 #include "system_manager.h"
+#include "image_128x64.h"
 
+static void system_oled_test_default ();
 
-static void system_oled_test ()
+static void system_oled_test_default ()
 {
   if (drv_sh1106_init() == ESP_OK)
         printf("Oled SH1106 initialized successfully.\n");
 
     drv_sh1106_clear_screen();
 
-// #define DISPLAY_TEXT
+#define DISPLAY_TEXT
 #ifdef DISPLAY_TEXT
     // Test displaying text on the OLED
-    drv_sh1106_write_string(0, 0, "Hello, ESP-IDF!");
-    drv_sh1106_write_string(0, 1, "Multiline OK!");
-    drv_sh1106_write_string(0, 2, "ANOTHER LINE 2");
+    drv_sh1106_write_string(0, 0, "Temp: ");
+    drv_sh1106_write_string(0, 1, "Humid: ");
+    drv_sh1106_write_string(0, 2, "Air press:");
     drv_sh1106_write_string(0, 3, "ANOTHER LINE 3");
     drv_sh1106_write_string(0, 4, "ANOTHER LINE 4");
     drv_sh1106_write_string(0, 5, "ANOTHER LINE 5");
@@ -39,7 +41,7 @@ static void system_oled_test ()
 
     // drv_sh1106_clear_screen();
 
-    drv_sh1106_turn_off();
+    // drv_sh1106_turn_off();
 }
 
 
