@@ -182,6 +182,37 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
     return ESP_OK;
 }
 
+esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
+{
+    if (!str)
+        return ESP_ERR_INVALID_ARG; 
+
+    uint8_t char_width = FONT_WIDTH;                            // Width of one character in pixels
+
+    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
+    uint8_t start_x = OLED_WIDTH - text_width - 6;                  // Calculate the starting x position to align the text to the right
+
+    uint8_t y = line;                             // Calculate the y position based on the line number
+
+    // Prevent overflow if text is too wide for the display
+    if ((OLED_WIDTH - text_width) <= 0)
+        start_x = 0;                                            // Start from the left if text exceeds width
+
+    if (y >= (OLED_HEIGHT / FONT_HEIGHT))
+        y = 0;                                                 // Ensure y is within bounds
+
+    while (*str) 
+    {
+        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
+        if (ret != ESP_OK)
+            return ret; 
+
+        start_x += char_width;                                   // Move to the next character position
+    }
+
+    return ESP_OK;
+}
+
 static esp_err_t drv_sh1106_draw_pixel(uint8_t x, uint8_t y, uint8_t color)
 {
     if (x >= OLED_WIDTH || y >= OLED_HEIGHT)
@@ -241,34 +272,5 @@ esp_err_t drv_sh1106_turn_off(void)
 
 // --------------------------DEVELOPING FUNCTION--------------------//
 
-esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
-{
-    if (!str)
-        return ESP_ERR_INVALID_ARG; 
 
-    uint8_t char_width = FONT_WIDTH;                            // Width of one character in pixels
-
-    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
-    uint8_t start_x = OLED_WIDTH - text_width - 6;                  // Calculate the starting x position to align the text to the right
-
-    uint8_t y = line;                             // Calculate the y position based on the line number
-
-    // Prevent overflow if text is too wide for the display
-    if ((OLED_WIDTH - text_width) <= 0)
-        start_x = 0;                                            // Start from the left if text exceeds width
-
-    if (y >= (OLED_HEIGHT / FONT_HEIGHT))
-        y = 0;                                                 // Ensure y is within bounds
-
-    while (*str) 
-    {
-        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
-        if (ret != ESP_OK)
-            return ret; 
-
-        start_x += char_width;                                   // Move to the next character position
-    }
-
-    return ESP_OK;
-}
 
