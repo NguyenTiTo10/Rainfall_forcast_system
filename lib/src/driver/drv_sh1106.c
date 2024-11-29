@@ -188,41 +188,6 @@ esp_err_t drv_sh1106_turn_off(void)
 
 
 
-static esp_err_t drv_sh1106_write_char_test(uint8_t x, uint8_t y, char c) 
-{
-    if (x >= OLED_WIDTH || y >= (OLED_HEIGHT / FONT_HEIGHT)) 
-        return ESP_ERR_INVALID_ARG; // Prevent out-of-bounds drawing
-
-    uint8_t adjusted_x = x + 2; // Adjust by 2 to account for the SH1106 column offset
-
-    drv_sh1106_send_command(0xB0 + y);            // Set page address
-    drv_sh1106_send_command(0x00 + (adjusted_x & 0x0F)); // Set lower column address
-    drv_sh1106_send_command(0x10 + (adjusted_x >> 4));   // Set higher column address
-
-    // Retrieve the font data for the character
-
-#if FONT_WIDTH == 8
-    const uint8_t *font_data = font8x8[(uint8_t)c];
-#elif FONT_WIDTH == 5
-    c = c - 32;
-    const uint8_t *font_data = font5x7[(uint8_t)c];
-#elif FONT_WIDTH == 4
-    c = c - 32;
-    const uint8_t *font_data = font4x6[(uint8_t)c];
-#elif FONT_WIDTH == 3
-    c = c - 32;
-    const uint8_t *font_data = font3x5[(uint8_t)c];
-#else
-    #error "Unsupported FONT_WIDTH value"
-#endif
-
-
-
-    // Write the font data to the OLED using the updated function
-    esp_err_t ret = drv_sh1106_write_data((uint8_t *)font_data, FONT_WIDTH);
-
-    return ret;
-}
 
 
 esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str) 
@@ -244,7 +209,7 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
 
     while (*str) 
     {
-        esp_err_t ret = drv_sh1106_write_char_test(start_x, y, *str++);
+        esp_err_t ret = drv_sh1106_write_char_8x8(start_x, y, *str++);
         if (ret != ESP_OK)
             return ret; 
 

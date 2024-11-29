@@ -19,8 +19,16 @@ static void system_oled_test_gui()
   // char time[] = "19:00";
   char date_time [] = "29.11.2024 - 19:00";
   char location [] = "QUANG BINH";
+  char temp[] = "Temp";
 
   drv_sh1106_display_text_center(0, date_time);
+
+  drv_sh1106_display_text_center(4, "Temp: ");
+  drv_sh1106_display_text_center(5, "Humid: ");
+  drv_sh1106_display_text_center(3, "Air press:");
+  drv_sh1106_display_text_center(1, temp);
+  // drv_sh1106_display_text_center(5, "ANOTHER LINE 5");
+
   drv_sh1106_display_text_center(7, location);
 }
 
@@ -69,7 +77,7 @@ void system_manage_loop(void)
 {
   system_manage_init();
 
-#define TEST_OLED_DEFAULT
+// #define TEST_OLED_DEFAULT
 #ifdef TEST_OLED_DEFAULT
   system_oled_test_default();
 #else
