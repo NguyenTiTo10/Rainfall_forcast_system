@@ -273,4 +273,34 @@ esp_err_t drv_sh1106_turn_off(void)
 // --------------------------DEVELOPING FUNCTION--------------------//
 
 
+static esp_err_t drv_sh1106_draw_rect(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
+{
+    // Validate the dimensions of the rectangle
+    if (x >= OLED_WIDTH || y >= OLED_HEIGHT || x + width > OLED_WIDTH || y + height > OLED_HEIGHT)
+        return ESP_ERR_INVALID_ARG; // Out of bounds
+
+    // Draw the top and bottom horizontal edges
+    for (uint8_t i = 0; i < width; i++) {
+        // Draw the top border
+        esp_err_t ret = drv_sh1106_draw_pixel(x + i, y, color);
+        if (ret != ESP_OK) return ret;
+
+        // Draw the bottom border
+        ret = drv_sh1106_draw_pixel(x + i, y + height - 1, color);
+        if (ret != ESP_OK) return ret;
+    }
+
+    // Draw the left and right vertical edges
+    for (uint8_t i = 0; i < height; i++) {
+        // Draw the left border
+        esp_err_t ret = drv_sh1106_draw_pixel(x, y + i, color);
+        if (ret != ESP_OK) return ret;
+
+        // Draw the right border
+        ret = drv_sh1106_draw_pixel(x + width - 1, y + i, color);
+        if (ret != ESP_OK) return ret;
+    }
+
+    return ESP_OK; // Success
+}
 
