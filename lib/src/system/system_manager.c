@@ -15,9 +15,12 @@ void system_manage_init (void)
 
 static void system_oled_test_gui()
 {
-  char location [] = "QUANG BINH";
+  char location_1[] = "QUANG ";
+  char location_2[] = "BINH "
 
-  drv_sh1106_display_text_center(7, location);
+  drv_sh1106_display_text_right(1, location_1);
+
+  drv_sh1106_display_text_right(2, location_2);
   
 }
 
