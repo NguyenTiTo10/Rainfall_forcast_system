@@ -18,6 +18,9 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str);
 esp_err_t drv_sh1106_display_image(const uint8_t *image);  
 
 
+esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str);
+
+
 
 
 #endif // SH1106_H
