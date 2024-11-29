@@ -92,7 +92,7 @@ esp_err_t drv_sh1106_clear_screen(void)
     return ESP_OK;
 }
 
-static esp_err_t drv_sh1106_write_char_8x8(uint8_t x, uint8_t y, char c) 
+static esp_err_t drv_sh1106_write_char(uint8_t x, uint8_t y, char c) 
 {
     if (x >= OLED_WIDTH || y >= (OLED_HEIGHT / FONT_HEIGHT)) 
         return ESP_ERR_INVALID_ARG;                         // Prevent out-of-bounds drawing
@@ -209,7 +209,7 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
 
     while (*str) 
     {
-        esp_err_t ret = drv_sh1106_write_char_8x8(start_x, y, *str++);
+        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
         if (ret != ESP_OK)
             return ret; 
 
