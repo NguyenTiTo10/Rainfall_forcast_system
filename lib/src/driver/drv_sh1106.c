@@ -191,10 +191,14 @@ esp_err_t drv_sh1106_turn_off(void)
 }
 
 
-// --------------------------DEVELOP FUNCTION--------------------//
+// --------------------------DEVELOPING FUNCTION--------------------//
+
+#define FONT_WIDTH   5
+#define FONT_HEIGHT  7
+
 static esp_err_t drv_sh1106_write_char_test(uint8_t x, uint8_t y, char c) 
 {
-    if (x >= OLED_WIDTH || y >= (OLED_HEIGHT / 5)) 
+    if (x >= OLED_WIDTH || y >= (OLED_HEIGHT / FONT_HEIGHT)) 
         return ESP_ERR_INVALID_ARG; // Prevent out-of-bounds drawing
 
     uint8_t adjusted_x = x + 2; // Adjust by 2 to account for the SH1106 column offset
@@ -205,10 +209,12 @@ static esp_err_t drv_sh1106_write_char_test(uint8_t x, uint8_t y, char c)
 
     c = c - 32;
     // Retrieve the font data for the character
-    const uint8_t *font_data = font3x5[(uint8_t)c];
+
+#ifdef FONT_WIDTH == 5
+        const uint8_t *font_data = font5x7[(uint8_t)c];
 
     // Write the font data to the OLED using the updated function
-    esp_err_t ret = drv_sh1106_write_data((uint8_t *)font_data, 3);
+    esp_err_t ret = drv_sh1106_write_data((uint8_t *)font_data, 5);
 
     return ret;
 }
@@ -219,7 +225,7 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
     if (!str) 
         return ESP_ERR_INVALID_ARG; 
 
-    uint8_t char_width = 3; // Width of one character in pixels
+    uint8_t char_width = 5; // Width of one character in pixels
 
     uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
     uint8_t start_x = (OLED_WIDTH - text_width) / 2;            // Calculate the starting x position to center the text
