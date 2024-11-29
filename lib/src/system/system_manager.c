@@ -15,7 +15,13 @@ void system_manage_init (void)
 
 void system_manage_loop(void)
 {
-  system_oled_test();
+  system_manage_init();
+
+#ifdef TEST_OLED_DEFAULT
+  system_oled_test_default();
+#else
+  system_oled_test_gui();
+#endif
 }
 
 
