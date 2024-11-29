@@ -208,7 +208,7 @@ static esp_err_t drv_sh1106_write_char_test(uint8_t x, uint8_t y, char c)
     const uint8_t *font_data = font3x5[(uint8_t)c];
 
     // Write the font data to the OLED using the updated function
-    esp_err_t ret = drv_sh1106_write_data((uint8_t *)font_data, 5);
+    esp_err_t ret = drv_sh1106_write_data((uint8_t *)font_data, 3);
 
     return ret;
 }
@@ -219,7 +219,7 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
     if (!str) 
         return ESP_ERR_INVALID_ARG; 
 
-    uint8_t char_width = 8; // Width of one character in pixels
+    uint8_t char_width = 3; // Width of one character in pixels
 
     uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
     uint8_t start_x = (OLED_WIDTH - text_width) / 2;            // Calculate the starting x position to center the text
