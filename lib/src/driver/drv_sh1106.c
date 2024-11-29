@@ -186,7 +186,31 @@ esp_err_t drv_sh1106_turn_off(void)
 
 // --------------------------DEVELOPING FUNCTION--------------------//
 
+esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str) 
+{
+    if (!str) 
+        return ESP_ERR_INVALID_ARG;      // Return error if input string is NULL
 
+    uint8_t start_x = x + 2;            // Adjust start position for SH1106 offset
+    while (*str) 
+    {
+        esp_err_t ret = drv_sh1106_write_char_test(start_x, y, *str++);
+        if (ret != ESP_OK)
+            return ret; 
+
+        start_x += FONT_WIDTH; // Move to the next character position
+        if (start_x >= OLED_WIDTH) 
+        { 
+            // Wrap to the next line if necessary
+            start_x = 2; // Reset to adjusted start
+            y++;
+            if (y >= (OLED_HEIGHT / FONT_HEIGHT)) 
+                return ESP_ERR_NO_MEM; 
+        }
+    }
+
+    return ESP_OK; // Return success if all characters are written
+}
 
 
 
