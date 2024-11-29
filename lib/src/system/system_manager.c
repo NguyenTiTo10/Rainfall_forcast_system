@@ -25,11 +25,15 @@ void system_manage_loop(void)
 }
 
 
+static void system_oled_test_gui()
+{
+  char date[] = "29-11-2024";
+  drv_sh1106_write_string(0, 0, date);
+}
+
 
 static void system_oled_test_default ()
 {
-
-
 #define DISPLAY_TEXT
 #ifdef DISPLAY_TEXT
     // Test displaying text on the OLED
