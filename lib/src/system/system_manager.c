@@ -16,7 +16,8 @@ void system_manage_init (void)
 void system_manage_loop(void)
 {
   system_manage_init();
-
+  
+#define TEST_OLED_DEFAULT
 #ifdef TEST_OLED_DEFAULT
   system_oled_test_default();
 #else
@@ -67,3 +68,8 @@ static void system_oled_test_default ()
 
     drv_sh1106_turn_off();
 }
+
+
+
+
+
