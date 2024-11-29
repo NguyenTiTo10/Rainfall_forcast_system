@@ -2,9 +2,9 @@
 #                     INCLUDE_DIRS ".")
 
 idf_component_register(SRCS "main.c" "mqtt_tcp/mqtt_tcp.c" 
-                        "../lib/inc/system/system_manager.c"
+                        "../lib/src/system/system_manager.c"
 
-                        "../lib/inc/middleware/"
+                        "../lib/src/middleware/"
 
                         "../lib/src/driver/drv_sh1106.c"
 
