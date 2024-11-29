@@ -191,37 +191,32 @@ esp_err_t drv_sh1106_turn_off(void)
 }
 
 
-// ----------------------------------------------//
+// --------------------------DEVELOP FUNCTION--------------------//
 esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str) 
 {
     if (!str) 
-        return ESP_ERR_INVALID_ARG; // Return error if input string is NULL
+        return ESP_ERR_INVALID_ARG; 
 
     uint8_t char_width = 8; // Width of one character in pixels
-    uint8_t line_height = 8; // Height of one line in pixels
 
-    // Calculate the pixel width of the text
-    uint8_t text_width = strlen(str) * char_width;
+    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
+    uint8_t start_x = (OLED_WIDTH - text_width) / 2;            // Calculate the starting x position to center the text
 
-    // Calculate the starting x position to center the text
-    uint8_t start_x = (OLED_WIDTH - text_width) / 2;
+    uint8_t y = line;                                           // Calculate the y position based on the line number
 
-    // Calculate the y position based on the line number
-    uint8_t y = line;
-
-    // Ensure y is within valid range
+    if (start_x >= OLED_WIDTH) 
+        start_x = 0;
     if (y >= OLED_HEIGHT) 
-        return ESP_ERR_INVALID_ARG;
+        y = 0;
 
-    // Display the text starting from the calculated x and y positions
     while (*str) 
     {
         esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
         if (ret != ESP_OK)
             return ret; 
 
-        start_x += char_width; // Move to the next character position
+        start_x += char_width;
     }
 
-    return ESP_OK; // Return success if all characters are written
+    return ESP_OK;
 }
