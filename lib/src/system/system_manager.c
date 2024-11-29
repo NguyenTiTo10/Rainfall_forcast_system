@@ -15,18 +15,18 @@ void system_manage_init (void)
 
 static void system_oled_test_gui()
 {
-  // char date[] = "29-11-2024";
-  // char time[] = "19:00";
   char date_time [] = "29.11.2024 - 19:00";
+  char temp[] = "Temp: 30.6 C ";
+  char humid[] = "Humid: 80 %";
+  char air_press[] = "Air press: 20 Pa";
   char location [] = "QUANG BINH";
-  char temp[] = "Temp";
+
 
   drv_sh1106_display_text_center(0, date_time);
 
-  drv_sh1106_display_text_center(3, "TEMP: ");
-  drv_sh1106_display_text_center(4, "HUMID: ");
-  drv_sh1106_display_text_center(5, "AIR PRESS:");
-
+  drv_sh1106_display_text(0, 2, temp);
+  drv_sh1106_display_text(0, 4, humid);
+  drv_sh1106_display_text(0, 6, air_press);
 
   drv_sh1106_display_text_center(7, location);
 
@@ -44,10 +44,9 @@ void system_oled_test_default ()
     drv_sh1106_display_text(0, 2, "Air press:");
     drv_sh1106_display_text(0, 3, "ANOTHER LINE 3");
     drv_sh1106_display_text(0, 4, "ANOTHER LINE 4");
-    // drv_sh1106_display_text(0, 5, "ANOTHER LINE 5");
-    // drv_sh1106_display_text(0, 6, "ANOTHER LINE 6");
-    // drv_sh1106_display_text(0, 7, "ANOTHER LINE 7");
-    // drv_sh1106_display_text(0, 8, "ANOTHER LINE 8");
+    drv_sh1106_display_text(0, 5, "ANOTHER LINE 5");
+    drv_sh1106_display_text(0, 6, "ANOTHER LINE 6");
+    drv_sh1106_display_text(0, 7, "ANOTHER LINE 7");
 
 
     bsp_delay (3000);
