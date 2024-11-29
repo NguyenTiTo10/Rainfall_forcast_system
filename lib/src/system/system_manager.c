@@ -2,13 +2,27 @@
 #include "image_128x64.h"
 
 static void system_oled_test_default ();
+static void system_oled_test_gui();
+
+
+void system_manage_init (void)
+{
+    // Init the oled 
+  if (drv_sh1106_init() == ESP_OK)
+    printf("Oled SH1106 initialized successfully.\n");
+  drv_sh1106_clear_screen();
+}
+
+void system_manage_loop(void)
+{
+  system_oled_test();
+}
+
+
 
 static void system_oled_test_default ()
 {
-  if (drv_sh1106_init() == ESP_OK)
-        printf("Oled SH1106 initialized successfully.\n");
 
-    drv_sh1106_clear_screen();
 
 #define DISPLAY_TEXT
 #ifdef DISPLAY_TEXT
@@ -39,13 +53,7 @@ static void system_oled_test_default ()
 
 #endif
 
-    // drv_sh1106_clear_screen();
+    drv_sh1106_clear_screen();
 
-    // drv_sh1106_turn_off();
-}
-
-
-void system_manage_loop(void)
-{
-  system_oled_test();
+    drv_sh1106_turn_off();
 }
