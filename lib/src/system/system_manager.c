@@ -1,7 +1,7 @@
 #include "system_manager.h"
 #include "image_128x64.h"
 
-static void system_oled_test_default ();
+// static void system_oled_test_default ();
 static void system_oled_test_gui();
 
 
@@ -28,17 +28,17 @@ void system_manage_loop(void)
 
 static void system_oled_test_gui()
 {
-  char date[] = "29-11-2024";
-  char time[] = "19:00";
+  // char date[] = "29-11-2024";
+  // char time[] = "19:00";
   char location [] = "QUANG BINH";
   char date_time [] = "29.11.2024 - 19:00";
   drv_sh1106_display_text(0, 0, "29.11.2024 - 19");
-  drv_sh1106_display_text_center(1, "Time: ");
+  drv_sh1106_display_text_center(1, "19:59");
   drv_sh1106_display_text_center(7, location);
 }
 
 
-static void system_oled_test_default ()
+void system_oled_test_default ()
 {
 #define DISPLAY_TEXT
 #ifdef DISPLAY_TEXT
