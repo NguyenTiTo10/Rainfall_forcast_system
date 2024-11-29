@@ -16,8 +16,8 @@
 #define OLED_HEIGHT 64           // OLED height in pixels
 
 // Font size macros
-#define FONT_WIDTH   4
-#define FONT_HEIGHT  6
+#define FONT_WIDTH   5
+#define FONT_HEIGHT  7
 
 static uint8_t screen_buffer[OLED_WIDTH * (OLED_HEIGHT / 8)];   // Frame buffer
 
@@ -125,31 +125,7 @@ static esp_err_t drv_sh1106_write_char_8x8(uint8_t x, uint8_t y, char c)
     return ret;
 }
 
-esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str) 
-{
-    if (!str) 
-        return ESP_ERR_INVALID_ARG;      // Return error if input string is NULL
 
-    uint8_t start_x = x + 2;            // Adjust start position for SH1106 offset
-    while (*str) 
-    {
-        esp_err_t ret = drv_sh1106_write_char_8x8(start_x, y, *str++);
-        if (ret != ESP_OK)
-            return ret; 
-
-        start_x += 8; // Move to the next character position
-        if (start_x >= OLED_WIDTH) 
-        { 
-            // Wrap to the next line if necessary
-            start_x = 2; // Reset to adjusted start
-            y++;
-            if (y >= (OLED_HEIGHT / 8)) 
-                return ESP_ERR_NO_MEM; 
-        }
-    }
-
-    return ESP_OK; // Return success if all characters are written
-}
 
 static esp_err_t drv_sh1106_draw_pixel(uint8_t x, uint8_t y, uint8_t color)
 {

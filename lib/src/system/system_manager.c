@@ -13,19 +13,6 @@ void system_manage_init (void)
   drv_sh1106_clear_screen();
 }
 
-void system_manage_loop(void)
-{
-  system_manage_init();
-
-// #define TEST_OLED_DEFAULT
-#ifdef TEST_OLED_DEFAULT
-  system_oled_test_default();
-#else
-  system_oled_test_gui();
-#endif
-}
-
-
 static void system_oled_test_gui()
 {
   // char date[] = "29-11-2024";
@@ -48,9 +35,11 @@ void system_oled_test_default ()
     drv_sh1106_display_text(0, 2, "Air press:");
     drv_sh1106_display_text(0, 3, "ANOTHER LINE 3");
     drv_sh1106_display_text(0, 4, "ANOTHER LINE 4");
-    drv_sh1106_display_text(0, 5, "ANOTHER LINE 5");
-    drv_sh1106_display_text(0, 6, "ANOTHER LINE 6");
-    drv_sh1106_display_text(0, 7, "ANOTHER LINE 7");
+    // drv_sh1106_display_text(0, 5, "ANOTHER LINE 5");
+    // drv_sh1106_display_text(0, 6, "ANOTHER LINE 6");
+    // drv_sh1106_display_text(0, 7, "ANOTHER LINE 7");
+    // drv_sh1106_display_text(0, 8, "ANOTHER LINE 8");
+
 
     bsp_delay (3000);
 
@@ -69,11 +58,24 @@ void system_oled_test_default ()
 
 #endif
 
-    drv_sh1106_clear_screen();
+    // drv_sh1106_clear_screen();
 
-    drv_sh1106_turn_off();
+    // drv_sh1106_turn_off();
 }
 
+
+
+void system_manage_loop(void)
+{
+  system_manage_init();
+
+#define TEST_OLED_DEFAULT
+#ifdef TEST_OLED_DEFAULT
+  system_oled_test_default();
+#else
+  system_oled_test_gui();
+#endif
+}
 
 
 
