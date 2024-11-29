@@ -15,12 +15,24 @@ void system_manage_init (void)
 
 static void system_oled_test_gui()
 {
-  char location_1[] = "QUANG ";
-  char location_2[] = "BINH "
+  char location_1[] = "QUANG";
+  char location_2[] = "BINH";
 
-  drv_sh1106_display_text_right(1, location_1);
+  drv_sh1106_display_text_right(3, location_1);
 
-  drv_sh1106_display_text_right(2, location_2);
+  drv_sh1106_display_text_right(5, location_2);
+
+  char date_time [] = "29.11.2024 - 19:00";
+  char temp[] = "Temp: 30.6 C ";
+  char humid[] = "Humid: 80 %";
+  char air_press[] = "Air press: 20 Pa";
+
+  drv_sh1106_display_text_center(0, date_time);
+
+  drv_sh1106_display_text(0, 3, temp);
+  drv_sh1106_display_text(0, 5, humid);
+  drv_sh1106_display_text(0, 7, air_press);
+
   
 }
 

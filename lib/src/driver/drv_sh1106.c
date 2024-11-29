@@ -254,8 +254,8 @@ esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
     uint8_t y = line;                             // Calculate the y position based on the line number
 
     // Prevent overflow if text is too wide for the display
-    if (start_x < 0) 
-        start_x = 0;                                           // Start from the left if text exceeds width
+    if ((OLED_WIDTH - text_width) <= 0)
+        start_x = 0;                                            // Start from the left if text exceeds width
 
     if (y >= (OLED_HEIGHT / FONT_HEIGHT))
         y = 0;                                                 // Ensure y is within bounds
