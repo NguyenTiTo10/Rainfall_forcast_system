@@ -28,7 +28,7 @@ void system_manage_loop(void)
 static void system_oled_test_gui()
 {
   char date[] = "29-11-2024";
-  drv_sh1106_write_string(0, 0, date);
+  drv_sh1106_display_text(50, 0, date);
 }
 
 
@@ -37,14 +37,14 @@ static void system_oled_test_default ()
 #define DISPLAY_TEXT
 #ifdef DISPLAY_TEXT
     // Test displaying text on the OLED
-    drv_sh1106_write_string(0, 0, "Temp: ");
-    drv_sh1106_write_string(0, 1, "Humid: ");
-    drv_sh1106_write_string(0, 2, "Air press:");
-    drv_sh1106_write_string(0, 3, "ANOTHER LINE 3");
-    drv_sh1106_write_string(0, 4, "ANOTHER LINE 4");
-    drv_sh1106_write_string(0, 5, "ANOTHER LINE 5");
-    drv_sh1106_write_string(0, 6, "ANOTHER LINE 6");
-    drv_sh1106_write_string(0, 7, "ANOTHER LINE 7");
+    drv_sh1106_display_text(0, 0, "Temp: ");
+    drv_sh1106_display_text(0, 1, "Humid: ");
+    drv_sh1106_display_text(0, 2, "Air press:");
+    drv_sh1106_display_text(0, 3, "ANOTHER LINE 3");
+    drv_sh1106_display_text(0, 4, "ANOTHER LINE 4");
+    drv_sh1106_display_text(0, 5, "ANOTHER LINE 5");
+    drv_sh1106_display_text(0, 6, "ANOTHER LINE 6");
+    drv_sh1106_display_text(0, 7, "ANOTHER LINE 7");
 
     bsp_delay (3000);
 
