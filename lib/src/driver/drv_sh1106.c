@@ -125,7 +125,62 @@ static esp_err_t drv_sh1106_write_char(uint8_t x, uint8_t y, char c)
     return ret;
 }
 
+esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str) 
+{
+    if (!str) 
+        return ESP_ERR_INVALID_ARG;      // Return error if input string is NULL
 
+    uint8_t start_x = x + 2;            // Adjust start position for SH1106 offset
+    while (*str) 
+    {
+        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
+        if (ret != ESP_OK)
+            return ret; 
+
+        start_x += FONT_WIDTH; // Move to the next character position
+        if (start_x >= OLED_WIDTH) 
+        { 
+            // Wrap to the next line if necessary
+            start_x = 2; // Reset to adjusted start
+            y++;
+            if (y >= (OLED_HEIGHT / FONT_HEIGHT)) 
+                return ESP_ERR_NO_MEM; 
+        }
+    }
+
+    return ESP_OK; // Return success if all characters are written
+}
+
+
+
+esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str) 
+{
+    if (!str) 
+        return ESP_ERR_INVALID_ARG; 
+
+    uint8_t char_width = FONT_WIDTH;                            // Width of one character in pixels
+
+    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
+    uint8_t start_x = (OLED_WIDTH - text_width) / 2;            // Calculate the starting x position to center the text
+
+    uint8_t y = line;                                           // Calculate the y position based on the line number
+
+    if ((OLED_WIDTH - text_width) <= 0) 
+        start_x = 0;
+    if (y >= (OLED_HEIGHT / FONT_HEIGHT))
+        y = 0;
+
+    while (*str) 
+    {
+        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
+        if (ret != ESP_OK)
+            return ret; 
+
+        start_x += char_width;
+    }
+
+    return ESP_OK;
+}
 
 static esp_err_t drv_sh1106_draw_pixel(uint8_t x, uint8_t y, uint8_t color)
 {
@@ -186,59 +241,3 @@ esp_err_t drv_sh1106_turn_off(void)
 
 // --------------------------DEVELOPING FUNCTION--------------------//
 
-esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str) 
-{
-    if (!str) 
-        return ESP_ERR_INVALID_ARG;      // Return error if input string is NULL
-
-    uint8_t start_x = x + 2;            // Adjust start position for SH1106 offset
-    while (*str) 
-    {
-        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
-        if (ret != ESP_OK)
-            return ret; 
-
-        start_x += FONT_WIDTH; // Move to the next character position
-        if (start_x >= OLED_WIDTH) 
-        { 
-            // Wrap to the next line if necessary
-            start_x = 2; // Reset to adjusted start
-            y++;
-            if (y >= (OLED_HEIGHT / FONT_HEIGHT)) 
-                return ESP_ERR_NO_MEM; 
-        }
-    }
-
-    return ESP_OK; // Return success if all characters are written
-}
-
-
-
-esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str) 
-{
-    if (!str) 
-        return ESP_ERR_INVALID_ARG; 
-
-    uint8_t char_width = FONT_WIDTH;                            // Width of one character in pixels
-
-    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
-    uint8_t start_x = (OLED_WIDTH - text_width) / 2;            // Calculate the starting x position to center the text
-
-    uint8_t y = line;                                           // Calculate the y position based on the line number
-
-    // if ((OLED_WIDTH - text_width) <= 0) 
-    //     start_x = 0;
-    // if (y >= OLED_HEIGHT / FONT_HEIGHT) 
-    //     y = 0;
-
-    while (*str) 
-    {
-        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
-        if (ret != ESP_OK)
-            return ret; 
-
-        start_x += char_width;
-    }
-
-    return ESP_OK;
-}
