@@ -88,7 +88,7 @@ esp_err_t drv_sh1106_clear_screen(void)
     return ESP_OK;
 }
 
-static esp_err_t drv_sh1106_write_char(uint8_t x, uint8_t y, char c) 
+static esp_err_t drv_sh1106_write_char_8x8(uint8_t x, uint8_t y, char c) 
 {
     if (x >= OLED_WIDTH || y >= (OLED_HEIGHT / 8)) 
         return ESP_ERR_INVALID_ARG; // Prevent out-of-bounds drawing
@@ -116,7 +116,7 @@ esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str)
     uint8_t start_x = x + 2;            // Adjust start position for SH1106 offset
     while (*str) 
     {
-        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
+        esp_err_t ret = drv_sh1106_write_char_8x8(start_x, y, *str++);
         if (ret != ESP_OK)
             return ret; 
 
@@ -211,7 +211,7 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
 
     while (*str) 
     {
-        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
+        esp_err_t ret = drv_sh1106_write_char_8x8(start_x, y, *str++);
         if (ret != ESP_OK)
             return ret; 
 
@@ -219,4 +219,25 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
     }
 
     return ESP_OK;
+}
+
+
+static esp_err_t drv_sh1106_write_char_5x7(uint8_t x, uint8_t y, char c) 
+{
+    if (x >= OLED_WIDTH || y >= (OLED_HEIGHT / 8)) 
+        return ESP_ERR_INVALID_ARG; // Prevent out-of-bounds drawing
+
+    uint8_t adjusted_x = x + 2; // Adjust by 2 to account for the SH1106 column offset
+
+    drv_sh1106_send_command(0xB0 + y);            // Set page address
+    drv_sh1106_send_command(0x00 + (adjusted_x & 0x0F)); // Set lower column address
+    drv_sh1106_send_command(0x10 + (adjusted_x >> 4));   // Set higher column address
+
+    // Retrieve the font data for the character
+    const uint8_t *font_data = font8x8_basic_tr[(uint8_t)c];
+
+    // Write the font data to the OLED using the updated function
+    esp_err_t ret = drv_sh1106_write_data((uint8_t *)font_data, OLED_HEIGHT / 8);
+
+    return ret;
 }
