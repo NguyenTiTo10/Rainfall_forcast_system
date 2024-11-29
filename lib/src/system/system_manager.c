@@ -16,8 +16,8 @@ void system_manage_init (void)
 void system_manage_loop(void)
 {
   system_manage_init();
-  
-#define TEST_OLED_DEFAULT
+
+// #define TEST_OLED_DEFAULT
 #ifdef TEST_OLED_DEFAULT
   system_oled_test_default();
 #else
@@ -28,8 +28,17 @@ void system_manage_loop(void)
 
 static void system_oled_test_gui()
 {
-  char date[] = "29-11-2024";
-  drv_sh1106_display_text(50, 0, date);
+  // char date[] = "29-11-2024";
+  // char time[] = "19:00";
+  drv_sh1106_display_text_center(0, "Temp: ");
+  drv_sh1106_display_text_center(1, "Humid: ");
+  drv_sh1106_display_text_center(2, "Air press:");
+  drv_sh1106_display_text_center(3, "ANOTHER LINE 3");
+  drv_sh1106_display_text_center(4, "ANOTHER LINE 4");
+  drv_sh1106_display_text_center(5, "ANOTHER LINE 5");
+  drv_sh1106_display_text_center(6, "ANOTHER LINE 6");
+  drv_sh1106_display_text_center(7, "ANOTHER LINE 7");
+
 }
 
 
