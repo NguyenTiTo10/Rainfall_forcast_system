@@ -2,17 +2,17 @@
 #                     INCLUDE_DIRS ".")
 
 idf_component_register(SRCS "main.c" "mqtt_tcp/mqtt_tcp.c" 
-                        "../lib/inc/system/"
+                        # "../lib/inc/system/"
 
-                        "../lib/inc/middleware/"
+                        # "../lib/inc/middleware/"
 
-                        "../lib/inc/driver/drv_sh1106.c"
+                        "../lib/src/driver/drv_sh1106.c"
 
-                        "../lib/inc/bsp/bsp_i2c.h" "../lib/inc/bsp/bsp_timer.h"
+                        "../lib/src/bsp/bsp_i2c.c" "../lib/src/bsp/bsp_timer.c"
 
 
                     INCLUDE_DIRS "." "mqtt_tcp" 
-                        "../lib/inc/system"
+                        # "../lib/inc/system"
 
                         "../lib/inc/middleware"
                         
