@@ -22,16 +22,16 @@ static void system_oled_test_gui()
 
   drv_sh1106_display_text_right(5, location_2);
 
-  char date_time [] = "29.11.2024 - 19:00";
-  char temp[] = "Temp: 30.6 C ";
-  char humid[] = "Humid: 80 %";
-  char air_press[] = "Air press: 20 Pa";
+  // char date_time [] = "29.11.2024 - 19:00";
+  // char temp[] = "Temp: 30.6 C ";
+  // char humid[] = "Humid: 80 %";
+  // char air_press[] = "Air press: 20 Pa";
 
-  drv_sh1106_display_text_center(0, date_time);
+  // drv_sh1106_display_text_center(0, date_time);
 
-  drv_sh1106_display_text(0, 3, temp);
-  drv_sh1106_display_text(0, 5, humid);
-  drv_sh1106_display_text(0, 7, air_press);
+  // drv_sh1106_display_text(0, 3, temp);
+  // drv_sh1106_display_text(0, 5, humid);
+  // drv_sh1106_display_text(0, 7, air_press);
 
   drv_sh1106_draw_rect(10, 10, 50, 20, 1);
 
