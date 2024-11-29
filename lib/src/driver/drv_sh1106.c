@@ -100,7 +100,7 @@ static esp_err_t drv_sh1106_write_char_8x8(uint8_t x, uint8_t y, char c)
     drv_sh1106_send_command(0x10 + (adjusted_x >> 4));   // Set higher column address
 
     // Retrieve the font data for the character
-    const uint8_t *font_data = font8x8_basic_tr[(uint8_t)c];
+    const uint8_t *font_data = font8x8[(uint8_t)c];
 
     // Write the font data to the OLED using the updated function
     esp_err_t ret = drv_sh1106_write_data((uint8_t *)font_data, OLED_HEIGHT / 8);
@@ -210,8 +210,15 @@ static esp_err_t drv_sh1106_write_char_test(uint8_t x, uint8_t y, char c)
     c = c - 32;
     // Retrieve the font data for the character
 
-#ifdef FONT_WIDTH == 5
-        const uint8_t *font_data = font5x7[(uint8_t)c];
+#ifdef FONT_WIDTH == 8
+    const uint8_t *font_data = font5x7[(uint8_t)c];
+#elif FONT_WIDTH == 5
+    const uint8_t *font_data = font5x7[(uint8_t)c];
+#elif FONT_WIDTH == 4
+    const uint8_t *font_data = font5x7[(uint8_t)c];
+#elif FONT_WIDTH == 3
+    const uint8_t *font_data = font5x7[(uint8_t)c];
+#endif
 
     // Write the font data to the OLED using the updated function
     esp_err_t ret = drv_sh1106_write_data((uint8_t *)font_data, 5);
