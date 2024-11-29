@@ -242,7 +242,7 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
 
     uint8_t y = line;                                           // Calculate the y position based on the line number
 
-    if (start_x <= 0) 
+    if ((OLED_WIDTH - text_width) <= 0) 
         start_x = 0;
     if (y >= OLED_HEIGHT) 
         y = 0;
