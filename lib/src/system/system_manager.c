@@ -30,9 +30,10 @@ static void system_oled_test_gui()
 {
   // char date[] = "29-11-2024";
   // char time[] = "19:00";
-  char location [] = "QUANG BINH";
   char date_time [] = "29.11.2024 - 19:00";
-  drv_sh1106_display_text_center(0, "29.11.24 - 19:00");
+  char location [] = "QUANG BINH";
+  
+  drv_sh1106_display_text_center(0, date_time);
   drv_sh1106_display_text_center(7, location);
 }
 

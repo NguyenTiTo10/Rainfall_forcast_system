@@ -17,7 +17,8 @@
   "files.associations": {
     "mqtt_client.h": "c",
     "i2c.h": "c",
-    "font8x8_basic.h": "c"
+    "font8x8_basic.h": "c",
+    "cstdint": "c"
   },
   "idf.flashType": "UART"
 }
