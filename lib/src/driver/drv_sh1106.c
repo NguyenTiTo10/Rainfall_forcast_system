@@ -273,7 +273,7 @@ esp_err_t drv_sh1106_turn_off(void)
 // --------------------------DEVELOPING FUNCTION--------------------//
 
 
-static esp_err_t drv_sh1106_draw_rect(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
+esp_err_t drv_sh1106_draw_rect(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
 {
     // Validate the dimensions of the rectangle
     if (x >= OLED_WIDTH || y >= OLED_HEIGHT || x + width > OLED_WIDTH || y + height > OLED_HEIGHT)

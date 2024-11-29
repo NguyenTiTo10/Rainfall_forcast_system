@@ -33,7 +33,8 @@ static void system_oled_test_gui()
   drv_sh1106_display_text(0, 5, humid);
   drv_sh1106_display_text(0, 7, air_press);
 
-  
+  drv_sh1106_draw_rect(10, 10, 50, 20, 1);
+
 }
 
 
@@ -55,7 +56,6 @@ void system_oled_test_default ()
   drv_sh1106_display_text(0, 6, air_press);
 
   drv_sh1106_display_text_center(7, location);
-
 
   bsp_delay (3000);
 
