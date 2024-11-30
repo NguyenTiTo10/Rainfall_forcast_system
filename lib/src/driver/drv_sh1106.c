@@ -34,6 +34,8 @@ static esp_err_t drv_sh1106_send_command(uint8_t command)
     return (ret == true) ? ESP_OK : ESP_FAIL;
 }
 
+
+
 static esp_err_t drv_sh1106_write_data (uint8_t* data, size_t length)
 {
     bool ret = false;                                     
@@ -41,56 +43,7 @@ static esp_err_t drv_sh1106_write_data (uint8_t* data, size_t length)
     return (ret == true) ? ESP_OK : ESP_FAIL;
 }
 
-esp_err_t drv_sh1106_init(void) 
-{
-    if (!bsp_i2c_is_device_ready(OLED_I2C_ADDR))
-        return ESP_ERR_INVALID_ARG;
 
-    uint8_t init_cmds[] = 
-    {
-        0xAE,       // Display OFF
-        0xD5, 0x80, // Set display clock divide ratio/oscillator frequency
-        0xA8, 0x3F, // Set multiplex ratio to 1/64 duty
-        0xD3, 0x00, // Set display offset
-        0x40,       // Set display start line to 0
-        0x8D, 0x14, // Enable charge pump
-        0xA1,       // Set segment re-map (normal)
-        0xC8,       // Set COM output scan direction (remapped)
-        0xDA, 0x12, // Set COM pins hardware configuration
-        0x81, 0x7F, // Set contrast control
-        0xD9, 0xF1, // Set pre-charge period
-        0xDB, 0x20, // Set VCOMH deselect level
-        0xA4,       // Set entire display ON (resume to RAM content)
-        0xA6,       // Set normal display (non-inverted)
-        0xAF        // Display ON
-    };
-    for (int i = 0; i < sizeof(init_cmds); i++) 
-    {
-        bool ret = drv_sh1106_send_command(init_cmds[i]);
-        if (ret != ESP_OK) 
-            return ret; // Return the error code if a command fails
-    }
-
-    return ESP_OK;
-}
-
-esp_err_t drv_sh1106_clear_screen(void) 
-{
-    uint8_t empty_buffer[OLED_WIDTH] = {0x00}; // Predefined empty buffer for one page
-
-    for (uint8_t page = 0; page < (OLED_HEIGHT / 8); page++) 
-    {
-        // Set page and column addresses once per page
-        drv_sh1106_send_command(0xB0 + page);   // Set page address
-        drv_sh1106_send_command(0x00);          // Set lower column address
-        drv_sh1106_send_command(0x10);          // Set higher column address
-
-        // Write a full empty buffer for this page
-        drv_sh1106_write_data(empty_buffer, OLED_WIDTH);
-    }
-
-    return ESP_OK;
-}
 
 static esp_err_t drv_sh1106_write_char(uint8_t x, uint8_t y, char c) 
 {
@@ -124,6 +77,99 @@ static esp_err_t drv_sh1106_write_char(uint8_t x, uint8_t y, char c)
 
     return ret;
 }
+
+
+
+static esp_err_t drv_sh1106_draw_pixel(uint8_t x, uint8_t y, uint8_t color)
+{
+    if (x >= OLED_WIDTH || y >= OLED_HEIGHT)
+        return ESP_ERR_INVALID_ARG; // Out of bounds
+
+    uint16_t index = x + (y / 8) * OLED_WIDTH; // Calculate buffer index
+    uint8_t bit = 1 << (y % 8);                // Determine the bit within the byte
+
+    if (color)
+        screen_buffer[index] |= bit;  // Set pixel (turn ON)
+    else
+        screen_buffer[index] &= ~bit; // Clear pixel (turn OFF)
+
+    return ESP_OK;
+}
+
+
+
+static esp_err_t drv_sh1106_update_screen(void)
+{
+    for (uint8_t page = 0; page < (OLED_HEIGHT / 8); page++)
+    {
+        drv_sh1106_send_command(0xB0 + page); // Set page address
+        drv_sh1106_send_command(0x00);        // Set lower column address
+        drv_sh1106_send_command(0x10);        // Set higher column address
+
+        uint8_t *page_buffer = &screen_buffer[page * OLED_WIDTH];
+        esp_err_t ret = drv_sh1106_write_data(page_buffer, OLED_WIDTH);
+        if (ret != ESP_OK) return ret;
+    }
+    return ESP_OK;
+}
+
+
+
+// ----------------------------------- PUBLIC FUNCTION -----------------------------------//
+esp_err_t drv_sh1106_init(void) 
+{
+    if (!bsp_i2c_is_device_ready(OLED_I2C_ADDR))
+        return ESP_ERR_INVALID_ARG;
+
+    uint8_t init_cmds[] = 
+    {
+        0xAE,       // Display OFF
+        0xD5, 0x80, // Set display clock divide ratio/oscillator frequency
+        0xA8, 0x3F, // Set multiplex ratio to 1/64 duty
+        0xD3, 0x00, // Set display offset
+        0x40,       // Set display start line to 0
+        0x8D, 0x14, // Enable charge pump
+        0xA1,       // Set segment re-map (normal)
+        0xC8,       // Set COM output scan direction (remapped)
+        0xDA, 0x12, // Set COM pins hardware configuration
+        0x81, 0x7F, // Set contrast control
+        0xD9, 0xF1, // Set pre-charge period
+        0xDB, 0x20, // Set VCOMH deselect level
+        0xA4,       // Set entire display ON (resume to RAM content)
+        0xA6,       // Set normal display (non-inverted)
+        0xAF        // Display ON
+    };
+    for (int i = 0; i < sizeof(init_cmds); i++) 
+    {
+        bool ret = drv_sh1106_send_command(init_cmds[i]);
+        if (ret != ESP_OK) 
+            return ret; // Return the error code if a command fails
+    }
+
+    return ESP_OK;
+}
+
+
+
+esp_err_t drv_sh1106_clear_screen(void) 
+{
+    uint8_t empty_buffer[OLED_WIDTH] = {0x00}; // Predefined empty buffer for one page
+
+    for (uint8_t page = 0; page < (OLED_HEIGHT / 8); page++) 
+    {
+        // Set page and column addresses once per page
+        drv_sh1106_send_command(0xB0 + page);   // Set page address
+        drv_sh1106_send_command(0x00);          // Set lower column address
+        drv_sh1106_send_command(0x10);          // Set higher column address
+
+        // Write a full empty buffer for this page
+        drv_sh1106_write_data(empty_buffer, OLED_WIDTH);
+    }
+
+    return ESP_OK;
+}
+
+
 
 esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str) 
 {
@@ -210,37 +256,6 @@ esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
         start_x += char_width;                                   // Move to the next character position
     }
 
-    return ESP_OK;
-}
-
-static esp_err_t drv_sh1106_draw_pixel(uint8_t x, uint8_t y, uint8_t color)
-{
-    if (x >= OLED_WIDTH || y >= OLED_HEIGHT)
-        return ESP_ERR_INVALID_ARG; // Out of bounds
-
-    uint16_t index = x + (y / 8) * OLED_WIDTH; // Calculate buffer index
-    uint8_t bit = 1 << (y % 8);                // Determine the bit within the byte
-
-    if (color)
-        screen_buffer[index] |= bit;  // Set pixel (turn ON)
-    else
-        screen_buffer[index] &= ~bit; // Clear pixel (turn OFF)
-
-    return ESP_OK;
-}
-
-static esp_err_t drv_sh1106_update_screen(void)
-{
-    for (uint8_t page = 0; page < (OLED_HEIGHT / 8); page++)
-    {
-        drv_sh1106_send_command(0xB0 + page); // Set page address
-        drv_sh1106_send_command(0x00);        // Set lower column address
-        drv_sh1106_send_command(0x10);        // Set higher column address
-
-        uint8_t *page_buffer = &screen_buffer[page * OLED_WIDTH];
-        esp_err_t ret = drv_sh1106_write_data(page_buffer, OLED_WIDTH);
-        if (ret != ESP_OK) return ret;
-    }
     return ESP_OK;
 }
 
