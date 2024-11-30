@@ -10,7 +10,13 @@
 #include "drv_sh1106.h"
 
 
-
+typedef enum
+{
+  IDLE,
+  BOOT_STATE,
+  ONLINE_STATE,
+  OFFLINE_STATE
+} system_state_t;
 
 
 void system_manage_loop (void);
