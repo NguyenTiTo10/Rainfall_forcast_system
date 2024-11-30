@@ -98,12 +98,23 @@ void system_manage_loop(void)
 }
 
 
-static system_main_state_t system_state_next = IDLE;
+// static system_main_state_t system_state_next = IDLE;
 
-system_main_state_t system_manager_check_update ()
-{
+// system_main_state_t system_manager_check_update ()
+// {
+//   switch (system_state_next)
+//   {
+//   case IDLE:
+//     if (drv_detect_button_pressed() == MAIN_BUTTON)
+//     {
+//       system_state_next = BOOT_STATE;
+//     }
+//     break;
   
-}
+//   default:
+//     break;
+//   }
+// }
 
 
 
