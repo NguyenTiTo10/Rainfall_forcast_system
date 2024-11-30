@@ -321,7 +321,7 @@ esp_err_t drv_sh1106_draw_border_right(uint8_t x, uint8_t y, uint8_t width, uint
     return drv_sh1106_update_screen(); // Send buffer to OLED
 }
 
-esp_err_t drv_sh1106_draw_rect_no_bottom(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
+esp_err_t drv_sh1106_draw_border_bottom(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
 {
     // Validate the coordinates and dimensions to ensure the rectangle fits within the screen
     if (x >= OLED_WIDTH || y >= OLED_HEIGHT || x + width > OLED_WIDTH || y + height > OLED_HEIGHT)

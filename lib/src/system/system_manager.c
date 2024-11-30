@@ -20,7 +20,7 @@ static void system_oled_test_gui()
   char location_2[] = "HO CHI MINH";
 
   drv_sh1106_draw_border_top(15, 0, 105, 10, 1);
-  // drv_sh1106_draw_rect_no_bottom (30, 50, 70, 13, 1);
+  // drv_sh1106_draw_border_bottom (30, 50, 70, 13, 1);
 
   // bsp_delay (1000);
 
@@ -37,9 +37,9 @@ static void system_oled_test_gui()
   char air_press[] = "Air press: 20 Pa";
 
 
-  drv_sh1106_display_text(0, 2, temp);
-  drv_sh1106_display_text(0, 4, humid);
-  drv_sh1106_display_text(0, 6, air_press);
+  drv_sh1106_display_text(0, 3, temp);
+  drv_sh1106_display_text(0, 5, humid);
+  drv_sh1106_display_text(0, 7, air_press);
 
 
 }
