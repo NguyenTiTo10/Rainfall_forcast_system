@@ -15,23 +15,33 @@ void system_manage_init (void)
 
 static void system_oled_test_gui()
 {
-  drv_sh1106_draw_rect(40, 0, 50, 20, 1);
+  drv_sh1106_draw_border_top(15, 0, 105, 10, 1);
 
-  char location_1[] = "HO";
-  char location_2[] = "CHI";
-  char location_3[] = "MINH";
+  char date_time [] = "29.11.2024 - 19:00";
+  char date_time_1 [] = "30.11.2024 - 09:00";
 
-  drv_sh1106_display_text_right(3, location_1);
-  drv_sh1106_display_text_right(4, location_2);
-  drv_sh1106_display_text_right(5, location_3);
+  drv_sh1106_display_text_center(0, date_time);
+  bsp_delay (5000);
 
 
-  // char date_time [] = "29.11.2024 - 19:00";
+  drv_sh1106_display_text_center(0, date_time_1);
+
+
+
+  // char location_1[] = "HO";
+  // char location_2[] = "CHI";
+  // char location_3[] = "MINH";
+
+  // drv_sh1106_display_text_right(3, location_1);
+  // drv_sh1106_display_text_right(4, location_2);
+  // drv_sh1106_display_text_right(5, location_3);
+
+
+
   // char temp[] = "Temp: 30.6 C ";
   // char humid[] = "Humid: 80 %";
   // char air_press[] = "Air press: 20 Pa";
 
-  // drv_sh1106_display_text_center(0, date_time);
 
   // drv_sh1106_display_text(0, 3, temp);
   // drv_sh1106_display_text(0, 5, humid);
