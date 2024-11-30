@@ -1,5 +1,5 @@
-#ifndef SYSTEM_OLED_H
-#define SYSTEM_OLED_H
+#ifndef SYSTEM_DISPLAY_H
+#define SYSTEM_DISPLAY_H
 
 #include <stdio.h>
 #include "driver/i2c.h"
