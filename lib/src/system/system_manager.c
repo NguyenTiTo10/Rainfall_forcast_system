@@ -15,26 +15,25 @@ void system_manage_init (void)
 
 static void system_oled_test_gui()
 {
-  drv_sh1106_draw_border_top(15, 0, 105, 10, 1);
-
   char date_time [] = "29.11.2024 - 19:00";
-  char date_time_1 [] = "30.11.2024 - 09:00";
+  char location_1[] = "QUANG BINH";
+  char location_2[] = "HO CHI MINH";
+
+  drv_sh1106_draw_border_top(15, 0, 105, 10, 1);
+  drv_sh1106_draw_border_right (100, 21, 30, 42, 1);
+
+  bsp_delay (1000);
+
 
   drv_sh1106_display_text_center(0, date_time);
-  bsp_delay (5000);
+
+  drv_sh1106_display_text_center(, location_1);
+  drv_sh1106_display_text_center(5, location_2);
+  bsp_delay (1000);
 
 
-  drv_sh1106_display_text_center(0, date_time_1);
 
 
-
-  // char location_1[] = "HO";
-  // char location_2[] = "CHI";
-  // char location_3[] = "MINH";
-
-  // drv_sh1106_display_text_right(3, location_1);
-  // drv_sh1106_display_text_right(4, location_2);
-  // drv_sh1106_display_text_right(5, location_3);
 
 
 
