@@ -19,18 +19,9 @@ static void system_oled_test_gui()
   char location_1[] = "QUANG BINH";
   char location_2[] = "HO CHI MINH";
 
-  drv_sh1106_draw_border_top(15, 0, 105, 10, 1);
-  // drv_sh1106_draw_border_bottom (30, 50, 70, 13, 1);
-
-  // bsp_delay (1000);
-
+  drv_sh1106_draw_border_top(15, 0, 105, 18, 1);
 
   drv_sh1106_display_text_center(0, date_time);
-
-  // drv_sh1106_display_text_center(7, location_1);
-  // // bsp_delay (3000);
-  // drv_sh1106_display_text_center(7, location_2);
-
 
   char temp[] = "Temp: 30.6 C ";
   char humid[] = "Humid: 80 %";
@@ -40,6 +31,11 @@ static void system_oled_test_gui()
   drv_sh1106_display_text(0, 3, temp);
   drv_sh1106_display_text(0, 5, humid);
   drv_sh1106_display_text(0, 7, air_press);
+
+  
+  drv_sh1106_display_text_center(1, location_1);
+  bsp_delay (3000);
+  drv_sh1106_display_text_center(1, location_2);
 
 
 }
