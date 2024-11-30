@@ -10,7 +10,16 @@ void system_manage_init (void)
     // Init the oled 
   if (drv_sh1106_init() == ESP_OK)
     printf("Oled SH1106 initialized successfully.\n");
-  drv_sh1106_clear_screen();
+  else
+    printf("Oled SH1106 ERORR.\n");
+
+  // driver button init ();
+
+  // driver dht11 init();
+
+  // driver lm75 init();
+
+  // driver bmp (air pressure) init();
 }
 
 static void system_oled_test_gui()
@@ -60,7 +69,7 @@ void system_oled_test_default ()
   drv_sh1106_turn_off();
 }
 
-
+static system_state_t sys_state = IDLE;
 
 void system_manage_loop(void)
 {
@@ -72,6 +81,11 @@ void system_manage_loop(void)
 #else
   system_oled_test_gui();
 #endif
+
+  while (1)
+  {
+
+  }
 }
 
 
