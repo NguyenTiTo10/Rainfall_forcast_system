@@ -10,6 +10,9 @@
 #include "drv_sh1106.h"
 
 
+
+
+
 void system_manage_loop (void);
 
 #endif

@@ -19,7 +19,8 @@
     "i2c.h": "c",
     "font8x8_basic.h": "c",
     "cstdint": "c",
-    "system_manager.h": "c"
+    "system_manager.h": "c",
+    "bsp_i2c.h": "c"
   },
   "idf.flashType": "UART"
 }
