@@ -271,35 +271,30 @@ esp_err_t drv_sh1106_turn_off(void)
 
 
 // --------------------------DEVELOPING FUNCTION--------------------//
-esp_err_t drv_sh1106_draw_rect(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
+esp_err_t drv_sh1106_draw_border_top(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
 {
     // Validate the coordinates and dimensions to ensure the rectangle fits within the screen
     if (x >= OLED_WIDTH || y >= OLED_HEIGHT || x + width > OLED_WIDTH || y + height > OLED_HEIGHT)
         return ESP_ERR_INVALID_ARG; // Out of bounds
 
-    // Draw the top and bottom horizontal edges
+    // Draw the bottom horizontal edge
     for (uint8_t i = 0; i < width; i++) {
-        // Draw the top border pixel
-        esp_err_t ret = drv_sh1106_draw_pixel(x + i, y, color);
-        if (ret != ESP_OK) return ret;
-
-        // Draw the bottom border pixel
-        ret = drv_sh1106_draw_pixel(x + i, y + height - 1, color);
-        if (ret != ESP_OK) return ret;
+        drv_sh1106_draw_pixel(x + i, y + height - 1, color); // Bottom border
     }
 
     // Draw the left and right vertical edges
     for (uint8_t i = 0; i < height; i++) {
-        // Draw the left border pixel
-        esp_err_t ret = drv_sh1106_draw_pixel(x, y + i, color);
-        if (ret != ESP_OK) return ret;
-
-        // Draw the right border pixel
-        ret = drv_sh1106_draw_pixel(x + width - 1, y + i, color);
-        if (ret != ESP_OK) return ret;
+        drv_sh1106_draw_pixel(x, y + i, color);               // Left border
+        drv_sh1106_draw_pixel(x + width - 1, y + i, color);   // Right border
     }
 
-    return ESP_OK; // Success
+    // No top edge is drawn
+
+    // Update the screen to reflect changes
+    return drv_sh1106_update_screen(); // Send buffer to OLED
 }
+
+
+
 
 
