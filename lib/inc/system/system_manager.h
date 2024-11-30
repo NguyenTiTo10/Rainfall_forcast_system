@@ -20,10 +20,11 @@ typedef enum
 
 typedef enum
 {
-  UPDATE_LOCATION,
   UPDATE_TIME,
+  UPDATE_LOCATION,
+  UPDATE_SENSOR_DATA,
   UPDATE_RAIN,
-  UPDATE_SENSOR_DATA
+  UPDATE_SCREEN_MODE
 } system_update_state_t;
 
 
