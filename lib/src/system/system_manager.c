@@ -69,7 +69,7 @@ void system_oled_test_default ()
   drv_sh1106_turn_off();
 }
 
-static system_state_t sys_state = IDLE;
+static system_state_t sys_state_check = IDLE;
 
 void system_manage_loop(void)
 {
@@ -84,7 +84,16 @@ void system_manage_loop(void)
 
   while (1)
   {
-
+    switch (sys_state_check)
+    {
+      case IDLE:
+        
+        break;
+      
+      default:
+        break;
+    }
+    bsp_delay(50);
   }
 }
 

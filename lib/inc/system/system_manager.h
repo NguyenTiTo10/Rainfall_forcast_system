@@ -16,7 +16,15 @@ typedef enum
   BOOT_STATE,
   ONLINE_STATE,
   OFFLINE_STATE
-} system_state_t;
+} system_main_state_t;
+
+typedef enum
+{
+  UPDATE_LOCATION,
+  UPDATE_TIME,
+  UPDATE_RAIN,
+  UPDATE_SENSOR_DATA
+} system_update_state_t;
 
 
 void system_manage_loop (void);
