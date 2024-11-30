@@ -98,5 +98,11 @@ void system_manage_loop(void)
 }
 
 
+static system_main_state_t = IDLE;
+system_main_state_t system_manager_check_update ()
+{
+  
+}
+
 
 
