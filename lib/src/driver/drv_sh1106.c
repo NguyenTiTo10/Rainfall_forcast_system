@@ -321,7 +321,7 @@ esp_err_t drv_sh1106_draw_border_right(uint8_t x, uint8_t y, uint8_t width, uint
     return drv_sh1106_update_screen(); // Send buffer to OLED
 }
 
-esp_err_t drv_sh1106_draw_border_bottom(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
+esp_err_t drv_sh1106_draw_rect_no_bottom(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
 {
     // Validate the coordinates and dimensions to ensure the rectangle fits within the screen
     if (x >= OLED_WIDTH || y >= OLED_HEIGHT || x + width > OLED_WIDTH || y + height > OLED_HEIGHT)
@@ -332,17 +332,22 @@ esp_err_t drv_sh1106_draw_border_bottom(uint8_t x, uint8_t y, uint8_t width, uin
         drv_sh1106_draw_pixel(x + i, y, color); // Top border
     }
 
-    // Draw the left and right vertical edges
+    // Draw the left vertical edge
     for (uint8_t i = 0; i < height; i++) {
-        drv_sh1106_draw_pixel(x, y + i, color);               // Left border
-        drv_sh1106_draw_pixel(x + width - 1, y + i, color);   // Right border
+        drv_sh1106_draw_pixel(x, y + i, color); // Left border
     }
 
-    // No bottom edge, as the OLED border will serve as the fourth edge
+    // Draw the right vertical edge
+    for (uint8_t i = 0; i < height; i++) {
+        drv_sh1106_draw_pixel(x + width - 1, y + i, color); // Right border
+    }
+
+    // No bottom edge is drawn
 
     // Update the screen to reflect changes
     return drv_sh1106_update_screen(); // Send buffer to OLED
 }
+
 
 
 

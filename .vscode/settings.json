@@ -18,7 +18,8 @@
     "mqtt_client.h": "c",
     "i2c.h": "c",
     "font8x8_basic.h": "c",
-    "cstdint": "c"
+    "cstdint": "c",
+    "system_manager.h": "c"
   },
   "idf.flashType": "UART"
 }

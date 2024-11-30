@@ -20,31 +20,26 @@ static void system_oled_test_gui()
   char location_2[] = "HO CHI MINH";
 
   drv_sh1106_draw_border_top(15, 0, 105, 10, 1);
-  drv_sh1106_draw_border_right (100, 21, 30, 42, 1);
+  // drv_sh1106_draw_rect_no_bottom (30, 50, 70, 13, 1);
 
-  bsp_delay (1000);
+  // bsp_delay (1000);
 
 
   drv_sh1106_display_text_center(0, date_time);
 
-  drv_sh1106_display_text_center(, location_1);
-  drv_sh1106_display_text_center(5, location_2);
-  bsp_delay (1000);
+  // drv_sh1106_display_text_center(7, location_1);
+  // // bsp_delay (3000);
+  // drv_sh1106_display_text_center(7, location_2);
 
 
+  char temp[] = "Temp: 30.6 C ";
+  char humid[] = "Humid: 80 %";
+  char air_press[] = "Air press: 20 Pa";
 
 
-
-
-
-  // char temp[] = "Temp: 30.6 C ";
-  // char humid[] = "Humid: 80 %";
-  // char air_press[] = "Air press: 20 Pa";
-
-
-  // drv_sh1106_display_text(0, 3, temp);
-  // drv_sh1106_display_text(0, 5, humid);
-  // drv_sh1106_display_text(0, 7, air_press);
+  drv_sh1106_display_text(0, 2, temp);
+  drv_sh1106_display_text(0, 4, humid);
+  drv_sh1106_display_text(0, 6, air_press);
 
 
 }
@@ -52,26 +47,6 @@ static void system_oled_test_gui()
 
 void system_oled_test_default ()
 {
-#define DISPLAY_TEXT
-#ifdef DISPLAY_TEXT
-  char date_time [] = "29.11.2024 - 19:00";
-  char temp[] = "Temp: 30.6 C ";
-  char humid[] = "Humid: 80 %";
-  char air_press[] = "Air press: 20 Pa";
-  char location [] = "QUANG BINH";
-
-
-  drv_sh1106_display_text_center(0, date_time);
-
-  drv_sh1106_display_text(0, 2, temp);
-  drv_sh1106_display_text(0, 4, humid);
-  drv_sh1106_display_text(0, 6, air_press);
-
-  drv_sh1106_display_text_center(7, location);
-
-  bsp_delay (3000);
-
-#else
   drv_sh1106_display_image(image_logo_uit);
 
   bsp_delay (3000);
@@ -83,8 +58,6 @@ void system_oled_test_default ()
   drv_sh1106_display_image(image_logo_ce);
 
   bsp_delay (3000);
-
-#endif
 
   drv_sh1106_clear_screen();
 
