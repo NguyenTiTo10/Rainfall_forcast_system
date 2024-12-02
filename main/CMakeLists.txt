@@ -2,6 +2,7 @@
 #                     INCLUDE_DIRS ".")
 
 idf_component_register(SRCS "main.c" "mqtt_tcp/mqtt_tcp.c" 
+
                         "../lib/src/system/system_manager.c"      
                         "../lib/src/system/system_display.c"  
                         "../lib/src/system/system_data.c"
@@ -9,6 +10,7 @@ idf_component_register(SRCS "main.c" "mqtt_tcp/mqtt_tcp.c"
                         "../lib/src/middleware/"
 
                         "../lib/src/driver/drv_sh1106.c"
+                        "../lib/src/driver/drv_dht11.c"
 
                         "../lib/src/bsp/bsp_i2c.c" 
                         "../lib/src/bsp/bsp_timer.c"

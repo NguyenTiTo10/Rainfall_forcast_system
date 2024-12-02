@@ -104,11 +104,13 @@ void system_manage_loop(void)
   system_manage_init();
 
 // #define TEST_OLED_DEFAULT
+#define TEST_DHT11
+
 #ifdef TEST_OLED_DEFAULT
   system_oled_test_default();
-#elif   TEST_OLED_GUI
+#elif defined(TEST_OLED_GUI)
   system_oled_test_gui();
-#elif   TEST_DHT11
+#elif defined(TEST_DHT11)
   system_test_dht11();
 #endif
 

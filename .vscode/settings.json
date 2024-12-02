@@ -21,7 +21,8 @@
     "cstdint": "c",
     "system_manager.h": "c",
     "bsp_i2c.h": "c",
-    "drv_dht11.h": "c"
+    "drv_dht11.h": "c",
+    "bsp_gpio.h": "c"
   },
   "idf.flashType": "UART"
 }
