@@ -1,12 +1,9 @@
 #include <stdint.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-
-#include "stdint.h"
 #include <rom/ets_sys.h>
 #include "esp_timer.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
+
 
 #ifndef BSP_TIMER_H
 #define BSP_TIMER_H
