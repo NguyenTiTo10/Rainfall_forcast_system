@@ -49,8 +49,7 @@ static void system_oled_test_gui()
 
 }
 
-
-void system_oled_test_default ()
+static void system_oled_test_default ()
 {
   drv_sh1106_display_image(image_logo_uit);
 
@@ -69,6 +68,35 @@ void system_oled_test_default ()
   drv_sh1106_turn_off();
 }
 
+static void system_test_dht11 (void)
+{
+  if (!drv_dht11_init())
+    {
+      ESP_LOGE("DHT11", "DHT11 Initialization failed!");
+    }
+
+    uint32_t count = 0;
+    float temp = 0.0f, humid = 0.0f;  // Initialize variables to default values
+
+
+    while(1)
+    {
+      
+      if(drv_dht11_start_read())
+      {  
+        humid = drv_dht11_get_humid();
+        temp = drv_dht11_get_temp();
+        count += 1;
+      }
+
+      printf("Count: %lu\n", count);
+      printf("[Temperature]> %.2f  \n",temp);
+      printf("[Humidity]> %.2f \n \n",humid);
+
+      bsp_delay(2000);
+    } 
+}
+
 static system_main_state_t sys_state_check = IDLE;
 
 void system_manage_loop(void)
@@ -78,8 +106,10 @@ void system_manage_loop(void)
 // #define TEST_OLED_DEFAULT
 #ifdef TEST_OLED_DEFAULT
   system_oled_test_default();
-#else
+#elif   TEST_OLED_GUI
   system_oled_test_gui();
+#elif   TEST_DHT11
+  system_test_dht11();
 #endif
 
   while (1)
