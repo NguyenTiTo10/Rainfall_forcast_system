@@ -8,6 +8,7 @@
 #include "bsp_i2c.h"
 
 #include "drv_sh1106.h"
+#include "drv_dht11.h"
 
 
 typedef enum
