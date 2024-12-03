@@ -131,6 +131,7 @@ static void system_manage_test (void)
 #endif
 }
 
+
 void system_manage_loop(void)
 {
   switch (current_state)
@@ -147,28 +148,26 @@ void system_manage_loop(void)
       break;
   }
 
-
+  return;
 }
 
-// static system_main_state_t sys_state_check = IDLE;
 
-// static system_main_state_t system_state_next = IDLE;
 
-// system_main_state_t system_manager_check_update ()
-// {
-//   switch (system_state_next)
-//   {
-//   case IDLE:
-//     if (drv_detect_button_pressed() == MAIN_BUTTON)
-//     {
-//       system_state_next = BOOT_STATE;
-//     }
-//     break;
+system_main_state_t system_manager_check_update ()
+{
+  switch (current_state)
+  {
+    case BOOT_STATE:
+      if (drv_detect_button_pressed() == MAIN_BUTTON)
+      {
+        system_state_next = BOOT_STATE;
+      }
+      break;
   
-//   default:
-//     break;
-//   }
-// }
+  default:
+    break;
+  }
+}
 
 
 
