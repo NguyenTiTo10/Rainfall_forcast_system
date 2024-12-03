@@ -18,8 +18,9 @@ esp_err_t system_display_idle (void)
 esp_err_t system_display_boot (void)
 {
   mid_font_display_logo_uit();
-  bsp_timer_delay(10);
 
+  drv_sh1106_delay_screen (500);
+  
   return ESP_OK;
 }
 
