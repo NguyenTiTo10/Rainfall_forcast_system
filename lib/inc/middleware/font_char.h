@@ -5,8 +5,8 @@
  *      Author: yanbe
  */
 
-#ifndef MAIN_FONT_BASIC_H_
-#define MAIN_FONT_BASIC_H_
+#ifndef FONT_CHAR_H
+#define FONT_CHAR_H
 
 /*
    Constant: font8x8

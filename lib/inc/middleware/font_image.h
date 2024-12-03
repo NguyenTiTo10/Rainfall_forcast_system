@@ -1,7 +1,7 @@
 #include "stdint.h"
 
-#ifndef IMAGE_128X64_H
-#define IMAGE_128X64_H
+#ifndef FONT_IMAGE_H
+#define FONT_IMAGE_H
 
 
 const uint8_t image_logo_uit [] =
