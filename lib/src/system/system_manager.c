@@ -22,6 +22,29 @@ void system_manage_init (void)
   // driver bmp (air pressure) init();
 }
 
+
+
+
+static void system_oled_test_default ()
+{
+  drv_sh1106_display_image(image_logo_uit);
+
+  bsp_delay (3000);
+
+  drv_sh1106_clear_screen();
+
+  bsp_delay (3000);
+
+  drv_sh1106_display_image(image_logo_ce);
+
+  bsp_delay (3000);
+
+  drv_sh1106_clear_screen();
+
+  drv_sh1106_turn_off();
+}
+
+
 static void system_oled_test_screen_1()
 {
   char date_time [] = "29.11.2024 - 19:00";
@@ -47,26 +70,6 @@ static void system_oled_test_screen_1()
   drv_sh1106_display_text_center(1, location_2);
 
 
-}
-
-
-static void system_oled_test_default ()
-{
-  drv_sh1106_display_image(image_logo_uit);
-
-  bsp_delay (3000);
-
-  drv_sh1106_clear_screen();
-
-  bsp_delay (3000);
-
-  drv_sh1106_display_image(image_logo_ce);
-
-  bsp_delay (3000);
-
-  drv_sh1106_clear_screen();
-
-  drv_sh1106_turn_off();
 }
 
 
