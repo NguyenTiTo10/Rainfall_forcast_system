@@ -81,6 +81,9 @@ system_main_state_t system_manage_update_state ()
     case ONLINE_SCREEN_1_STATE:
       if (drv_btn_detect_press() == MID_BTN_PRESSED)
         next_state = ONLINE_SCREEN_2_STATE;
+
+      else if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
+        next_state = OFFLINE_STATE;
       break;
 
     case ONLINE_STATE:
