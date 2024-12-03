@@ -152,6 +152,8 @@ esp_err_t drv_sh1106_clear_screen(void)
 
     drv_sh1106_update_screen();
 
+    bsp_timer_delay(10);
+
     return ESP_OK;
 }
 
