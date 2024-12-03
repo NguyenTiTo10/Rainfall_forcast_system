@@ -138,9 +138,6 @@ void app_main(void)
     while (1)
     {
         system_manage_loop();  
-
-        break;
-
         bsp_timer_delay(10);
     }
     
