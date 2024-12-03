@@ -75,7 +75,12 @@ system_main_state_t system_manage_update_state ()
       break;
 
     case BOOT_STATE:
-      next_state = ONLINE_STATE;
+      next_state = ONLINE_SCREEN_1_STATE;
+      break;
+
+    case ONLINE_SCREEN_1_STATE:
+      if (drv_btn_detect_press() == MID_BTN_PRESSED)
+        next_state = ONLINE_SCREEN_2_STATE;
       break;
 
     case ONLINE_STATE:
@@ -101,9 +106,6 @@ system_main_state_t system_manage_update_state ()
 
 void system_manage_loop(void)
 {
-#ifdef SYSTEM_TEST_DISPLAY
-  system_display_test();
-#else
   system_main_state_t next_state = system_manage_update_state();
 
   if (current_state != next_state)
@@ -136,7 +138,6 @@ void system_manage_loop(void)
   }
 
   return;
-#endif
 }
 
 
