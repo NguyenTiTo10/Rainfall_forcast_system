@@ -74,8 +74,7 @@ system_main_state_t system_manage_update_state ()
       break;
 
     case BOOT_STATE:
-      if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
-        next_state = ONLINE_STATE;
+      next_state = ONLINE_STATE;
       break;
 
     case ONLINE_STATE:
