@@ -261,7 +261,7 @@ esp_err_t drv_sh1106_display_image(const uint8_t *image)
     }
     drv_sh1106_update_screen(); // Send the updated buffer to the display
 
-    bsp_timer_delay(10);
+    bsp_timer_delay(1000);      // Delay at least 1s.
 
     return ESP_OK;
 }
