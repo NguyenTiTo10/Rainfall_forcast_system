@@ -1,11 +1,9 @@
 #include "system_display.h" 
-#include "font_image.h"
 
 
 esp_err_t system_display_idle (void)
 {
   drv_sh1106_clear_screen();
-  bsp_timer_delay(10);
 
   // Start let's dht11 read data
 

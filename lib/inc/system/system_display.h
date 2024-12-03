@@ -9,6 +9,9 @@
 
 #include "drv_sh1106.h"
 
+#include "font_image.h"
+
+
 esp_err_t system_display_idle     (void);
 
 esp_err_t system_display_boot     (void);
