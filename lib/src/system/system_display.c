@@ -48,6 +48,19 @@ esp_err_t system_display_screen_1   (void)       // Could be some parameter late
 }
 
 
+esp_err_t system_display_screen_2   (void)       // Could be some parameter later, this is just the code test
+{
+  drv_sh1106_clear_screen();
+
+  drv_sh1106_draw_border_top ();
+
+  drv_sh1106_display_time(date_time);
+  drv_sh1106_display_location (location_1);
+
+  return ESP_OK;
+}
+
+
 esp_err_t system_display_offline  (void)
 {
   mid_font_display_logo_ce ();
