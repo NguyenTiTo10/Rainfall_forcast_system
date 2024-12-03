@@ -113,6 +113,7 @@ static void system_manage_test_button (void)
   }
 }
 
+
 void system_manage_loop(void)
 {
   system_manage_init();
@@ -120,6 +121,7 @@ void system_manage_loop(void)
 // #define TEST_OLED_DEFAULT
 // #define TEST_OLED_SCREEN_1
 // #define TEST_DHT11
+#define TEST_BUTTON
 
 #ifdef TEST_OLED_DEFAULT
   system_oled_test_default();
@@ -127,6 +129,8 @@ void system_manage_loop(void)
   system_oled_test_screen_1();
 #elif defined(TEST_DHT11)
   system_test_dht11();
+#elif define(TEST_BUTTON)
+  system_manage_test_button();
 #endif
 
 
