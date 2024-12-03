@@ -5,12 +5,17 @@
 #include "system_manager.h"
 
 
-
 // I2C configuration
 #define I2C_MASTER_SCL_IO       22              
 #define I2C_MASTER_SDA_IO       21              
 #define I2C_MASTER_NUM          I2C_NUM_0       
-#define I2C_MASTER_FREQ_HZ      400000          
+#define I2C_MASTER_FREQ_HZ      400000     
+
+// GPIO Button
+#define     MAIN_BTN_GPIO       GPIO_NUM_32   // Use GPIO0 for the button
+#define     LEFT_BTN_GPIO       GPIO_NUM_25
+#define     MID_BTN_GPIO        GPIO_NUM_26
+#define     RIGHT_BTN_GPIO      GPIO_NUM_27
 
 static esp_err_t i2c_master_init(void);
 
