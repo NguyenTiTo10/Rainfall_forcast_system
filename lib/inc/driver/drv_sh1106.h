@@ -28,6 +28,8 @@ esp_err_t drv_sh1106_turn_on(void);
 
 esp_err_t drv_sh1106_turn_off(void);
 
+esp_err_t drv_sh1106_delay_screen (uint32_t time_us);
+
 
 
 
