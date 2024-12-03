@@ -70,7 +70,6 @@ system_main_state_t system_manage_update_state ()
   switch (current_state)
   {
     case IDLE:
-      // check if the data update is complete (dht11, mqtt, location)
       next_state = BOOT_STATE;
       break;
 
@@ -81,15 +80,16 @@ system_main_state_t system_manage_update_state ()
     case ONLINE_SCREEN_1_STATE:
       if (drv_btn_detect_press() == MID_BTN_PRESSED)
         next_state = ONLINE_SCREEN_2_STATE;
-
       else if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
         next_state = OFFLINE_STATE;
+
       break;
 
-    case ONLINE_STATE:
-      if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
+    case ONLINE_SCREEN_2_STATE:
+      if (drv_btn_detect_press() == MID_BTN_PRESSED)
+        next_state = ONLINE_SCREEN_1_STATE;
+      else if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
         next_state = OFFLINE_STATE;
-    
       break;
 
     case OFFLINE_STATE:
