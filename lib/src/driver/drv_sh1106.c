@@ -304,7 +304,12 @@ esp_err_t drv_sh1106_turn_off(void)
 
 esp_err_t drv_sh1106_display_time (const char *time)
 {
-    drv_sh1106_display_text_center(1, time);
+    drv_sh1106_display_text_center(0, time);
+}
+
+esp_err_t drv_sh1106_display_location (const char *location)
+{
+    drv_sh1106_display_text_center(1, location);
 }
 
 

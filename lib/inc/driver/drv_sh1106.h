@@ -18,7 +18,7 @@ esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str);     //
 
 esp_err_t drv_sh1106_display_time (const char *time);
 
-esp_err_t drv_sh1106_display_location (const char *str);
+esp_err_t drv_sh1106_display_location (const char *location);
 
 esp_err_t drv_sh1106_display_image(const uint8_t *image);  
 
