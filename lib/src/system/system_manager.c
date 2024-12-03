@@ -2,8 +2,8 @@
 
 
 
-static void system_oled_test_default ();
-static void system_oled_test_screen_1();
+// static void system_oled_test_default ();
+// static void system_oled_test_screen_1();
 
 static system_main_state_t current_state = IDLE;
 static system_main_state_t next_state;
@@ -115,23 +115,23 @@ esp_err_t system_manage_init (void)
 // }
 
 
-static void system_manage_test (void)
-{
-// #define TEST_OLED_DEFAULT
-// #define TEST_OLED_SCREEN_1
-// #define TEST_DHT11
-#define TEST_BUTTON
+// static void system_manage_test (void)
+// {
+// // #define TEST_OLED_DEFAULT
+// // #define TEST_OLED_SCREEN_1
+// // #define TEST_DHT11
+// #define TEST_BUTTON
 
-#ifdef TEST_OLED_DEFAULT
-  system_oled_test_default();
-#elif defined(TEST_OLED_SCREEN_1)
-  system_oled_test_screen_1();
-#elif defined(TEST_DHT11)
-  system_test_dht11();
-#elif defined(TEST_BUTTON)
-  system_manage_test_button();
-#endif
-}
+// #ifdef TEST_OLED_DEFAULT
+//   system_oled_test_default();
+// #elif defined(TEST_OLED_SCREEN_1)
+//   system_oled_test_screen_1();
+// #elif defined(TEST_DHT11)
+//   system_test_dht11();
+// #elif defined(TEST_BUTTON)
+//   system_manage_test_button();
+// #endif
+// }
 
 
 
@@ -141,6 +141,12 @@ system_main_state_t system_manager_get_state ()
 
   switch (current_state)
   {
+    case IDLE:
+      // check if the data update is complete (dht11, mqtt, location)
+
+      next_state = BOOT_STATE;
+      break;
+      
     case BOOT_STATE:
       if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
         next_state = ONLINE_STATE;
