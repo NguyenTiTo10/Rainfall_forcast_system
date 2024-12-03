@@ -129,7 +129,7 @@ void system_manage_loop(void)
   system_oled_test_screen_1();
 #elif defined(TEST_DHT11)
   system_test_dht11();
-#elif define(TEST_BUTTON)
+#elif defined(TEST_BUTTON)
   system_manage_test_button();
 #endif
 
