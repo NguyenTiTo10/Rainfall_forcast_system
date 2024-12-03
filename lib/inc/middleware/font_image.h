@@ -3,6 +3,10 @@
 #ifndef FONT_IMAGE_H
 #define FONT_IMAGE_H
 
+void mid_font_display_logo_uit  (void);
+
+void mid_font_display_logo_ce   (void);
+
 
 const uint8_t image_logo_uit [] =
 {
