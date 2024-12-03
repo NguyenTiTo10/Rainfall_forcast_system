@@ -19,4 +19,6 @@ esp_err_t system_display_boot (void)
 {
   drv_sh1106_display_image(image_logo_uit);
   bsp_timer_delay(10);
+
+  return ESP_OK;
 }

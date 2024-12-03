@@ -113,6 +113,7 @@ static void system_manage_test_button (void)
   drv_btn_update_state();
 }
 
+
 static void system_manage_test (void)
 {
 // #define TEST_OLED_DEFAULT
@@ -134,6 +135,8 @@ static void system_manage_test (void)
 
 void system_manage_loop(void)
 {
+  current_state = system_manager_get_state();
+
   switch (current_state)
   {
     case IDLE:
@@ -153,20 +156,22 @@ void system_manage_loop(void)
 
 
 
-system_main_state_t system_manager_check_update ()
+system_main_state_t system_manager_get_state ()
 {
+  next_state = current_state;
+
   switch (current_state)
   {
     case BOOT_STATE:
-      if (drv_detect_button_pressed() == MAIN_BUTTON)
-      {
-        system_state_next = BOOT_STATE;
-      }
+      if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
+        next_state = ONLINE_STATE;
       break;
-  
-  default:
-    break;
+
+    default:
+      break;
   }
+
+  return next_state;
 }
 
 
