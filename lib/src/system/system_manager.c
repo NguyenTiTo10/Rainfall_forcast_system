@@ -26,6 +26,9 @@ esp_err_t system_manage_init (void)
     return ret;
   }
 
+  // Init MQTT
+
+
   return ESP_OK;
 }
 
@@ -137,13 +140,14 @@ void system_manage_loop(void)
       break;
 
     case BOOT_STATE:
-      system_display_boot
+      system_display_boot ();
+      break;
+
     default:
       break;
   }
 
 
-  bsp_timer_delay(10);
 }
 
 // static system_main_state_t sys_state_check = IDLE;
