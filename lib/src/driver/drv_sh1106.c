@@ -186,34 +186,7 @@ esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str)
 }
 
 
-esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str) 
-{
-    if (!str) 
-        return ESP_ERR_INVALID_ARG; 
 
-    uint8_t char_width = FONT_WIDTH;                            // Width of one character in pixels
-
-    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
-    uint8_t start_x = (OLED_WIDTH - text_width) / 2;            // Calculate the starting x position to center the text
-
-    uint8_t y = line;                                           // Calculate the y position based on the line number
-
-    if ((OLED_WIDTH - text_width) <= 0) 
-        start_x = 0;
-    if (y >= (OLED_HEIGHT / FONT_HEIGHT))
-        y = 0;
-
-    while (*str) 
-    {
-        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
-        if (ret != ESP_OK)
-            return ret; 
-
-        start_x += char_width;
-    }
-
-    return ESP_OK;
-}
 
 
 esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
@@ -277,7 +250,7 @@ esp_err_t drv_sh1106_turn_off(void)
 
 
 // --------------------------DEVELOPING FUNCTION--------------------//
-esp_err_t drv_sh1106_draw_border_top(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
+esp_err_t drv_sh1106_draw_rect_no_top(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
 {
     // Validate the coordinates and dimensions to ensure the rectangle fits within the screen
     if (x >= OLED_WIDTH || y >= OLED_HEIGHT || x + width > OLED_WIDTH || y + height > OLED_HEIGHT)
