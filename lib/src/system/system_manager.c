@@ -2,7 +2,7 @@
 #include "image_128x64.h"
 
 // static void system_oled_test_default ();
-static void system_oled_test_gui();
+static void system_oled_test_screen_1();
 
 
 void system_manage_init (void)
@@ -22,7 +22,7 @@ void system_manage_init (void)
   // driver bmp (air pressure) init();
 }
 
-static void system_oled_test_gui()
+static void system_oled_test_screen_1()
 {
   char date_time [] = "29.11.2024 - 19:00";
   char location_1[] = "QUANG BINH";
@@ -108,25 +108,25 @@ void system_manage_loop(void)
 
 #ifdef TEST_OLED_DEFAULT
   system_oled_test_default();
-#elif defined(TEST_OLED_GUI)
-  system_oled_test_gui();
+#elif defined(TEST_OLED_SCREEN_1)
+  system_oled_test_screen_1();
 #elif defined(TEST_DHT11)
   system_test_dht11();
 #endif
 
-  while (1)
-  {
-    switch (sys_state_check)
-    {
-      case IDLE:
+  // while (1)
+  // {
+  //   switch (sys_state_check)
+  //   {
+  //     case IDLE:
         
-        break;
+  //       break;
       
-      default:
-        break;
-    }
-    bsp_delay(50);
-  }
+  //     default:
+  //       break;
+  //   }
+  //   bsp_delay(50);
+  // }
 }
 
 
