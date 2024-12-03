@@ -151,7 +151,7 @@ esp_err_t drv_sh1106_clear_screen(void)
     memset(screen_buffer, 0, OLED_WIDTH * (OLED_HEIGHT / 8)); // Set all bytes in the buffer to 0
 
     drv_sh1106_update_screen();
-    
+
     return ESP_OK;
 }
 
@@ -184,7 +184,6 @@ esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str)
 }
 
 
-
 esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str) 
 {
     if (!str) 
@@ -213,6 +212,7 @@ esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str)
 
     return ESP_OK;
 }
+
 
 esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
 {
@@ -244,6 +244,7 @@ esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
 
     return ESP_OK;
 }
+
 
 esp_err_t drv_sh1106_display_image(const uint8_t *image)
 {
