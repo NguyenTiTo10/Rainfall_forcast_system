@@ -104,6 +104,14 @@ void app_main(void)
     else 
         printf("Failed to initialize I2C.\n");
 
+    if (config_gpio() == ESP_OK)
+        printf("GPIO config succesfully.\n");
+    else
+        printf("GPIO error.\n");
+
+    config_isr_gpio();
+    
+
     system_manage_loop();    
 
 #ifdef TEST_MQTT
