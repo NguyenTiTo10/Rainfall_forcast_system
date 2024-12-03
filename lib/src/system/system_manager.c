@@ -49,6 +49,7 @@ static void system_oled_test_screen_1()
 
 }
 
+
 static void system_oled_test_default ()
 {
   drv_sh1106_display_image(image_logo_uit);
@@ -67,6 +68,7 @@ static void system_oled_test_default ()
 
   drv_sh1106_turn_off();
 }
+
 
 static void system_test_dht11 (void)
 {
@@ -97,14 +99,14 @@ static void system_test_dht11 (void)
     } 
 }
 
-static system_main_state_t sys_state_check = IDLE;
 
 void system_manage_loop(void)
 {
   system_manage_init();
 
 // #define TEST_OLED_DEFAULT
-#define TEST_DHT11
+#define TEST_OLED_SCREEN_1
+// #define TEST_DHT11
 
 #ifdef TEST_OLED_DEFAULT
   system_oled_test_default();
@@ -114,21 +116,11 @@ void system_manage_loop(void)
   system_test_dht11();
 #endif
 
-  // while (1)
-  // {
-  //   switch (sys_state_check)
-  //   {
-  //     case IDLE:
-        
-  //       break;
-      
-  //     default:
-  //       break;
-  //   }
-  //   bsp_delay(50);
-  // }
+
+
 }
 
+// static system_main_state_t sys_state_check = IDLE;
 
 // static system_main_state_t system_state_next = IDLE;
 
