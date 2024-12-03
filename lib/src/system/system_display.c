@@ -52,6 +52,10 @@ esp_err_t system_display_offline  (void)
 {
   mid_font_display_logo_ce ();
 
+  bsp_timer_delay (1000);
+
+  drv_sh1106_turn_off ();
+
   return ESP_OK;
 }   
 
