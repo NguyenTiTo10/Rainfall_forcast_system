@@ -304,17 +304,23 @@ esp_err_t drv_sh1106_turn_off(void)
 esp_err_t drv_sh1106_draw_border_top  (void)
 {
     drv_sh1106_draw_rect_no_top(15, 0, 105, 18, 1);
+    return ESP_OK;
 }
+
 
 esp_err_t drv_sh1106_display_time (const char *time)
 {
     drv_sh1106_display_text_center(0, time);
+    return ESP_OK;
 }
+
 
 esp_err_t drv_sh1106_display_location (const char *location)
 {
     drv_sh1106_display_text_center(1, location);
+    return ESP_OK;
 }
+
 
 esp_err_t drv_sh1106_turn_on(void)
 {
