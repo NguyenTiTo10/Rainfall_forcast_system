@@ -22,8 +22,6 @@ esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str);
 esp_err_t drv_sh1106_display_image(const uint8_t *image);  
 
 esp_err_t drv_sh1106_draw_border_top(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color);
-esp_err_t drv_sh1106_draw_border_right(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color);
-esp_err_t drv_sh1106_draw_border_bottom(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color);
 
 
 
