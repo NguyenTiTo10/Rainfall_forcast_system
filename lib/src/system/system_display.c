@@ -1,5 +1,11 @@
 #include "system_display.h" 
 
+char date_time [] = "29.11.2024 - 19:00";
+char location_1[] = "QUANG BINH";
+char location_2[] = "HO CHI MINH";
+char temp[] = "Temp: 30.6 C ";
+char humid[] = "Humid: 80 %";
+char air_press[] = "Air press: 20 Pa";
 
 esp_err_t system_display_idle (void)
 {
@@ -25,16 +31,9 @@ esp_err_t system_display_boot (void)
 }
 
 
-esp_err_t system_display_online   (void)       // Could be some parameter later, this is just the code test
+esp_err_t system_display_screen_1   (void)       // Could be some parameter later, this is just the code test
 {
   drv_sh1106_clear_screen();
-
-  char date_time [] = "29.11.2024 - 19:00";
-  char location_1[] = "QUANG BINH";
-  // char location_2[] = "HO CHI MINH";
-  char temp[] = "Temp: 30.6 C ";
-  char humid[] = "Humid: 80 %";
-  char air_press[] = "Air press: 20 Pa";
 
   drv_sh1106_draw_border_top ();
 
