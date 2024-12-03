@@ -148,19 +148,10 @@ esp_err_t drv_sh1106_init(void)
 
 esp_err_t drv_sh1106_clear_screen(void) 
 {
-    uint8_t empty_buffer[OLED_WIDTH] = {0x00}; // Predefined empty buffer for one page
+    memset(screen_buffer, 0, OLED_WIDTH * (OLED_HEIGHT / 8)); // Set all bytes in the buffer to 0
 
-    for (uint8_t page = 0; page < (OLED_HEIGHT / 8); page++) 
-    {
-        // Set page and column addresses once per page
-        drv_sh1106_send_command(0xB0 + page);   // Set page address
-        drv_sh1106_send_command(0x00);          // Set lower column address
-        drv_sh1106_send_command(0x10);          // Set higher column address
-
-        // Write a full empty buffer for this page
-        drv_sh1106_write_data(empty_buffer, OLED_WIDTH);
-    }
-
+    drv_sh1106_update_screen();
+    
     return ESP_OK;
 }
 
@@ -303,6 +294,7 @@ esp_err_t drv_sh1106_draw_border_top(uint8_t x, uint8_t y, uint8_t width, uint8_
     // Update the screen to reflect changes
     return drv_sh1106_update_screen(); // Send buffer to OLED
 }
+
 
 
 
