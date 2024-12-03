@@ -130,11 +130,16 @@ void system_manage_loop(void)
       break;
 
     case ONLINE_SCREEN_1_STATE:
-      system_display_online ();
+      system_display_screen_1 ();
+      break;
+
+    case ONLINE_SCREEN_2_STATE:
+      system_display_screen_2();
       break;
 
     case OFFLINE_STATE:
       system_display_offline ();
+      break;
 
     default:
       break;
