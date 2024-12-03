@@ -133,6 +133,26 @@ static void system_manage_test (void)
 }
 
 
+
+system_main_state_t system_manager_get_state ()
+{
+  next_state = current_state;
+
+  switch (current_state)
+  {
+    case BOOT_STATE:
+      if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
+        next_state = ONLINE_STATE;
+      break;
+
+    default:
+      break;
+  }
+
+  return next_state;
+}
+
+
 void system_manage_loop(void)
 {
   current_state = system_manager_get_state();
@@ -153,26 +173,5 @@ void system_manage_loop(void)
 
   return;
 }
-
-
-
-system_main_state_t system_manager_get_state ()
-{
-  next_state = current_state;
-
-  switch (current_state)
-  {
-    case BOOT_STATE:
-      if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
-        next_state = ONLINE_STATE;
-      break;
-
-    default:
-      break;
-  }
-
-  return next_state;
-}
-
 
 
