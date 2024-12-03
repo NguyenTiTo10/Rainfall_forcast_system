@@ -66,6 +66,7 @@ esp_err_t system_manage_init (void)
 system_main_state_t system_manage_update_state ()
 {
   system_main_state_t next_state = current_state;
+  drv_btn_type_t btn_pressed = drv_btn_detect_press();          // Store the result of button detection
 
   switch (current_state)
   {
@@ -78,22 +79,25 @@ system_main_state_t system_manage_update_state ()
       break;
 
     case ONLINE_SCREEN_1_STATE:
-      if (drv_btn_detect_press() == MID_BTN_PRESSED)
-        next_state = ONLINE_SCREEN_2_STATE;
-      else if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
-        next_state = OFFLINE_STATE;
+      if (btn_pressed == MAIN_BTN_PRESSED)
+          next_state = OFFLINE_STATE;
+
+      if (btn_pressed == MID_BTN_PRESSED)
+          next_state = ONLINE_SCREEN_2_STATE;
 
       break;
 
     case ONLINE_SCREEN_2_STATE:
-      if (drv_btn_detect_press() == MID_BTN_PRESSED)
-        next_state = ONLINE_SCREEN_1_STATE;
-      else if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
-        next_state = OFFLINE_STATE;
+      if (btn_pressed == MAIN_BTN_PRESSED)
+          next_state = OFFLINE_STATE;
+
+      if (btn_pressed == MID_BTN_PRESSED)
+          next_state = ONLINE_SCREEN_1_STATE;
+
       break;
 
     case OFFLINE_STATE:
-      if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
+      if (btn_pressed == MAIN_BTN_PRESSED)
         next_state = IDLE;
       break;
 
@@ -118,6 +122,7 @@ void system_manage_loop(void)
   else
     return;
 
+  // current_state = next_state;
 
   switch (current_state)
   {

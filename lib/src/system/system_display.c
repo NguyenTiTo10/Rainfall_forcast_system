@@ -27,18 +27,18 @@ esp_err_t system_display_boot (void)
 
   drv_sh1106_delay_screen (500);
 
+  drv_sh1106_clear_screen();
+
   return ESP_OK;
 }
 
 
 esp_err_t system_display_screen_1   (void)       // Could be some parameter later, this is just the code test
 {
-  drv_sh1106_clear_screen();
-
   drv_sh1106_draw_border_top ();
 
   drv_sh1106_display_time(date_time);
-  drv_sh1106_display_location (location_1);
+  drv_sh1106_display_location (location_2);
 
   drv_sh1106_display_text(0, 3, temp);
   drv_sh1106_display_text(0, 5, humid);
@@ -50,8 +50,6 @@ esp_err_t system_display_screen_1   (void)       // Could be some parameter late
 
 esp_err_t system_display_screen_2   (void)       // Could be some parameter later, this is just the code test
 {
-  drv_sh1106_clear_screen();
-
   drv_sh1106_draw_border_top ();
 
   drv_sh1106_display_time(date_time);
