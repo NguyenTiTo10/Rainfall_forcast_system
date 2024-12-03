@@ -1,7 +1,7 @@
 // File: main/sh1106_driver.c
 
 #include "drv_sh1106.h"
-#include "font_basic.h"
+#include "font_image.h"
 
 
 #define I2C_MASTER_NUM  I2C_NUM_0       // I2C port number

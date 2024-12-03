@@ -1,5 +1,5 @@
 #include "system_display.h" 
-#include "image_128x64.h"
+#include "font_image.h"
 
 
 esp_err_t system_display_idle (void)
