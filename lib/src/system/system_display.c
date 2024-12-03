@@ -3,6 +3,8 @@
 
 esp_err_t system_display_idle (void)
 {
+  drv_sh1106_turn_on();
+  
   drv_sh1106_clear_screen();
 
   // Start let's dht11 read data
