@@ -98,7 +98,7 @@ static esp_err_t config_isr_gpio (void)
 }
 
 
-esp_err_t system_init ()
+esp_err_t app_init ()
 {
     esp_err_t ret;
 
@@ -128,9 +128,12 @@ esp_err_t system_init ()
 
     return ESP_OK;
 }
+
+
 void app_main(void) 
 {
-    
+    // Init I2C, GPIO and ISR GPIO
+    app_init
     system_manage_loop();    
 
 #ifdef TEST_MQTT
