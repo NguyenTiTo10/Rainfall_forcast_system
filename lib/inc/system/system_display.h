@@ -12,15 +12,17 @@
 #include "font_image.h"
 
 
-esp_err_t system_display_idle     (void);
+esp_err_t system_display_idle       (void);
 
-esp_err_t system_display_boot     (void);
+esp_err_t system_display_boot       (void);
 
-esp_err_t system_display_online   (void);       // Could be some parameter later
+esp_err_t system_display_screen_1   (void);       // Could be some parameter later
 
-esp_err_t system_display_offline  (void);  
+esp_err_t system_display_screen_2   (void);       // Could be some parameter later
 
-esp_err_t system_display_test     (void);
+esp_err_t system_display_offline    (void);  
+
+esp_err_t system_display_test       (void);
 
 
 #endif

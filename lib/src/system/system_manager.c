@@ -129,7 +129,7 @@ void system_manage_loop(void)
       system_display_boot ();
       break;
 
-    case ONLINE_STATE:
+    case ONLINE_SCREEN_1_STATE:
       system_display_online ();
       break;
 
