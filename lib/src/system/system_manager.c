@@ -12,16 +12,14 @@ esp_err_t system_manage_init (void)
 {
   esp_err_t ret;
 
-  // Init driver oled 
-  ret = drv_sh1106_init();
+  ret = drv_sh1106_init();              // Init driver oled 
   if (ret != ESP_OK)
   {
     printf("Oled SH1106 ERORR.\n");
     return ret;
   }
 
-  // Init driver dht11
-  ret = drv_dht11_init();
+  ret = drv_dht11_init();               // Init driver dht11
   if (ret != ESP_OK)
   {
     printf("DHT11 Initialization failed!");
@@ -112,10 +110,8 @@ static void system_manage_test_button (void)
   drv_btn_update_state();
 }
 
-
-void system_manage_loop(void)
+static void system_manage_test (void)
 {
-
 // #define TEST_OLED_DEFAULT
 // #define TEST_OLED_SCREEN_1
 // #define TEST_DHT11
@@ -130,6 +126,21 @@ void system_manage_loop(void)
 #elif defined(TEST_BUTTON)
   system_manage_test_button();
 #endif
+}
+
+void system_manage_loop(void)
+{
+  switch (current_state)
+  {
+    case IDLE:
+      system_display_idle ();
+    if ()
+    break;
+  
+  default:
+    break;
+  }
+
 
   bsp_timer_delay(10);
 }
