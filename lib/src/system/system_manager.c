@@ -146,10 +146,15 @@ system_main_state_t system_manager_get_state ()
 
       next_state = BOOT_STATE;
       break;
-      
+
     case BOOT_STATE:
       if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
         next_state = ONLINE_STATE;
+      break;
+
+    case ONLINE_STATE:
+      if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
+        next_state = OFFLINE_STATE;
       break;
 
     default:
