@@ -183,6 +183,13 @@ void system_manage_loop(void)
       system_display_boot ();
       break;
 
+    case ONLINE_STATE:
+      system_display_online ();
+      break;
+
+    case OFFLINE_STATE:
+      system_display_offline ();
+
     default:
       break;
   }
