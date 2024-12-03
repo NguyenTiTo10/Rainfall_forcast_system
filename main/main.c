@@ -103,24 +103,22 @@ esp_err_t app_init (void)
 {
     esp_err_t ret;
 
-    // Initialize I2C 
-    ret = i2c_master_init();
+    ret = i2c_master_init();                    // Initialize I2C 
     if (ret != ESP_OK) 
     {
         printf("Failed to initialize I2C.\n");
         return ret;
     }
         
-    // Initialize GPIO 
-    ret = config_gpio();
+    
+    ret = config_gpio();                       // Initialize GPIO 
     if (ret != ESP_OK)
     {
         printf("GPIO error.\n");
         return ret;
     }
     
-    // Initialize GPIO ISR
-    ret = config_isr_gpio();
+    ret = config_isr_gpio();                   // Initialize GPIO ISR
     if (ret != ESP_OK)
     {
         printf("ISR GPIO error.\n");
@@ -133,11 +131,16 @@ esp_err_t app_init (void)
 
 void app_main(void) 
 {
-    // Init Button (I2C), Button (GPIO and ISR GPIO)
-    app_init();
+    app_init();                     // Init (I2C), Button (GPIO and ISR GPIO)
 
+    system_manage_init();           // Init driver OLED, driver DHT11
+
+    while (1)
+    {
+        system_manage_loop();  
+    }
     
-    system_manage_loop();    
+      
 
 #ifdef TEST_MQTT
   mqtt_main();
