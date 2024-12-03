@@ -6,7 +6,6 @@
 #include "esp_err.h"
 
 #include "bsp_timer.h"
-#include "bsp_i2c.h"
 
 #include "drv_sh1106.h"
 

@@ -17,7 +17,7 @@ esp_err_t system_display_idle (void)
 
 esp_err_t system_display_boot (void)
 {
-  drv_sh1106_display_image(image_logo_uit);
+  mid_font_display_logo_uit();
   bsp_timer_delay(10);
 
   return ESP_OK;
@@ -57,9 +57,6 @@ esp_err_t system_display_online   (void)       // Could be some parameter later,
 
 esp_err_t system_display_offline  (void)
 {
-  drv_sh1106_clear_screen();
-  bsp_timer_delay(10);
-
   drv_sh1106_display_image(image_logo_ce);
   bsp_timer_delay(10);
 
