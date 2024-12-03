@@ -30,7 +30,7 @@ typedef enum
   UPDATE_SCREEN_MODE
 } system_update_state_t;
 
-
+esp_err_t system_manage_init (void);
 void system_manage_loop (void);
 
 #endif

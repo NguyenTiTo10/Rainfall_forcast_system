@@ -5,7 +5,7 @@
 static void system_oled_test_screen_1();
 
 
-void system_manage_init (void)
+esp_err_t system_manage_init (void)
 {
   esp_err_t ret;
 
@@ -24,6 +24,8 @@ void system_manage_init (void)
     printf("DHT11 Initialization failed!");
     return ret;
   }
+
+  return ESP_OK;
 }
 
 
