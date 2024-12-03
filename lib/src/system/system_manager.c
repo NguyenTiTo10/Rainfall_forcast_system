@@ -29,15 +29,15 @@ static void system_oled_test_default ()
 {
   drv_sh1106_display_image(image_logo_uit);
 
-  bsp_delay (3000);
+  bsp_timer_delay (3000);
 
   drv_sh1106_clear_screen();
 
-  bsp_delay (3000);
+  bsp_timer_delay (3000);
 
   drv_sh1106_display_image(image_logo_ce);
 
-  bsp_delay (3000);
+  bsp_timer_delay (3000);
 
   drv_sh1106_clear_screen();
 
@@ -66,7 +66,7 @@ static void system_oled_test_screen_1()
 
   
   drv_sh1106_display_text_center(1, location_1);
-  bsp_delay (3000);
+  bsp_timer_delay (3000);
   drv_sh1106_display_text_center(1, location_2);
 
 
@@ -98,7 +98,7 @@ static void system_test_dht11 (void)
       printf("[Temperature]> %.2f  \n",temp);
       printf("[Humidity]> %.2f \n \n",humid);
 
-      bsp_delay(2000);
+      bsp_timer_delay(2000);
     } 
 }
 
