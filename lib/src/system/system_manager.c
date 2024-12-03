@@ -9,7 +9,7 @@ void system_manage_init (void)
 {
   esp_err_t ret;
 
-  // Init the oled 
+  // Init driver oled 
   ret = drv_sh1106_init();
   if (ret != ESP_OK)
   {
@@ -17,14 +17,13 @@ void system_manage_init (void)
     return ret;
   }
 
-
-  // driver button init ();
-
-  // driver dht11 init();
-
-  // driver lm75 init();
-
-  // driver bmp (air pressure) init();
+  // Init driver dht11
+  ret = drv_dht11_init();
+  if (ret != ESP_OK)
+  {
+    printf("DHT11 Initialization failed!");
+    return ret;
+  }
 }
 
 
@@ -80,11 +79,6 @@ static void system_oled_test_screen_1()
 
 static void system_test_dht11 (void)
 {
-  if (!drv_dht11_init())
-    {
-      ESP_LOGE("DHT11", "DHT11 Initialization failed!");
-    }
-
     uint32_t count = 0;
     float temp = 0.0f, humid = 0.0f;  // Initialize variables to default values
 
