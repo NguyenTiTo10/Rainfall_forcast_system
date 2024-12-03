@@ -85,7 +85,7 @@ system_main_state_t system_manage_update_state ()
 
     case OFFLINE_STATE:
       if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
-        next_state = ONLINE_STATE;
+        next_state = IDLE;
       break;
 
     default:
