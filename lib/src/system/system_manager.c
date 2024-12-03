@@ -18,7 +18,7 @@ esp_err_t system_manage_init (void)
   ret = drv_dht11_init();               // Init driver dht11
   if (ret != ESP_OK)
   {
-    printf("DHT11 Initialization failed!");
+    printf("DHT11 Initialization failed! \n");
     return ret;
   }
 
