@@ -2,6 +2,7 @@
 
 
 static system_main_state_t current_state = IDLE;
+static uint8_t task_handle = 0;
 
 
 esp_err_t system_manage_init (void)
@@ -79,7 +80,10 @@ system_main_state_t system_manage_update_state ()
 
     case ONLINE_STATE:
       if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
+      {
+        task_handle++;
         next_state = OFFLINE_STATE;
+      }
       break;
 
     case OFFLINE_STATE:
@@ -104,10 +108,11 @@ void system_manage_loop(void)
 #else
   system_main_state_t next_state = system_manage_update_state();
 
-  if (current_state != next_state)
+  // if (current_state != next_state)
     current_state = next_state;
-  else
-    return;
+  // else
+  //   return;
+
 
   switch (current_state)
   {
