@@ -301,6 +301,10 @@ esp_err_t drv_sh1106_turn_off(void)
 
 
 // --------------------------DEVELOPING FUNCTION--------------------//
+esp_err_t drv_sh1106_draw_border_top  (void)
+{
+    drv_sh1106_draw_rect_no_top(15, 0, 105, 18, 1);
+}
 
 esp_err_t drv_sh1106_display_time (const char *time)
 {
