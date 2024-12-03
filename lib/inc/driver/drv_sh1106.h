@@ -16,7 +16,7 @@ esp_err_t drv_sh1106_clear_screen(void);
 
 esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str);     // Could adjust later
 
-esp_err_t drv_sh1106_display_time (const char *str);
+esp_err_t drv_sh1106_display_time (const char *time);
 
 esp_err_t drv_sh1106_display_location (const char *str);
 

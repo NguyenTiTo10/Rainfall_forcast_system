@@ -302,7 +302,10 @@ esp_err_t drv_sh1106_turn_off(void)
 
 // --------------------------DEVELOPING FUNCTION--------------------//
 
-
+esp_err_t drv_sh1106_display_time (const char *time)
+{
+    drv_sh1106_display_text_center(1, time);
+}
 
 
 
