@@ -23,6 +23,7 @@ esp_err_t system_display_boot (void)
   return ESP_OK;
 }
 
+
 esp_err_t system_display_online   (void)       // Could be some parameter later, this is just the code test
 {
   char date_time [] = "29.11.2024 - 19:00";
@@ -46,4 +47,18 @@ esp_err_t system_display_online   (void)       // Could be some parameter later,
   drv_sh1106_display_text_center(1, location_1);
   bsp_timer_delay (3000);
   drv_sh1106_display_text_center(1, location_2);
+
+  return ESP_OK;
 }
+
+
+esp_err_t system_display_offline  (void)
+{
+  drv_sh1106_clear_screen();
+  bsp_timer_delay(10);
+
+  drv_sh1106_display_image(image_logo_ce);
+  bsp_timer_delay(10);
+
+  return ESP_OK;
+}   
