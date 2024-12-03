@@ -134,11 +134,12 @@ void system_manage_loop(void)
   {
     case IDLE:
       system_display_idle ();
-    if ()
-    break;
-  
-  default:
-    break;
+      break;
+
+    case BOOT_STATE:
+      system_display_boot
+    default:
+      break;
   }
 
 
