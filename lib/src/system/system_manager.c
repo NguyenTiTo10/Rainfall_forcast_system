@@ -7,11 +7,16 @@ static void system_oled_test_screen_1();
 
 void system_manage_init (void)
 {
-    // Init the oled 
-  if (drv_sh1106_init() == ESP_OK)
-    printf("Oled SH1106 initialized successfully.\n");
-  else
+  esp_err_t ret;
+
+  // Init the oled 
+  ret = drv_sh1106_init();
+  if (ret != ESP_OK)
+  {
     printf("Oled SH1106 ERORR.\n");
+    return ret;
+  }
+
 
   // driver button init ();
 
