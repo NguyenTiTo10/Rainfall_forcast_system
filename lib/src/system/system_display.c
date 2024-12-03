@@ -20,7 +20,7 @@ esp_err_t system_display_boot (void)
   mid_font_display_logo_uit();
 
   drv_sh1106_delay_screen (500);
-  
+
   return ESP_OK;
 }
 
@@ -53,7 +53,7 @@ esp_err_t system_display_offline  (void)
 {
   mid_font_display_logo_ce ();
 
-  bsp_timer_delay (500);
+  drv_sh1106_delay_screen (500);
 
   drv_sh1106_turn_off ();
 
