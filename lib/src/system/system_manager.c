@@ -103,12 +103,22 @@ static void system_test_dht11 (void)
 }
 
 
+static void system_manage_test_button (void)
+{
+  while (1)
+  {
+      drv_btn_update_state();
+
+      bsp_timer_delay(10);
+  }
+}
+
 void system_manage_loop(void)
 {
   system_manage_init();
 
 // #define TEST_OLED_DEFAULT
-#define TEST_OLED_SCREEN_1
+// #define TEST_OLED_SCREEN_1
 // #define TEST_DHT11
 
 #ifdef TEST_OLED_DEFAULT
