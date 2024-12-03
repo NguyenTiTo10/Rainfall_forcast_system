@@ -101,8 +101,8 @@ static esp_err_t config_isr_gpio (void)
 esp_err_t system_init ()
 {
     esp_err_t ret;
-    // Initialize I2C 
 
+    // Initialize I2C 
     ret = i2c_master_init();
     if (ret != ESP_OK) 
     {
@@ -110,22 +110,28 @@ esp_err_t system_init ()
         return ret;
     }
         
-
+    // Initialize GPIO 
     ret = config_gpio();
-    if (config_gpio() == ESP_OK)
-        printf("GPIO config succesfully.\n");
-    else
+    if (ret != ESP_OK)
+    {
         printf("GPIO error.\n");
+        return ret;
+    }
+    
+    // Initialize GPIO ISR
+    ret = config_isr_gpio();
+    if (ret != ESP_OK)
+    {
+        printf("ISR GPIO error.\n");
+        return ret;
+    }
 
-    config_isr_gpio();
-
-
-    system_manage_loop();    
-
+    return ESP_OK;
 }
 void app_main(void) 
 {
     
+    system_manage_loop();    
 
 #ifdef TEST_MQTT
   mqtt_main();
