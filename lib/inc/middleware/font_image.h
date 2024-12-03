@@ -1,4 +1,6 @@
 #include "stdint.h"
+#include "drv_sh1106.h"
+#include "bsp_timer.h"
 
 #ifndef FONT_IMAGE_H
 #define FONT_IMAGE_H
