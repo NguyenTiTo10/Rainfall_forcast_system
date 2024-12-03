@@ -19,8 +19,10 @@
 
 static const char *TAG = "Button";
 
-static esp_err_t i2c_master_init(void);
-static esp_err_t config_gpio (void);
+static esp_err_t i2c_master_init    (void);
+static esp_err_t config_gpio        (void);
+static esp_err_t config_isr_gpio    (void);
+
 
 
 static esp_err_t i2c_master_init(void) 
@@ -73,6 +75,26 @@ static esp_err_t config_gpio (void)
         return err;
 }
 
+static esp_err_t config_isr_gpio (void)
+{
+    esp_err_t ret;
+
+    // Install GPIO ISR service with default flags
+    ret = gpio_install_isr_service(ESP_INTR_FLAG_LEVEL1);
+    if (ret != ESP_OK)
+        return ret;
+
+    // Hook ISR handler for the button GPIO
+    gpio_isr_handler_add(MAIN_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+    gpio_isr_handler_add(LEFT_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+    gpio_isr_handler_add(MID_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+    gpio_isr_handler_add(RIGHT_BTN_GPIO, bsp_gpio_isr_handler, NULL);
+
+
+    ESP_LOGI(TAG, "Interrupt-based button detection initialized.");
+
+    return ESP_OK;
+}
 
 void app_main(void) 
 {
