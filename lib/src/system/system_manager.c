@@ -4,6 +4,9 @@
 // static void system_oled_test_default ();
 static void system_oled_test_screen_1();
 
+static system_main_state_t current_state = IDLE;
+static system_main_state_t next_state;
+
 
 esp_err_t system_manage_init (void)
 {
