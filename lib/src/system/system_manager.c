@@ -135,7 +135,7 @@ esp_err_t system_manage_init (void)
 
 
 
-system_main_state_t system_manager_get_state ()
+system_main_state_t system_manage_update_state ()
 {
   next_state = current_state;
 
@@ -171,7 +171,7 @@ system_main_state_t system_manager_get_state ()
 
 void system_manage_loop(void)
 {
-  current_state = system_manager_get_state();
+  current_state = system_manage_update_state();
 
   switch (current_state)
   {
