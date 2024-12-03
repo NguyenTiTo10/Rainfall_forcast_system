@@ -110,6 +110,93 @@ static esp_err_t drv_sh1106_update_screen(void)
 }
 
 
+esp_err_t drv_sh1106_draw_rect_no_top(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
+{
+    // Validate the coordinates and dimensions to ensure the rectangle fits within the screen
+    if (x >= OLED_WIDTH || y >= OLED_HEIGHT || x + width > OLED_WIDTH || y + height > OLED_HEIGHT)
+        return ESP_ERR_INVALID_ARG; // Out of bounds
+
+    // Draw the bottom horizontal edge
+    for (uint8_t i = 0; i < width; i++) {
+        drv_sh1106_draw_pixel(x + i, y + height - 1, color); // Bottom border
+    }
+
+    // Draw the left and right vertical edges
+    for (uint8_t i = 0; i < height; i++) {
+        drv_sh1106_draw_pixel(x, y + i, color);               // Left border
+        drv_sh1106_draw_pixel(x + width - 1, y + i, color);   // Right border
+    }
+
+    // No top edge is drawn
+
+    // Update the screen to reflect changes
+    return drv_sh1106_update_screen(); // Send buffer to OLED
+}
+
+
+esp_err_t drv_sh1106_display_text_center(uint8_t line, const char *str) 
+{
+    if (!str) 
+        return ESP_ERR_INVALID_ARG; 
+
+    uint8_t char_width = FONT_WIDTH;                            // Width of one character in pixels
+
+    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
+    uint8_t start_x = (OLED_WIDTH - text_width) / 2;            // Calculate the starting x position to center the text
+
+    uint8_t y = line;                                           // Calculate the y position based on the line number
+
+    if ((OLED_WIDTH - text_width) <= 0) 
+        start_x = 0;
+    if (y >= (OLED_HEIGHT / FONT_HEIGHT))
+        y = 0;
+
+    while (*str) 
+    {
+        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
+        if (ret != ESP_OK)
+            return ret; 
+
+        start_x += char_width;
+    }
+
+    return ESP_OK;
+}
+
+
+esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
+{
+    if (!str)
+        return ESP_ERR_INVALID_ARG; 
+
+    uint8_t char_width = FONT_WIDTH;                            // Width of one character in pixels
+
+    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
+    uint8_t start_x = OLED_WIDTH - text_width - 6;                  // Calculate the starting x position to align the text to the right
+
+    uint8_t y = line;                             // Calculate the y position based on the line number
+
+    // Prevent overflow if text is too wide for the display
+    if ((OLED_WIDTH - text_width) <= 0)
+        start_x = 0;                                            // Start from the left if text exceeds width
+
+    if (y >= (OLED_HEIGHT / FONT_HEIGHT))
+        y = 0;                                                 // Ensure y is within bounds
+
+    while (*str) 
+    {
+        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
+        if (ret != ESP_OK)
+            return ret; 
+
+        start_x += char_width;                                   // Move to the next character position
+    }
+
+    return ESP_OK;
+}
+
+
+
 // ----------------------------------- PUBLIC FUNCTION -----------------------------------//
 esp_err_t drv_sh1106_init(void) 
 {
@@ -145,7 +232,6 @@ esp_err_t drv_sh1106_init(void)
 }
 
 
-
 esp_err_t drv_sh1106_clear_screen(void) 
 {
     memset(screen_buffer, 0, OLED_WIDTH * (OLED_HEIGHT / 8)); // Set all bytes in the buffer to 0
@@ -156,7 +242,6 @@ esp_err_t drv_sh1106_clear_screen(void)
 
     return ESP_OK;
 }
-
 
 
 esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str) 
@@ -186,41 +271,6 @@ esp_err_t drv_sh1106_display_text(uint8_t x, uint8_t y, const char *str)
 }
 
 
-
-
-
-esp_err_t drv_sh1106_display_text_right(uint8_t line, const char *str)
-{
-    if (!str)
-        return ESP_ERR_INVALID_ARG; 
-
-    uint8_t char_width = FONT_WIDTH;                            // Width of one character in pixels
-
-    uint8_t text_width = strlen(str) * char_width;              // Calculate the pixel width of the text
-    uint8_t start_x = OLED_WIDTH - text_width - 6;                  // Calculate the starting x position to align the text to the right
-
-    uint8_t y = line;                             // Calculate the y position based on the line number
-
-    // Prevent overflow if text is too wide for the display
-    if ((OLED_WIDTH - text_width) <= 0)
-        start_x = 0;                                            // Start from the left if text exceeds width
-
-    if (y >= (OLED_HEIGHT / FONT_HEIGHT))
-        y = 0;                                                 // Ensure y is within bounds
-
-    while (*str) 
-    {
-        esp_err_t ret = drv_sh1106_write_char(start_x, y, *str++);
-        if (ret != ESP_OK)
-            return ret; 
-
-        start_x += char_width;                                   // Move to the next character position
-    }
-
-    return ESP_OK;
-}
-
-
 esp_err_t drv_sh1106_display_image(const uint8_t *image)
 {
     for (uint8_t y = 0; y < OLED_HEIGHT; y++)
@@ -239,6 +289,7 @@ esp_err_t drv_sh1106_display_image(const uint8_t *image)
     return ESP_OK;
 }
 
+
 esp_err_t drv_sh1106_turn_off(void)
 {
     drv_sh1106_send_command(0xAE); // Display OFF
@@ -250,28 +301,7 @@ esp_err_t drv_sh1106_turn_off(void)
 
 
 // --------------------------DEVELOPING FUNCTION--------------------//
-esp_err_t drv_sh1106_draw_rect_no_top(uint8_t x, uint8_t y, uint8_t width, uint8_t height, uint8_t color)
-{
-    // Validate the coordinates and dimensions to ensure the rectangle fits within the screen
-    if (x >= OLED_WIDTH || y >= OLED_HEIGHT || x + width > OLED_WIDTH || y + height > OLED_HEIGHT)
-        return ESP_ERR_INVALID_ARG; // Out of bounds
 
-    // Draw the bottom horizontal edge
-    for (uint8_t i = 0; i < width; i++) {
-        drv_sh1106_draw_pixel(x + i, y + height - 1, color); // Bottom border
-    }
-
-    // Draw the left and right vertical edges
-    for (uint8_t i = 0; i < height; i++) {
-        drv_sh1106_draw_pixel(x, y + i, color);               // Left border
-        drv_sh1106_draw_pixel(x + width - 1, y + i, color);   // Right border
-    }
-
-    // No top edge is drawn
-
-    // Update the screen to reflect changes
-    return drv_sh1106_update_screen(); // Send buffer to OLED
-}
 
 
 
