@@ -6,7 +6,6 @@
 // static void system_oled_test_screen_1();
 
 static system_main_state_t current_state = IDLE;
-static system_main_state_t next_state;
 
 
 esp_err_t system_manage_init (void)
@@ -137,7 +136,7 @@ esp_err_t system_manage_init (void)
 
 system_main_state_t system_manage_update_state ()
 {
-  next_state = current_state;
+  system_main_state_t next_state = current_state;
 
   switch (current_state)
   {
@@ -171,7 +170,12 @@ system_main_state_t system_manage_update_state ()
 
 void system_manage_loop(void)
 {
-  current_state = system_manage_update_state();
+  system_main_state_t next_state = system_manage_update_state();
+
+  if (current_state != next_state)
+    current_state = next_state;
+  else
+    return;
 
   switch (current_state)
   {

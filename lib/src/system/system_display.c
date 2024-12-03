@@ -26,6 +26,9 @@ esp_err_t system_display_boot (void)
 
 esp_err_t system_display_online   (void)       // Could be some parameter later, this is just the code test
 {
+  drv_sh1106_clear_screen();
+  bsp_timer_delay(10);
+  
   char date_time [] = "29.11.2024 - 19:00";
   char location_1[] = "QUANG BINH";
   char location_2[] = "HO CHI MINH";
