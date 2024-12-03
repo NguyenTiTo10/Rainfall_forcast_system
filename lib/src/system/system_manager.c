@@ -143,7 +143,6 @@ system_main_state_t system_manager_get_state ()
   {
     case IDLE:
       // check if the data update is complete (dht11, mqtt, location)
-
       next_state = BOOT_STATE;
       break;
 
@@ -155,6 +154,11 @@ system_main_state_t system_manager_get_state ()
     case ONLINE_STATE:
       if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
         next_state = OFFLINE_STATE;
+      break;
+
+    case OFFLINE_STATE:
+      if (drv_btn_detect_press() == MAIN_BTN_PRESSED)
+        next_state = ONLINE_STATE;
       break;
 
     default:
