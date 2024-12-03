@@ -316,6 +316,17 @@ esp_err_t drv_sh1106_display_location (const char *location)
     drv_sh1106_display_text_center(1, location);
 }
 
+esp_err_t drv_sh1106_turn_on(void)
+{
+    drv_sh1106_send_command(0xAE); // Ensure display is off before enabling charge pump
+    drv_sh1106_send_command(0x8D); // Charge Pump Setting
+    drv_sh1106_send_command(0x14); // Enable charge pump
+    drv_sh1106_send_command(0xAF); // Display ON
+
+    return ESP_OK;
+}
+
+
 
 
 
