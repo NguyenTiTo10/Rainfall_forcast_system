@@ -19,9 +19,10 @@
 
 static const char *TAG = "Button";
 
-static esp_err_t i2c_master_init    (void);
-static esp_err_t config_gpio        (void);
-static esp_err_t config_isr_gpio    (void);
+static esp_err_t    i2c_master_init    (void);
+static esp_err_t    config_gpio        (void);
+static esp_err_t    config_isr_gpio    (void);
+static esp_err_t    app_init           (void);
 
 
 
@@ -98,7 +99,7 @@ static esp_err_t config_isr_gpio (void)
 }
 
 
-esp_err_t app_init ()
+esp_err_t app_init (void)
 {
     esp_err_t ret;
 
@@ -132,8 +133,10 @@ esp_err_t app_init ()
 
 void app_main(void) 
 {
-    // Init I2C, GPIO and ISR GPIO
-    app_init
+    // Init Button (I2C), Button (GPIO and ISR GPIO)
+    app_init();
+
+    
     system_manage_loop();    
 
 #ifdef TEST_MQTT
