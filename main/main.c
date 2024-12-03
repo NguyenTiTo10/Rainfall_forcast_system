@@ -75,6 +75,7 @@ static esp_err_t config_gpio (void)
         return err;
 }
 
+
 static esp_err_t config_isr_gpio (void)
 {
     esp_err_t ret;
@@ -96,23 +97,35 @@ static esp_err_t config_isr_gpio (void)
     return ESP_OK;
 }
 
-void app_main(void) 
-{
-    // Initialize I2C and the SH1106 OLED display
-    if (i2c_master_init() == ESP_OK) 
-        printf("I2C initialized successfully.\n");
-    else 
-        printf("Failed to initialize I2C.\n");
 
+esp_err_t system_init ()
+{
+    esp_err_t ret;
+    // Initialize I2C 
+
+    ret = i2c_master_init();
+    if (ret != ESP_OK) 
+    {
+        printf("Failed to initialize I2C.\n");
+        return ret;
+    }
+        
+
+    ret = config_gpio();
     if (config_gpio() == ESP_OK)
         printf("GPIO config succesfully.\n");
     else
         printf("GPIO error.\n");
 
     config_isr_gpio();
-    
+
 
     system_manage_loop();    
+
+}
+void app_main(void) 
+{
+    
 
 #ifdef TEST_MQTT
   mqtt_main();
