@@ -114,8 +114,13 @@ system_main_state_t system_manage_update_state ()
 }
 
 
+#define SYSTEM_TEST_DISPLAY
+
 void system_manage_loop(void)
 {
+#ifdef SYSTEM_TEST_DISPLAY
+  system_display_test();
+#else
   system_main_state_t next_state = system_manage_update_state();
 
   if (current_state != next_state)
@@ -145,6 +150,7 @@ void system_manage_loop(void)
   }
 
   return;
+#endif
 }
 
 
