@@ -34,11 +34,11 @@ typedef enum
 
 typedef struct 
 {
-  char time[10];
-  char location [10];
-  char text_line_1 [10];
-  char text_line_2 [10];
-  char text_line_3 [10];
+  char time[19];
+  char location [12];
+  char text_line_1 [17];
+  char text_line_2 [17];
+  char text_line_3 [17];
 } system_data_display_t;
 
 

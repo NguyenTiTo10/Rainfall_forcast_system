@@ -5,7 +5,7 @@ char date_time [] = "29.11.2024 - 19:00";
 char location_1[] = "QUANG BINH";
 char location_2[] = "HO CHI MINH";
 char temp     [] = "Temp    : 30.6 C ";
-char humid    [] = "Humid   : 80.0 %";
+char humid    [] = "Humid   : 80.0 % ";
 char air_press[] = "Pressure: 20.0 Pa";
 
 char ifs  [] = "IFS  : 35.6  43.2  30.0";
