@@ -30,5 +30,6 @@
     "string.h": "c",
     "mqtt.h": "c"
   },
-  "idf.flashType": "UART"
+  "idf.flashType": "UART",
+  "C_Cpp.dimInactiveRegions": false
 }

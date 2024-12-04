@@ -1,5 +1,6 @@
-#ifdef  MIDDLE_MQTT_H
-#define MIDDLE_MQTT_H
+#ifndef MQTT_H
+#define MQTT_H
+
 
 #include "mqtt_tcp.h"
 

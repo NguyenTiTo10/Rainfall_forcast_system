@@ -1,7 +1,7 @@
 # idf_component_register(SRCS "mqtt_tcp.c" "main.c"
 #                     INCLUDE_DIRS ".")
 
-idf_component_register(SRCS "main.c" "middle_mqtt.c" "mqtt_tcp/mqtt_tcp.c" 
+idf_component_register(SRCS "main.c" "mqtt.c" "mqtt_tcp/mqtt_tcp.c" 
 
                         "../lib/src/system/system_manager.c"      
                         "../lib/src/system/system_display.c"  
