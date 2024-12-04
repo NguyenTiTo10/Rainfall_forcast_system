@@ -25,7 +25,8 @@
     "bsp_gpio.h": "c",
     "drv_button.h": "c",
     "bsp_timer.h": "c",
-    "font_image.h": "c"
+    "font_image.h": "c",
+    "system_display.h": "c"
   },
   "idf.flashType": "UART"
 }

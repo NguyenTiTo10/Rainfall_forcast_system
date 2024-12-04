@@ -1,4 +1,5 @@
 #include "system_display.h" 
+#include "esp_log.h"
 
 char date_time [] = "29.11.2024 - 19:00";
 char location_1[] = "QUANG BINH";
@@ -12,6 +13,8 @@ esp_err_t system_display_idle (void)
   drv_sh1106_turn_on();
 
   drv_sh1106_clear_screen();
+
+  ESP_LOGI("Init state", "Completed");
 
   // Start let's dht11 read data
 
@@ -28,6 +31,8 @@ esp_err_t system_display_boot (void)
   drv_sh1106_delay_screen (500);
 
   drv_sh1106_clear_screen();
+
+  ESP_LOGI("Boot state", "Completed");
 
   return ESP_OK;
 }

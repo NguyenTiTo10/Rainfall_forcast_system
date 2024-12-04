@@ -1,7 +1,10 @@
 #include "system_manager.h"
+#include "esp_log.h"
 
 
 static system_main_state_t current_state = IDLE;
+// static system_main_state_t next_state    = IDLE;
+
 static uint8_t task_handle = 0;
 
 
@@ -66,7 +69,7 @@ esp_err_t system_manage_init (void)
 system_main_state_t system_manage_update_state ()
 {
   system_main_state_t next_state = current_state;
-  drv_btn_type_t btn_pressed = drv_btn_detect_press();          // Store the result of button detection
+  drv_btn_type_t btn_pressed = drv_btn_detect_press(); // Store the result of button detection
 
   switch (current_state)
   {
@@ -108,9 +111,6 @@ system_main_state_t system_manage_update_state ()
   return next_state;
 }
 
-
-// #define SYSTEM_TEST_DISPLAY
-
 void system_manage_loop(void)
 {
   system_main_state_t next_state = system_manage_update_state();
@@ -121,8 +121,6 @@ void system_manage_loop(void)
     task_handle = task_handle -1;
   else
     return;
-
-  // current_state = next_state;
 
   switch (current_state)
   {
@@ -152,5 +150,3 @@ void system_manage_loop(void)
 
   return;
 }
-
-
