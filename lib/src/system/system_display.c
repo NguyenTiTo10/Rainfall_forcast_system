@@ -46,25 +46,44 @@ esp_err_t system_display_boot (void)
 
 bool areStringsEqual(const char *str1, const char *str2) 
 {
-    return strcmp(str1, str2) == 0;
+  return strcmp(str1, str2) == 0;
 }
 
 esp_err_t system_display_screen_1   (system_data_display_t data)       
 {
+  drv_sh1106_draw_border_top ();
+
   // Compare section
-
-
+  if (areStringsEqual(date_time, data.time))          // Date time
+  {
+    strcpy(date_time, data.time);
+    drv_sh1106_display_time(date_time);
+  }
+  if (areStringsEqual(location, data.location))       // Location
+  {
+    strcpy(location, data.location);
+    drv_sh1106_display_location (location);
+  }
+  if (areStringsEqual(temp, data.text_line_1))        // Temp 
+  {
+    strcpy(temp, data.text_line_1);
+    drv_sh1106_display_text(0, 3, temp);
+  } 
+  if (areStringsEqual(humid, data.text_line_2))       // Humid
+  {
+    strcpy(humid, data.text_line_2);
+    drv_sh1106_display_text(0, 5, humid);
+  }
+  if (areStringsEqual(air_press, data.text_line_3))   // Air Press
+  {
+    strcpy(air_press, data.text_line_3);
+    drv_sh1106_display_text(0, 7, air_press);
+  }
 
 
   // ------------------Display------------------//
-  drv_sh1106_draw_border_top ();
 
-  drv_sh1106_display_time(date_time);
-  drv_sh1106_display_location (location_1);
 
-  drv_sh1106_display_text(0, 3, temp);
-  drv_sh1106_display_text(0, 5, humid);
-  drv_sh1106_display_text(0, 7, air_press);
 
   return ESP_OK;
 }
