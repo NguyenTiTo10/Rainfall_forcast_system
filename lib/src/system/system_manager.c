@@ -145,6 +145,16 @@ void system_manage_screen_1 (void)
   // Take from system_update_data
 
   // Send to system_display
+
+  system_data_display_t data_transmit = 
+  {
+    .time = "29.11.2024 - 19:00",
+    .location = "HO CHI MINH",
+    .text_line_1 = "Temp    : 30.6 C ",
+    .text_line_2 = "Humid   : 80.0 % ",
+    .text_line_3 = "Pressure: 20.0 Pa"
+  };
+
   system_display_screen_1 ();
 }
 
