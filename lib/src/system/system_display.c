@@ -57,16 +57,13 @@ esp_err_t system_display_screen_1   (system_data_display_t data)
 }
 
 
-esp_err_t system_display_screen_2   (void)       // Could be some parameter later, this is just the code test
+esp_err_t system_display_screen_2   (system_data_display_t data)       // Could be some parameter later, this is just the code test
 {
-
-  drv_sh1106_display_time(date_time);
-  drv_sh1106_display_location (location_1);
-
-  drv_sh1106_display_text(0, 3, ifs);
-  drv_sh1106_display_text(0, 5, tito);
-  drv_sh1106_display_text(0, 7, vrain);
-
+  drv_sh1106_display_time(data.time);
+  drv_sh1106_display_location (data.location);
+  drv_sh1106_display_text(0, 3, data.text_line_1);
+  drv_sh1106_display_text(0, 5, data.text_line_2); 
+  drv_sh1106_display_text(0, 7, data.text_line_2);
   return ESP_OK;
 }
 

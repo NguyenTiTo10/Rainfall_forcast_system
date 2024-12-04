@@ -160,7 +160,7 @@ void system_manage_screen_2 (void)
   // Take from system_update_data
 
   // Send to system_display
-  system_data_display_t data_scree_2 = 
+  system_data_display_t data_screen_2 = 
   {
     .time = "29.11.2024 - 19:00",
     .location = "HO CHI MINH",
@@ -169,7 +169,7 @@ void system_manage_screen_2 (void)
     .text_line_1 = "Vrain: 35.6  43.2  30.0",
   };
 
-  system_display_screen_2();
+  system_display_screen_2(data_screen_2);
 }
 
 
