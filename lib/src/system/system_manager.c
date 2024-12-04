@@ -159,3 +159,10 @@ void system_manage_idle (void)
 {
   system_display_idle ();
 }
+
+
+void system_manage_boot (void)
+{
+  system_display_boot ();
+}
+
