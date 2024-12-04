@@ -27,8 +27,8 @@
 
 typedef struct 
 {
-  char topic [100];
-  char data [100];
+  char *topic;
+  char *data;
 
 } event_data_recieve_t;
 
