@@ -30,8 +30,17 @@ typedef enum
   UPDATE_LOCATION,
   UPDATE_SENSOR_DATA,
   UPDATE_RAIN,
-  UPDATE_SCREEN_MODE
 } system_update_state_t;
+
+typedef struct 
+{
+  char time[10];
+  char location [10];
+  char text_line_1 [10];
+  char text_line_2 [10];
+  char text_line_3 [10];
+} system_data_display_t;
+
 
 esp_err_t system_manage_init (void);
 

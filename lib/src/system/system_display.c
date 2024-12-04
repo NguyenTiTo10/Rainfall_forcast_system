@@ -8,6 +8,8 @@ char temp[] = "Temp: 30.6 C ";
 char humid[] = "Humid: 80 %";
 char air_press[] = "Air press: 20 Pa";
 
+c
+
 esp_err_t system_display_idle (void)
 {
   drv_sh1106_turn_on();
