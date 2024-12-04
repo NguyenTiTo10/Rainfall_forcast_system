@@ -4,6 +4,8 @@
 
 #include "system_manager.h"
 
+#include "mqtt_tcp.h"
+
 
 // I2C configuration
 #define I2C_MASTER_SCL_IO       22              
