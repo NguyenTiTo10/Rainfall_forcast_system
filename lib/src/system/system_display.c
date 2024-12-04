@@ -63,7 +63,7 @@ esp_err_t system_display_screen_2   (system_data_display_t data)       // Could 
   drv_sh1106_display_location (data.location);
   drv_sh1106_display_text(0, 3, data.text_line_1);
   drv_sh1106_display_text(0, 5, data.text_line_2); 
-  drv_sh1106_display_text(0, 7, data.text_line_2);
+  drv_sh1106_display_text(0, 7, data.text_line_3);
   return ESP_OK;
 }
 

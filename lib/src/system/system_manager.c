@@ -165,8 +165,8 @@ void system_manage_screen_2 (void)
     .time = "29.11.2024 - 19:00",
     .location = "HO CHI MINH",
     .text_line_1 = "IFS  : 35.6  43.2  30.0",
-    .text_line_1 = "Tito : 35.6  43.2  30.0",
-    .text_line_1 = "Vrain: 35.6  43.2  30.0",
+    .text_line_2 = "Tito : 35.6  43.2  30.0",
+    .text_line_3 = "Vrain: 35.6  43.2  30.0",
   };
 
   system_display_screen_2(data_screen_2);
