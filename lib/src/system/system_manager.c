@@ -84,13 +84,7 @@ system_main_state_t system_manage_update_state ()
 void system_manage_loop(void)
 {
   system_main_state_t next_state = system_manage_update_state();
-
-  if (current_state != next_state)
-    current_state = next_state;
-  else if (task_handle != 0)
-    task_handle = task_handle -1;
-  else
-    return;
+  current_state = next_state;
 
   switch (current_state)
   {

@@ -39,6 +39,8 @@ esp_err_t system_display_boot (void)
 
   drv_sh1106_clear_screen();
 
+  drv_sh1106_draw_border_top ();
+
   ESP_LOGI("Boot state", "Completed");
 
   return ESP_OK;
@@ -54,48 +56,19 @@ bool system_display_check_differnce(const char *str1, const char *str2)
 }
 
 esp_err_t system_display_screen_1   (system_data_display_t data)       
-{
-  drv_sh1106_draw_border_top ();
-
-  // Compare section
-  if (system_display_check_differnce(date_time, data.time))          // Date time
-  {
-    strcpy(date_time, data.time);
-    drv_sh1106_display_time(date_time);
-  }
-  if (system_display_check_differnce(location, data.location))       // Location
-  {
-    strcpy(location, data.location);
-    drv_sh1106_display_location (location);
-  }
-  if (system_display_check_differnce(temp, data.text_line_1))        // Temp 
-  {
-    strcpy(temp, data.text_line_1);
-    drv_sh1106_display_text(0, 3, temp);
-  } 
-  if (system_display_check_differnce(humid, data.text_line_2))       // Humid
-  {
-    strcpy(humid, data.text_line_2);
-    drv_sh1106_display_text(0, 5, humid);
-  }
-  if (system_display_check_differnce(air_press, data.text_line_3))   // Air Press
-  {
-    strcpy(air_press, data.text_line_3);
-    drv_sh1106_display_text(0, 7, air_press);
-  }
-
-
+{        
+  drv_sh1106_display_time(data.time);
+  drv_sh1106_display_location (data.location);
+  drv_sh1106_display_text(0, 3, data.text_line_1);
+  drv_sh1106_display_text(0, 5, data.text_line_2); 
+  drv_sh1106_display_text(0, 7, data.text_line_2);
   // ------------------Display------------------//
-
-
-
   return ESP_OK;
 }
 
 
 esp_err_t system_display_screen_2   (void)       // Could be some parameter later, this is just the code test
 {
-  drv_sh1106_draw_border_top ();
 
   drv_sh1106_display_time(date_time);
   drv_sh1106_display_location (location_1);
