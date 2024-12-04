@@ -164,17 +164,31 @@ void system_manage_idle (void)
 void system_manage_boot (void)
 {
   system_display_boot ();
+
+  // Send request to server 
+
+  // Take data from server
 }
 
 
 void system_manage_screen_1 (void)
 {
+  // Check once again whether the essential data is complete
+
+  // Take from system_update_data
+
+  // Send to system_display
   system_display_screen_1 ();
 }
 
 
 void system_manage_screen_2 (void)
 {
+  // Check once again whether the essential data is complete
+
+  // Take from system_update_data
+
+  // Send to system_display
   system_display_screen_2();
 }
 
