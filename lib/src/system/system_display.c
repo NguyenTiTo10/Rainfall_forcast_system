@@ -8,7 +8,10 @@ char temp[] = "Temp: 30.6 C ";
 char humid[] = "Humid: 80 %";
 char air_press[] = "Air press: 20 Pa";
 
-c
+char ifs[] = "IFS  : 1h - 35   6h - 43  24h - 30";
+char tito[] = "Tito : 1h - 35   6h - 43  24h - 30";
+char vrain[] = "Vrain: 1h - 35   6h - 43  24h - 30";
+
 
 esp_err_t system_display_idle (void)
 {
