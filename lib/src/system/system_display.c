@@ -44,9 +44,13 @@ esp_err_t system_display_boot (void)
   return ESP_OK;
 }
 
-bool areStringsEqual(const char *str1, const char *str2) 
+bool system_display_check_differnce(const char *str1, const char *str2) 
 {
-  return strcmp(str1, str2) == 0;
+    if (strlen(str1) == strlen(str2)) 
+    {
+      return strcmp(str1, str2) != 0;
+    }
+    return false;
 }
 
 esp_err_t system_display_screen_1   (system_data_display_t data)       
@@ -54,27 +58,27 @@ esp_err_t system_display_screen_1   (system_data_display_t data)
   drv_sh1106_draw_border_top ();
 
   // Compare section
-  if (areStringsEqual(date_time, data.time))          // Date time
+  if (system_display_check_differnce(date_time, data.time))          // Date time
   {
     strcpy(date_time, data.time);
     drv_sh1106_display_time(date_time);
   }
-  if (areStringsEqual(location, data.location))       // Location
+  if (system_display_check_differnce(location, data.location))       // Location
   {
     strcpy(location, data.location);
     drv_sh1106_display_location (location);
   }
-  if (areStringsEqual(temp, data.text_line_1))        // Temp 
+  if (system_display_check_differnce(temp, data.text_line_1))        // Temp 
   {
     strcpy(temp, data.text_line_1);
     drv_sh1106_display_text(0, 3, temp);
   } 
-  if (areStringsEqual(humid, data.text_line_2))       // Humid
+  if (system_display_check_differnce(humid, data.text_line_2))       // Humid
   {
     strcpy(humid, data.text_line_2);
     drv_sh1106_display_text(0, 5, humid);
   }
-  if (areStringsEqual(air_press, data.text_line_3))   // Air Press
+  if (system_display_check_differnce(air_press, data.text_line_3))   // Air Press
   {
     strcpy(air_press, data.text_line_3);
     drv_sh1106_display_text(0, 7, air_press);
