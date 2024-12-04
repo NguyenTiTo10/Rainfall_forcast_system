@@ -24,7 +24,6 @@
 #include "esp_log.h"
 #include "mqtt_client.h"
 
-void mqtt_main (void);
 
 typedef struct 
 {
@@ -33,6 +32,11 @@ typedef struct
 
 } event_data_recieve_t;
 
-event_data_recieve_t get_event_data (void); 
+
+void mqtt_main (void);
+event_data_recieve_t get_event_data (esp_mqtt_event_handle_t event); 
+
+
+
 
 #endif // MQTT_TCP_H

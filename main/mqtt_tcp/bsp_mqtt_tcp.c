@@ -1,14 +1,3 @@
-/* MQTT (over TCP) Example
-
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
-
-
-
 #include "bsp_mqtt_tcp.h"
 
 static const char *TAG = "mqtt_example";
@@ -87,10 +76,10 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     }
 }
 
-event_data_recieve_t get_event_data (void)
-{
-    event_data_recieve_t ret_data = 
-}
+// event_data_recieve_t get_event_data (void)
+// {
+//     event_data_recieve_t ret_data = 
+// }
 
 #define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
 
