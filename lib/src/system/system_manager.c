@@ -140,7 +140,7 @@ void system_manage_screen_1 (void)
 
   // Send to system_display
 
-  system_data_display_t data_transmit = 
+  system_data_display_t data_scree_1 = 
   {
     .time = "29.11.2024 - 19:00",
     .location = "HO CHI MINH",
@@ -149,7 +149,7 @@ void system_manage_screen_1 (void)
     .text_line_3 = "Pressure: 20.0 Pa"
   };
 
-  system_display_screen_1 (data_transmit);
+  system_display_screen_1 (data_scree_1);
 }
 
 
@@ -160,6 +160,15 @@ void system_manage_screen_2 (void)
   // Take from system_update_data
 
   // Send to system_display
+  system_data_display_t data_scree_2 = 
+  {
+    .time = "29.11.2024 - 19:00",
+    .location = "HO CHI MINH",
+    .text_line_1 = "IFS  : 35.6  43.2  30.0",
+    .text_line_1 = "Tito : 35.6  43.2  30.0",
+    .text_line_1 = "Vrain: 35.6  43.2  30.0",
+  };
+
   system_display_screen_2();
 }
 
