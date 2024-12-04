@@ -1,6 +1,5 @@
 #include "system_display.h" 
 #include "esp_log.h"
-#include <string.h>
 
 
 char date_time  [] = "00.00.0000 - 00:00";
@@ -44,15 +43,6 @@ esp_err_t system_display_boot (void)
   ESP_LOGI("Boot state", "Completed");
 
   return ESP_OK;
-}
-
-bool system_display_check_differnce(const char *str1, const char *str2) 
-{
-    if (strlen(str1) == strlen(str2)) 
-    {
-      return strcmp(str1, str2) != 0;
-    }
-    return false;
 }
 
 esp_err_t system_display_screen_1   (system_data_display_t data)       
