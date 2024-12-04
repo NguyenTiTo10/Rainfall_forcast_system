@@ -7,6 +7,12 @@ static system_main_state_t current_state = IDLE;
 
 static uint8_t task_handle = 0;
 
+static void system_manage_idle      (void);
+static void system_manage_boot      (void);
+static void system_manage_screen_1  (void);
+static void system_manage_screen_2  (void);
+static void system_manage_offline   (void);
+
 
 esp_err_t system_manage_init (void)
 {
@@ -150,3 +156,4 @@ void system_manage_loop(void)
 
   return;
 }
+
