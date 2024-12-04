@@ -4,7 +4,7 @@
 
 #include "system_manager.h"
 
-#include "mqtt_tcp.h"
+#include "mqtt.h"
 
 
 // I2C configuration
@@ -134,8 +134,10 @@ esp_err_t app_init (void)
 void app_main(void) 
 {
 #define TEST_MQTT
+
 #ifdef TEST_MQTT
-  mqtt_main();
+  mqtt_test();
+
 #else
     app_init();                     // Init (I2C), Button (GPIO and ISR GPIO)
 
