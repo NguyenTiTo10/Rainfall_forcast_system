@@ -81,6 +81,8 @@ event_data_recieve_t get_event_data (esp_mqtt_event_handle_t event)
     
     ret_data.topic = event->topic;
     ret_data.data = event->data;
+
+    return ret_data;
 }
 
 #define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
