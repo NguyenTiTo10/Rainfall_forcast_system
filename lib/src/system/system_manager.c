@@ -27,11 +27,8 @@ esp_err_t system_manage_init (void)
 
   uint8_t err = drv_dht11_init();               // Init driver dht11
   if (!err)
-  {
     printf("DHT11 Initialization failed! \n");
-    return ret;
-  }
-
+  
   // Init MQTT
 
 
