@@ -173,7 +173,13 @@ void system_manage_screen_1 (void)
 }
 
 
-void system_manage_screeen_2 (void)
+void system_manage_screen_2 (void)
 {
   system_display_screen_2();
+}
+
+
+void system_manage_offline (void)
+{
+  system_display_offline ();
 }
