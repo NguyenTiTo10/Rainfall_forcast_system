@@ -155,7 +155,7 @@ void system_manage_screen_1 (void)
     .text_line_3 = "Pressure: 20.0 Pa"
   };
 
-  system_display_screen_1 ();
+  system_display_screen_1 (data_transmit);
 }
 
 
