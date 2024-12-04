@@ -154,3 +154,8 @@ void system_manage_loop(void)
   return;
 }
 
+
+void system_manage_idle (void)
+{
+  system_display_idle ();
+}
