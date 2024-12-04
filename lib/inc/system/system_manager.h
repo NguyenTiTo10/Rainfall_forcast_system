@@ -32,14 +32,7 @@ typedef enum
   UPDATE_RAIN,
 } system_update_state_t;
 
-typedef struct 
-{
-  char time[19];
-  char location [12];
-  char text_line_1 [17];
-  char text_line_2 [17];
-  char text_line_3 [17];
-} system_data_display_t;
+
 
 
 esp_err_t system_manage_init (void);
