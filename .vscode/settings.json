@@ -27,7 +27,8 @@
     "bsp_timer.h": "c",
     "font_image.h": "c",
     "system_display.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "mqtt.h": "c"
   },
   "idf.flashType": "UART"
 }
