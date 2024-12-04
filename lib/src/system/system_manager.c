@@ -140,7 +140,7 @@ void system_manage_screen_1 (void)
 
   // Send to system_display
 
-  system_data_display_t data_scree_1 = 
+  system_data_display_t data_screen_1 = 
   {
     .time = "29.11.2024 - 19:00",
     .location = "HO CHI MINH",
@@ -149,7 +149,7 @@ void system_manage_screen_1 (void)
     .text_line_3 = "Pressure: 20.0 Pa"
   };
 
-  system_display_screen_1 (data_scree_1);
+  system_display_screen_1 (data_screen_1);
 }
 
 

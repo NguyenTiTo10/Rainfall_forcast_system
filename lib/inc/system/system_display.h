@@ -17,9 +17,9 @@ typedef struct
 {
   char time[19];
   char location [12];
-  char text_line_1 [18];
-  char text_line_2 [18];
-  char text_line_3 [18];
+  char text_line_1 [24];
+  char text_line_2 [24];
+  char text_line_3 [24];
 } system_data_display_t;
 
 
