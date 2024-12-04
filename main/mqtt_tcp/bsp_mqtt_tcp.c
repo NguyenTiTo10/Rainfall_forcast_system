@@ -108,6 +108,11 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     }
 }
 
+event_data_recieve_t get_event_data (void)
+{
+    
+}
+
 #define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
 
 static void mqtt_app_start(void)

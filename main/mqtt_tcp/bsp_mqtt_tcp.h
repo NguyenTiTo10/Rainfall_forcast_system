@@ -14,6 +14,6 @@ typedef struct
 
 } event_data_recieve_t;
 
-void 
+event_data_recieve_t get_event_data (void); 
 
 #endif // MQTT_TCP_H
