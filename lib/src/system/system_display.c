@@ -43,7 +43,7 @@ esp_err_t system_display_boot (void)
 }
 
 
-esp_err_t system_display_screen_1   (void)       // Could be some parameter later, this is just the code test
+esp_err_t system_display_screen_1   (system_data_display_t data)       // Could be some parameter later, this is just the code test
 {
   drv_sh1106_draw_border_top ();
 
