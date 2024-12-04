@@ -36,39 +36,6 @@ esp_err_t system_manage_init (void)
 }
 
 
-// void system_test_dht11 (void)
-// {
-//     uint32_t count = 0;
-//     float temp = 0.0f, humid = 0.0f;  // Initialize variables to default values
-
-
-//     while(1)
-//     {
-      
-//       if(drv_dht11_start_read())
-//       {  
-//         humid = drv_dht11_get_humid();
-//         temp = drv_dht11_get_temp();
-//         count += 1;
-//       }
-
-//       printf("Count: %lu\n", count);
-//       printf("[Temperature]> %.2f  \n",temp);
-//       printf("[Humidity]> %.2f \n \n",humid);
-
-//       bsp_timer_delay(2000);
-//     } 
-// }
-
-
-// static void system_manage_test_button (void)
-// {
-//   drv_btn_update_state();
-// }
-
-
-
-
 system_main_state_t system_manage_update_state ()
 {
   system_main_state_t next_state = current_state;
