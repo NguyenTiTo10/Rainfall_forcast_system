@@ -128,23 +128,23 @@ void system_manage_loop(void)
   switch (current_state)
   {
     case IDLE:
-      system_display_idle ();
+      system_manage_idle ();
       break;
 
     case BOOT_STATE:
-      system_display_boot ();
+      system_manage_boot ();
       break;
 
     case ONLINE_SCREEN_1_STATE:
-      system_display_screen_1 ();
+      system_manage_screen_1 ();
       break;
 
     case ONLINE_SCREEN_2_STATE:
-      system_display_screen_2();
+      system_manage_screen_2();
       break;
 
     case OFFLINE_STATE:
-      system_display_offline ();
+      system_manage_offline ();
       break;
 
     default:
