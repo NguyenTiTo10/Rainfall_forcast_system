@@ -171,3 +171,9 @@ void system_manage_screen_1 (void)
 {
   system_display_screen_1 ();
 }
+
+
+void system_manage_screeen_2 (void)
+{
+  system_display_screen_2();
+}
