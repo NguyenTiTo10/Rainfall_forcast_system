@@ -4,13 +4,13 @@
 char date_time [] = "29.11.2024 - 19:00";
 char location_1[] = "QUANG BINH";
 char location_2[] = "HO CHI MINH";
-char temp[] = "Temp: 30.6 C ";
-char humid[] = "Humid: 80 %";
-char air_press[] = "Air press: 20 Pa";
+char temp     [] = "Temp    : 30.6 C ";
+char humid    [] = "Humid   : 80.0 %";
+char air_press[] = "Pressure: 20.0 Pa";
 
-char ifs[] = "IFS  : 1h - 35   6h - 43  24h - 30";
-char tito[] = "Tito : 1h - 35   6h - 43  24h - 30";
-char vrain[] = "Vrain: 1h - 35   6h - 43  24h - 30";
+char ifs  [] = "IFS  : 35.6  43.2  30.0";
+char tito [] = "Tito : 35.6  43.2  30.0";
+char vrain[] = "Vrain: 35.6  43.2  30.0";
 
 
 esp_err_t system_display_idle (void)
@@ -48,7 +48,7 @@ esp_err_t system_display_screen_1   (void)       // Could be some parameter late
   drv_sh1106_draw_border_top ();
 
   drv_sh1106_display_time(date_time);
-  drv_sh1106_display_location (location_2);
+  drv_sh1106_display_location (location_1);
 
   drv_sh1106_display_text(0, 3, temp);
   drv_sh1106_display_text(0, 5, humid);
@@ -64,6 +64,10 @@ esp_err_t system_display_screen_2   (void)       // Could be some parameter late
 
   drv_sh1106_display_time(date_time);
   drv_sh1106_display_location (location_1);
+
+  drv_sh1106_display_text(0, 3, ifs);
+  drv_sh1106_display_text(0, 5, tito);
+  drv_sh1106_display_text(0, 7, vrain);
 
   return ESP_OK;
 }
