@@ -30,7 +30,7 @@
 #include "esp_log.h"
 #include "mqtt_client.h"
 
-#include "mqtt_tcp.h"
+#include "bsp_mqtt_tcp.h"
 
 static const char *TAG = "mqtt_example";
 
