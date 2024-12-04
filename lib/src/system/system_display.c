@@ -1,5 +1,7 @@
 #include "system_display.h" 
 #include "esp_log.h"
+#include <string.h>
+
 
 char date_time  [] = "00.00.0000 - 00:00";
 char location   [] = "HO CHI MING";
@@ -42,9 +44,19 @@ esp_err_t system_display_boot (void)
   return ESP_OK;
 }
 
+bool areStringsEqual(const char *str1, const char *str2) 
+{
+    return strcmp(str1, str2) == 0;
+}
 
 esp_err_t system_display_screen_1   (system_data_display_t data)       
 {
+  // Compare section
+
+
+
+
+  // ------------------Display------------------//
   drv_sh1106_draw_border_top ();
 
   drv_sh1106_display_time(date_time);
