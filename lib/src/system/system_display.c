@@ -1,13 +1,13 @@
 #include "system_display.h" 
 #include "esp_log.h"
 
-char date_time [] = "29.11.2024 - 19:00";
-char location_1[] = "QUANG BINH";
-char location_2[] = "HO CHI MINH";
-char temp     [] = "Temp    : 30.6 C ";
-char humid    [] = "Humid   : 80.0 % ";
-char air_press[] = "Pressure: 20.0 Pa";
+char date_time  [] = "00.00.0000 - 00:00";
+char location   [] = "HO CHI MING";
+char temp       [] = "Temp    : 99.9 C ";
+char humid      [] = "Humid   : 99.9 % ";
+char air_press  [] = "Pressure: 99.9 Pa";
 
+char location_1[] = "QUANG BINH";
 char ifs  [] = "IFS  : 35.6  43.2  30.0";
 char tito [] = "Tito : 35.6  43.2  30.0";
 char vrain[] = "Vrain: 35.6  43.2  30.0";
@@ -43,7 +43,7 @@ esp_err_t system_display_boot (void)
 }
 
 
-esp_err_t system_display_screen_1   (system_data_display_t data)       // Could be some parameter later, this is just the code test
+esp_err_t system_display_screen_1   (system_data_display_t data)       
 {
   drv_sh1106_draw_border_top ();
 
