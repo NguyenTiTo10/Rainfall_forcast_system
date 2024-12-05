@@ -39,10 +39,6 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     {
         case MQTT_EVENT_CONNECTED:
             ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
-
-            msg_id = esp_mqtt_client_subscribe(client, "Test", 0);
-            ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
-
             break;
         case MQTT_EVENT_DISCONNECTED:
             ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
@@ -95,13 +91,17 @@ event_data_recieve_t get_event_data ()
 int bsp_mqtt_client_subscribe (char *topic)
 {
     msg_id = esp_mqtt_client_subscribe(client, topic, 0);
+    ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
+
     return msg_id;
 }
 
 
 int bsp_mqtt_client_publish (char *topic, char *data)
 {
-    msg_id = esp_mqtt_client_publish(client, "Test", "Request_data", 0, 0, 0);
+    msg_id = esp_mqtt_client_publish(client, topic, data, 0, 0, 0);
+    ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
+
     return msg_id;
 }
 
