@@ -96,8 +96,8 @@ static void mqtt_app_start(void)
     esp_mqtt_client_config_t mqtt_cfg = 
     {
         .broker.address.uri                   = CONFIG_BROKER_URL,
-        .broker.address.port                  = 1883,
-        .credentials.username                 = "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc",
+        .broker.address.port                  = PORT_ADDRESS,
+        .credentials.username                 = USERNAME,
         .credentials.authentication.password  = "",
     };
 
