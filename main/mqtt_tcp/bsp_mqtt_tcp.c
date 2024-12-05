@@ -59,7 +59,8 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
         case MQTT_EVENT_DATA:
             ESP_LOGI(TAG, "MQTT_EVENT_DATA");
-            
+            mqtt_get_data_flag = true;
+            get_event_data();
             break;
 
         case MQTT_EVENT_ERROR:
@@ -81,6 +82,9 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
 event_data_recieve_t get_event_data ()
 {
+    if (!bsp_mqtt_get_flag)
+        return;
+        
     event_data_recieve_t ret_data;
     ret_data.topic = event->topic;
     ret_data.data = event->data;
