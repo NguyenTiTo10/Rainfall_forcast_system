@@ -72,14 +72,10 @@ static void system_manage_init_data_display()
 
 void system_manage_init (void)
 {
-  esp_err_t ret;
-
-  ret = drv_sh1106_init();                      // Init driver oled 
-  if (ret != ESP_OK)
+  if (drv_sh1106_init() != ESP_OK)
     printf("Oled SH1106 ERORR.\n");
 
-  uint8_t err = drv_dht11_init();               // Init driver dht11
-  if (!err)
+  if (!drv_dht11_init())
     printf("DHT11 Initialization failed! \n");
   
   system_manage_init_data_display();            // Init driver 

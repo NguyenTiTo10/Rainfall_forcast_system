@@ -70,5 +70,7 @@ void system_display_offline  (void)
 
   drv_sh1106_turn_off ();
 
+  ESP_LOGI("OFFLINE STATE", "Completed");
+
   return;
 }   
