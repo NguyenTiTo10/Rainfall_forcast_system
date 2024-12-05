@@ -28,7 +28,8 @@
     "font_image.h": "c",
     "system_display.h": "c",
     "string.h": "c",
-    "mqtt.h": "c"
+    "mqtt.h": "c",
+    "esp_err.h": "c"
   },
   "idf.flashType": "UART",
   "C_Cpp.dimInactiveRegions": false

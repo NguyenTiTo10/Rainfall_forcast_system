@@ -2,10 +2,6 @@
 #define SYSTEM_DISPLAY_H
 
 #include <stdio.h>
-#include "driver/i2c.h"
-#include "esp_err.h"
-
-#include "bsp_timer.h"
 
 #include "drv_sh1106.h"
 
