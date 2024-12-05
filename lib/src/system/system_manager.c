@@ -205,6 +205,14 @@ void system_manage_loop(void)
       system_display_screen_rain  (screen_quang_binh_rain);
       break;
 
+    case QUANG_TRI_SCREEN_SENSOR:
+      system_display_screen_sensor(screen_quang_tri_sensor);
+      break;
+
+    case QUANG_TRI_SCREEN_RAIN:
+      system_display_screen_rain  (screen_quang_tri_rain);
+      break;
+
     case OFFLINE_STATE:
       system_manage_offline ();
       break;
