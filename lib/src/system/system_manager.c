@@ -70,7 +70,7 @@ static void system_manage_init_data_display()
 }
 
 
-esp_err_t system_manage_init (void)
+void system_manage_init (void)
 {
   esp_err_t ret;
 

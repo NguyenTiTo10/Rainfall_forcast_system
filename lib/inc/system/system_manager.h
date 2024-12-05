@@ -12,8 +12,8 @@
 
 typedef enum
 {
-  IDLE,                             // Collect data sensor, mqtt, oled, ...
-  BOOT_STATE,                       // Display logo
+  IDLE,                             
+  BOOT_STATE,                       
   HA_TINH_SCREEN_SENSOR,            
   HA_TINH_SCREEN_RAIN,
   QUANG_BINH_SCREEN_SENSOR,            
@@ -33,7 +33,7 @@ typedef enum
 
 
 
-esp_err_t system_manage_init (void);
+void system_manage_init (void);
 
 void system_manage_loop (void);
 
