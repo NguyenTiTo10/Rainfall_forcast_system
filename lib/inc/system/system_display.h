@@ -15,11 +15,11 @@
 
 typedef struct 
 {
-  char time[19];
-  char location [12];
-  char text_line_1 [24];
-  char text_line_2 [24];
-  char text_line_3 [24];
+  char *time;
+  char *location;
+  char *text_line_1;
+  char *text_line_2;
+  char *text_line_3;
 } system_data_display_t;
 
 
