@@ -1,6 +1,9 @@
 #include "bsp_mqtt_tcp.h"
 
-#define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
+#define     CONFIG_BROKER_URL   "mqtt://mqtt.flespi.io"
+#define     PORT                1883
+#define     USER_NAME           "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc"
+
 
 esp_mqtt_event_handle_t event;
 esp_mqtt_client_handle_t client;
