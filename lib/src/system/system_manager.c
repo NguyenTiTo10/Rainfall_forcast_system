@@ -34,7 +34,7 @@ static void system_manage_init_data_display()
 
 
 
-#ifdef TEST_DISPLAY_SCREEN
+#ifdef TEST_DISPLAY_SENSOR
   screen_ha_tinh_sensor = 
   {
     .time = "29.11.2024 - 19:00",
@@ -61,7 +61,7 @@ static void system_manage_init_data_display()
 #endif
 
 #ifdef TEST_DISPLAY_RAIN
-  screen_ha_tinh_sensor = 
+  screen_ha_tinh_rain = 
   {
     .time = "29.11.2024 - 19:00",
     .text_line_1 = "IFS  : 35.6  43.2  30.0",
@@ -69,7 +69,7 @@ static void system_manage_init_data_display()
     .text_line_3 = "Vrain: 35.6  43.2  30.0",
   }
 
-  screen_quang_binh_sensor = 
+  screen_quang_binh_rain = 
   {
     .time = "29.11.2024 - 19:00",
     .text_line_1 = "IFS  : 35.6  43.2  30.0",
@@ -77,7 +77,7 @@ static void system_manage_init_data_display()
     .text_line_3 = "Vrain: 35.6  43.2  30.0",
   }
 
-  screen_quang_tri_sensor = 
+  screen_quang_tri_rain = 
   {
     .time = "29.11.2024 - 19:00",
     .text_line_1 = "IFS  : 35.6  43.2  30.0",
