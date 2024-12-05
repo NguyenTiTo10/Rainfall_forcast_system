@@ -1,48 +1,52 @@
 #include "bsp_mqtt_tcp.h"
 
 #define     CONFIG_BROKER_URL   "mqtt://mqtt.flespi.io"
-#define     PORT_ADDERSS        1883
-#define     USER_NAME           "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc"
+#define     PORT_ADDRESS        1883
+#define     USERNAME            "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc" 
+#define     TOPIC               "RAINFALL_FORCAST_SYSTEM"
 
 
-esp_mqtt_event_handle_t event;
-esp_mqtt_client_handle_t client;
-int msg_id;
+esp_mqtt_event_handle_t     event;
 
-bool mqtt_get_data_flag = false;
+esp_mqtt_client_handle_t    client;
+
+event_data_recieve_t        ret_data;
+
+bool                        mqtt_event_data_flag = false;
+
+int                         msg_id;
+
 
 static const char *TAG = "mqtt_example";
 
+void set_mqtt_event_data        (void);
+bool bsp_mqtt_get_data_flag     (void);
+void bsp_mqtt_set_data_flag     (bool status);
+int  bsp_mqtt_client_subscribe (const char *topic);
+int  bsp_mqtt_client_publish   (const char *topic, const char *data);
 
 
 static void log_error_if_nonzero(const char *message, int error_code)
 {
-    if (error_code != 0) {
+    if (error_code != 0) 
+    {
         ESP_LOGE(TAG, "Last error %s: 0x%x", message, error_code);
     }
 }
 
-/*
- * @brief Event handler registered to receive MQTT events
- *
- *  This function is called by the MQTT client event loop.
- *
- * @param handler_args user data registered to the event.
- * @param base Event base for the handler(always MQTT Base in this example).
- * @param event_id The id for the received event.
- * @param event_data The data for the event, esp_mqtt_event_handle_t.
- */
+
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%" PRIi32 "", base, event_id);
-
     event = event_data;
     client = event->client;
-
     switch ((esp_mqtt_event_id_t)event_id) 
     {
         case MQTT_EVENT_CONNECTED:
             ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
+
+            bsp_mqtt_client_subscribe(TOPIC);
+
             break;
         case MQTT_EVENT_DISCONNECTED:
             ESP_LOGI(TAG, "MQTT_EVENT_DISCONNECTED");
@@ -50,6 +54,9 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
         case MQTT_EVENT_SUBSCRIBED:
             ESP_LOGI(TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
+
+            bsp_mqtt_client_publish (TOPIC, "Request_data");
+            
             break;
 
         case MQTT_EVENT_UNSUBSCRIBED:
@@ -62,8 +69,9 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
         case MQTT_EVENT_DATA:
             ESP_LOGI(TAG, "MQTT_EVENT_DATA");
-            mqtt_get_data_flag = true;
-            get_event_data();
+            bsp_mqtt_set_data_flag(true);
+            set_mqtt_event_data ();
+
             break;
 
         case MQTT_EVENT_ERROR:
@@ -83,17 +91,40 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     }
 }
 
-event_data_recieve_t get_event_data ()
+
+
+void set_mqtt_event_data (void)
 {
-    event_data_recieve_t ret_data;
+    ret_data.topic_length = event->topic_len;
     ret_data.topic = event->topic;
+
+    ret_data.data_length = event->data_len;
     ret_data.data = event->data;
-    
+
+    return;
+}
+
+
+event_data_recieve_t get_ret_event_data (void)
+{
     return ret_data;
 }
 
 
-int bsp_mqtt_client_subscribe (char *topic)
+bool bsp_mqtt_get_data_flag (void)
+{
+    return mqtt_event_data_flag;
+}
+
+
+void bsp_mqtt_set_data_flag (bool status)
+{
+    mqtt_event_data_flag = status;
+    return;
+}
+
+
+int bsp_mqtt_client_subscribe (const char *topic)
 {
     msg_id = esp_mqtt_client_subscribe(client, topic, 0);
     ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
@@ -102,33 +133,22 @@ int bsp_mqtt_client_subscribe (char *topic)
 }
 
 
-int bsp_mqtt_client_publish (char *topic, char *data)
+int bsp_mqtt_client_publish   (const char *topic, const char *data)
 {
     msg_id = esp_mqtt_client_publish(client, topic, data, 0, 0, 0);
     ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
-
     return msg_id;
 }
 
-bool bsp_mqtt_get_flag (void)
-{
-    return mqtt_get_data_flag;
-}
 
-
-void bsp_mqtt_set_flag (bool status)
-{
-    mqtt_get_data_flag = status;
-    return;
-}
 
 static void mqtt_app_start(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = 
     {
         .broker.address.uri                   = CONFIG_BROKER_URL,
-        .broker.address.port                  = PORT_ADDERSS,
-        .credentials.username                 = USER_NAME,
+        .broker.address.port                  = PORT_ADDRESS,
+        .credentials.username                 = USERNAME,
         .credentials.authentication.password  = "",
     };
 

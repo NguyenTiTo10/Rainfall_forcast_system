@@ -27,7 +27,9 @@
 
 typedef struct 
 {
+  int topic_length;
   char *topic;
+  int data_length;
   char *data;
 
 } event_data_recieve_t;
@@ -35,16 +37,13 @@ typedef struct
 
 void mqtt_main (void);
 
-int bsp_mqtt_client_subscribe (char *topic);
-int bsp_mqtt_client_publish (char *topic, char *data);
+bool bsp_mqtt_get_data_flag (void);
+void bsp_mqtt_set_data_flag (bool status);
 
-bool bsp_mqtt_get_flag (void);
-void bsp_mqtt_set_flag (bool status);
+event_data_recieve_t get_ret_event_data (void);
 
-event_data_recieve_t get_event_data (); 
+int bsp_mqtt_client_subscribe (const char *topic);
 
-
-
-
+int bsp_mqtt_client_publish   (const char *topic, const char *data);
 
 #endif // MQTT_TCP_H
