@@ -23,14 +23,14 @@ static system_main_state_t current_state = IDLE;
 
 static void system_manage_init_data_display()
 {
-  screen_ha_tinh_sensor.location = "Ha Tinh";
-  screen_ha_tinh_rain.location = "Ha Tinh";
+  screen_ha_tinh_sensor.location = "Ha Tinh   ";
+  screen_ha_tinh_rain.location = "Ha Tinh   ";
 
   screen_quang_binh_sensor.location = "Quang Binh";
   screen_quang_binh_rain.location = "Quang Binh";
 
-  screen_quang_tri_sensor.location = "Quang Tri";
-  screen_quang_tri_rain.location = "Quang Tri";
+  screen_quang_tri_sensor.location = "Quang Tri ";
+  screen_quang_tri_rain.location = "Quang Tri ";
 
   return;
 }
@@ -172,7 +172,7 @@ static void system_manage_screen_1 (void)
     .text_line_3 = "Pressure: 20.0 Pa      "
   };
 
-  system_display_screen_1 (data_screen_1);
+  system_display_screen_1 (screen_ha_tinh_sensor);
 }
 
 
