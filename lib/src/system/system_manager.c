@@ -11,6 +11,8 @@ static void system_manage_boot      (void);
 static void system_manage_screen_1  (void);
 static void system_manage_screen_2  (void);
 static void system_manage_offline   (void);
+static void system_manage_init_data_display(void);
+
 
 system_data_display_t screen_ha_tinh_sensor;
 system_data_display_t screen_ha_tinh_rain;
@@ -19,7 +21,9 @@ system_data_display_t screen_quang_binh_rain;
 system_data_display_t screen_quang_tri_sensor;
 system_data_display_t screen_quang_tri_rain;
 
-static void system_manage_init_screen_display()
+
+
+static void system_manage_init_data_display()
 {
   screen_ha_tinh_sensor.location = "Ha Tinh";
   screen_ha_tinh_rain.location = "Ha Tinh";
@@ -29,13 +33,15 @@ static void system_manage_init_screen_display()
 
   screen_quang_tri_sensor.location = "Quang Tri";
   screen_quang_tri_rain.location = "Quang Tri";
+
+  return;
 }
 
 esp_err_t system_manage_init (void)
 {
   esp_err_t ret;
 
-  ret = drv_sh1106_init();              // Init driver oled 
+  ret = drv_sh1106_init();                      // Init driver oled 
   if (ret != ESP_OK)
   {
     printf("Oled SH1106 ERORR.\n");
@@ -46,7 +52,9 @@ esp_err_t system_manage_init (void)
   if (!err)
     printf("DHT11 Initialization failed! \n");
   
-  // Init MQTT
+  system_manage_init_data_display();            // Init driver 
+
+
 
 
   return ESP_OK;
