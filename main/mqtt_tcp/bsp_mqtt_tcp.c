@@ -1,7 +1,7 @@
 #include "bsp_mqtt_tcp.h"
 
 #define     CONFIG_BROKER_URL   "mqtt://mqtt.flespi.io"
-#define     PORT                1883
+#define     PORT_ADDERSS        1883
 #define     USER_NAME           "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc"
 
 
@@ -130,8 +130,8 @@ static void mqtt_app_start(void)
     esp_mqtt_client_config_t mqtt_cfg = 
     {
         .broker.address.uri                   = CONFIG_BROKER_URL,
-        .broker.address.port                  = 1883,
-        .credentials.username                 = "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc",
+        .broker.address.port                  = PORT_ADDERSS,
+        .credentials.username                 = USER_NAME,
         .credentials.authentication.password  = "",
     };
 
