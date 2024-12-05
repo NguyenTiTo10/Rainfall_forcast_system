@@ -103,6 +103,35 @@ system_main_state_t system_manage_update_state ()
           next_state = QUANG_BINH_RAIN_SCREEN;
       break;
 
+    case QUANG_BINH_SENSOR_SCREEN:
+      if (btn_pressed == MAIN_BTN_PRESSED)
+        next_state = OFFLINE_STATE;
+
+      if (btn_pressed == LEFT_BTN_PRESSED)
+        next_state = HA_TINH_SENSOR_SCREEN;
+
+      if (btn_pressed == MID_BTN_PRESSED)
+          next_state = QUANG_BINH_RAIN_SCREEN;
+      
+      if (btn_pressed == RIGHT_BTN_PRESSED)
+          next_state = QUANG_TRI_SENSOR_SCREEN;
+
+      break;
+
+    case QUANG_BINH_RAIN_SCREEN:
+      if (btn_pressed == MAIN_BTN_PRESSED)
+          next_state = OFFLINE_STATE;
+
+      if (btn_pressed == LEFT_BTN_PRESSED)
+        next_state = HA_TINH_RAIN_SCREEN;
+
+      if (btn_pressed == MID_BTN_PRESSED)
+          next_state = QUANG_BINH_SENSOR_SCREEN;
+      
+      if (btn_pressed == RIGHT_BTN_PRESSED)
+          next_state = QUANG_TRI_RAIN_SCREEN;
+      break;
+
     case OFFLINE_STATE:
       if (btn_pressed == MAIN_BTN_PRESSED)
         next_state = IDLE;
