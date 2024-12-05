@@ -49,29 +49,21 @@ static void system_manage_init_data_display()
 #endif
 
 #ifdef TEST_DISPLAY_RAIN
-  screen_ha_tinh_rain = 
-  {
-    .time = "29.11.2024 - 19:00",
-    .text_line_1 = "IFS  : 35.6  43.2  30.0",
-    .text_line_2 = "Tito : 35.6  43.2  30.0",
-    .text_line_3 = "Vrain: 35.6  43.2  30.0",
-  };
+  screen_ha_tinh_rain.time = "29.11.2024 - 19:00";
+  screen_ha_tinh_rain.text_line_1 = "IFS  : 35.6  43.2  30.0";
+  screen_ha_tinh_rain.text_line_2 = "Tito : 35.6  43.2  30.0";
+  screen_ha_tinh_rain.text_line_3 = "Vrain: 35.6  43.2  30.0";
 
-  screen_quang_binh_rain = 
-  {
-    .time = "29.11.2024 - 19:00",
-    .text_line_1 = "IFS  : 35.6  43.2  30.0",
-    .text_line_2 = "Tito : 35.6  43.2  30.0",
-    .text_line_3 = "Vrain: 35.6  43.2  30.0",
-  };
+  screen_quang_binh_rain.time = "29.11.2024 - 19:00";
+  screen_quang_binh_rain.text_line_1 = "IFS  : 35.6  43.2  30.0";
+  screen_quang_binh_rain.text_line_2 = "Tito : 35.6  43.2  30.0";
+  screen_quang_binh_rain.text_line_3 = "Vrain: 35.6  43.2  30.0";
 
-  screen_quang_tri_rain = 
-  {
-    .time = "29.11.2024 - 19:00",
-    .text_line_1 = "IFS  : 35.6  43.2  30.0",
-    .text_line_2 = "Tito : 35.6  43.2  30.0",
-    .text_line_3 = "Vrain: 35.6  43.2  30.0",
-  };
+  screen_quang_tri_rain.time = "29.11.2024 - 19:00";
+  screen_quang_tri_rain.text_line_1 = "IFS  : 35.6  43.2  30.0";
+  screen_quang_tri_rain.text_line_2 = "Tito : 35.6  43.2  30.0";
+  screen_quang_tri_rain.text_line_3 = "Vrain: 35.6  43.2  30.0";
+
 #endif
 
   return;
