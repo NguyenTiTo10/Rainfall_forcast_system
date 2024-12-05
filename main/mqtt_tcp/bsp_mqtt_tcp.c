@@ -96,13 +96,15 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     }
 }
 
-event_data_recieve_t get_event_data (esp_mqtt_event_handle_t event)
+void set_mqtt_event_data (void)
 {
-    
+    ret_data.topic_length = event->topic_len;
     ret_data.topic = event->topic;
+
+    ret_data.data_length = event->data_len;
     ret_data.data = event->data;
 
-    return ret_data;
+    return;
 }
 
 
