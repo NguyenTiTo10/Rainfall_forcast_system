@@ -24,25 +24,25 @@ typedef struct
 
 
 
-esp_err_t system_display_idle             (void);
+void system_display_idle             (void);
 
-esp_err_t system_display_boot             (void);
+void system_display_boot             (void);
 
-esp_err_t system_display_hatinh_sensor    (system_data_display_t data);       
+void system_display_hatinh_sensor    (system_data_display_t data);       
 
-esp_err_t system_display_hatinh_rain      (system_data_display_t data);       
+void system_display_hatinh_rain      (system_data_display_t data);       
 
-esp_err_t system_display_quangbinh_sensor (system_data_display_t data);       
+void system_display_quangbinh_sensor (system_data_display_t data);       
 
-esp_err_t system_display_quangbinh_rain   (system_data_display_t data);
+void system_display_quangbinh_rain   (system_data_display_t data);
 
-esp_err_t system_display_quangtri_sensor  (system_data_display_t data);       
+void system_display_quangtri_sensor  (system_data_display_t data);       
 
-esp_err_t system_display_quangtri_rain    (system_data_display_t data);    
+void system_display_quangtri_rain    (system_data_display_t data);    
 
-esp_err_t system_display_offline          (void);  
+void system_display_offline          (void);  
 
-esp_err_t system_display_test             (void);
+void system_display_test             (void);
 
 
 #endif
