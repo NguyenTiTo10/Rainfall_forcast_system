@@ -35,6 +35,7 @@ static void system_manage_init_data_display()
   return;
 }
 
+
 esp_err_t system_manage_init (void)
 {
   esp_err_t ret;
@@ -70,25 +71,36 @@ system_main_state_t system_manage_update_state ()
       break;
 
     case BOOT_STATE:
-      next_state = ONLINE_SCREEN_1_STATE;
+      next_state = HA_TINH_SENSOR_SCREEN;
       break;
 
-    case ONLINE_SCREEN_1_STATE:
+    case HA_TINH_SENSOR_SCREEN:
+      if (btn_pressed == MAIN_BTN_PRESSED)
+        next_state = OFFLINE_STATE;
+
+      if (btn_pressed == LEFT_BTN_PRESSED)
+        next_state = QUANG_TRI_SENSOR_SCREEN;
+
+      if (btn_pressed == MID_BTN_PRESSED)
+          next_state = HA_TINH_RAIN_SCREEN;
+      
+      if (btn_pressed == RIGHT_BTN_PRESSED)
+          next_state = QUANG_BINH_SENSOR_SCREEN;
+
+      break;
+
+    case HA_TINH_RAIN_SCREEN:
       if (btn_pressed == MAIN_BTN_PRESSED)
           next_state = OFFLINE_STATE;
 
-      if (btn_pressed == MID_BTN_PRESSED)
-          next_state = ONLINE_SCREEN_2_STATE;
-
-      break;
-
-    case ONLINE_SCREEN_2_STATE:
-      if (btn_pressed == MAIN_BTN_PRESSED)
-          next_state = OFFLINE_STATE;
+      if (btn_pressed == LEFT_BTN_PRESSED)
+        next_state = QUANG_TRI_RAIN_SCREEN;
 
       if (btn_pressed == MID_BTN_PRESSED)
-          next_state = ONLINE_SCREEN_1_STATE;
-
+          next_state = HA_TINH_SENSOR_SCREEN;
+      
+      if (btn_pressed == RIGHT_BTN_PRESSED)
+          next_state = QUANG_BINH_RAIN_SCREEN;
       break;
 
     case OFFLINE_STATE:
