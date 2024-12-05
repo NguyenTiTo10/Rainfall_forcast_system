@@ -54,8 +54,7 @@ esp_err_t system_manage_init (void)
   
   system_manage_init_data_display();            // Init driver 
 
-
-
+  // Init MQTT
 
   return ESP_OK;
 }
@@ -106,6 +105,7 @@ system_main_state_t system_manage_update_state ()
   return next_state;
 }
 
+
 void system_manage_loop(void)
 {
   system_main_state_t next_state = system_manage_update_state();
@@ -141,13 +141,13 @@ void system_manage_loop(void)
 }
 
 
-void system_manage_idle (void)
+static void system_manage_idle (void)
 {
   system_display_idle ();
 }
 
 
-void system_manage_boot (void)
+static void system_manage_boot (void)
 {
   system_display_boot ();
 
@@ -157,7 +157,7 @@ void system_manage_boot (void)
 }
 
 
-void system_manage_screen_1 (void)
+static void system_manage_screen_1 (void)
 {
   // Check once again whether the essential data is complete
 
@@ -178,7 +178,7 @@ void system_manage_screen_1 (void)
 }
 
 
-void system_manage_screen_2 (void)
+static void system_manage_screen_2 (void)
 {
   // Check once again whether the essential data is complete
 
@@ -198,7 +198,7 @@ void system_manage_screen_2 (void)
 }
 
 
-void system_manage_offline (void)
+static void system_manage_offline (void)
 {
   system_display_offline ();
 }
