@@ -72,14 +72,8 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
         case MQTT_EVENT_DATA:
             ESP_LOGI(TAG, "MQTT_EVENT_DATA");
-
             bsp_mqtt_set_data_flag(true);
-            printf("Flag value: %s\n", bsp_mqtt_get_data_flag() ? "true" : "false");
-
             set_mqtt_event_data ();
-
-            printf("TOPIC=%.*s\r\n", event->topic_len, event->topic);
-            printf("DATA=%.*s\r\n", event->data_len, event->data);
 
             break;
 
