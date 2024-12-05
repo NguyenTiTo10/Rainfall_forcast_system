@@ -111,6 +111,12 @@ void set_mqtt_event_data (void)
     return;
 }
 
+event_data_recieve_t get_ret_event_data (void)
+{
+    return ret_data;
+}
+
+
 bool bsp_mqtt_get_data_flag (void)
 {
     return mqtt_event_data_flag;
@@ -121,6 +127,8 @@ void bsp_mqtt_set_data_flag (bool status)
     mqtt_event_data_flag = status;
     return;
 }
+
+
 
 
 static void mqtt_app_start(void)
