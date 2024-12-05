@@ -3,6 +3,7 @@
 #define     CONFIG_BROKER_URL   "mqtt://mqtt.flespi.io"
 #define     PORT_ADDRESS        1883
 #define     USERNAME            "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc" 
+#define     TOPIC               "RAINFALL_FORCAST_SYSTEM"
 
 
 esp_mqtt_event_handle_t event;
@@ -50,7 +51,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         case MQTT_EVENT_CONNECTED:
             ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
 
-            bsp_mqtt_client_subscribe("Test");
+            bsp_mqtt_client_subscribe(TOPIC);
 
             break;
         case MQTT_EVENT_DISCONNECTED:
@@ -60,7 +61,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
         case MQTT_EVENT_SUBSCRIBED:
             ESP_LOGI(TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
 
-            bsp_mqtt_client_publish ("Test", "Request_data");
+            bsp_mqtt_client_publish (TOPIC, "Request_data");
             
             break;
 
