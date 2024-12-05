@@ -97,12 +97,11 @@ int bsp_mqtt_client_subscribe (char *topic)
 }
 
 
-int bsp_mqtt_client_subscribe (char *topic, char *data)
+int bsp_mqtt_client_publish (char *topic, char *data)
 {
-    
+    msg_id = esp_mqtt_client_publish(client, "Test", "Request_data", 0, 0, 0);
+    return msg_id;
 }
-msg_id = esp_mqtt_client_publish(client, "Test", "Request_data", 0, 0, 0);
-            ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
 
 static void mqtt_app_start(void)
 {
