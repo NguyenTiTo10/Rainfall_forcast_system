@@ -3,7 +3,6 @@
 
 
 static system_main_state_t current_state = IDLE;
-// static system_main_state_t next_state    = IDLE;
 
 static uint8_t task_handle = 0;
 
@@ -13,6 +12,12 @@ static void system_manage_screen_1  (void);
 static void system_manage_screen_2  (void);
 static void system_manage_offline   (void);
 
+system_data_display_t screen_ha_tinh_sensor;
+system_data_display_t screen_ha_tinh_rain;
+system_data_display_t screen_quang_binh_sensor;
+system_data_display_t screen_quang_binh_rain;
+system_data_display_t screen_quang_tri_sensor;
+system_data_display_t screen_quang_tri_rain;
 
 esp_err_t system_manage_init (void)
 {
