@@ -38,7 +38,8 @@ typedef struct
 void mqtt_main (void);
 event_data_recieve_t get_event_data (esp_mqtt_event_handle_t event); 
 
-
+bool bsp_mqtt_get_data_flag (void);
+void bsp_mqtt_set_data_flag (bool status);
 
 
 #endif // MQTT_TCP_H
