@@ -1,6 +1,11 @@
 #include "bsp_mqtt_tcp.h"
 
+#define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
+
+event_data_recieve_t ret_data;
+
 static const char *TAG = "mqtt_example";
+
 
 
 static void log_error_if_nonzero(const char *message, int error_code)
@@ -55,7 +60,8 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
         case MQTT_EVENT_DATA:
             ESP_LOGI(TAG, "MQTT_EVENT_DATA");
-            get_event_data(event);
+            ret_data.topic = event->topic;
+            ret_data.data = event->data;
             break;
 
         case MQTT_EVENT_ERROR:
@@ -75,17 +81,11 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     }
 }
 
-event_data_recieve_t get_event_data (esp_mqtt_event_handle_t event)
+event_data_recieve_t get_event_data ()
 {
-    event_data_recieve_t ret_data;
-    
-    ret_data.topic = event->topic;
-    ret_data.data = event->data;
-
     return ret_data;
 }
 
-#define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
 
 static void mqtt_app_start(void)
 {

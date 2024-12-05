@@ -34,7 +34,7 @@ typedef struct
 
 
 void mqtt_main (void);
-event_data_recieve_t get_event_data (esp_mqtt_event_handle_t event); 
+event_data_recieve_t get_event_data (); 
 
 
 
