@@ -1,11 +1,14 @@
 #include "mqtt.h"
 #include "bsp_timer.h"
 
+#define     TOPIC               "RAINFALL_FORCAST_SYSTEM"
+
+
 void mqtt_test (void)
 {
   mqtt_main();
 
-  bsp_mqtt_client_publish ("Test", "Request_data");
+  bsp_mqtt_client_publish (TOPIC, "35,40.9,15.0");
 
   while (1)
   {

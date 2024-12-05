@@ -6,41 +6,35 @@
 #define     TOPIC               "RAINFALL_FORCAST_SYSTEM"
 
 
-esp_mqtt_event_handle_t event;
-esp_mqtt_client_handle_t client;
-int msg_id;
+esp_mqtt_event_handle_t     event;
 
-event_data_recieve_t ret_data;
+esp_mqtt_client_handle_t    client;
 
+event_data_recieve_t        ret_data;
 
-bool mqtt_event_data_flag = false;
+bool                        mqtt_event_data_flag = false;
+
+int                         msg_id;
+
 
 static const char *TAG = "mqtt_example";
 
-void set_mqtt_event_data (void);
-bool bsp_mqtt_get_data_flag (void);
-void bsp_mqtt_set_data_flag (bool status);
-int bsp_mqtt_client_subscribe (const char *topic);
-int bsp_mqtt_client_publish   (const char *topic, const char *data);
+void set_mqtt_event_data        (void);
+bool bsp_mqtt_get_data_flag     (void);
+void bsp_mqtt_set_data_flag     (bool status);
+int  bsp_mqtt_client_subscribe (const char *topic);
+int  bsp_mqtt_client_publish   (const char *topic, const char *data);
 
 
 static void log_error_if_nonzero(const char *message, int error_code)
 {
-    if (error_code != 0) {
+    if (error_code != 0) 
+    {
         ESP_LOGE(TAG, "Last error %s: 0x%x", message, error_code);
     }
 }
 
-/*
- * @brief Event handler registered to receive MQTT events
- *
- *  This function is called by the MQTT client event loop.
- *
- * @param handler_args user data registered to the event.
- * @param base Event base for the handler(always MQTT Base in this example).
- * @param event_id The id for the received event.
- * @param event_data The data for the event, esp_mqtt_event_handle_t.
- */
+
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%" PRIi32 "", base, event_id);
@@ -97,6 +91,8 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     }
 }
 
+
+
 void set_mqtt_event_data (void)
 {
     ret_data.topic_length = event->topic_len;
@@ -107,6 +103,7 @@ void set_mqtt_event_data (void)
 
     return;
 }
+
 
 event_data_recieve_t get_ret_event_data (void)
 {
@@ -119,11 +116,13 @@ bool bsp_mqtt_get_data_flag (void)
     return mqtt_event_data_flag;
 }
 
+
 void bsp_mqtt_set_data_flag (bool status)
 {
     mqtt_event_data_flag = status;
     return;
 }
+
 
 int bsp_mqtt_client_subscribe (const char *topic)
 {
@@ -132,6 +131,7 @@ int bsp_mqtt_client_subscribe (const char *topic)
 
     return msg_id;
 }
+
 
 int bsp_mqtt_client_publish   (const char *topic, const char *data)
 {
