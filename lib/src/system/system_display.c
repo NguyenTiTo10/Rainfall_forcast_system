@@ -2,18 +2,6 @@
 #include "esp_log.h"
 
 
-char date_time  [] = "00.00.0000 - 00:00";
-char location   [] = "HO CHI MING";
-char temp       [] = "Temp    : 99.9 C ";
-char humid      [] = "Humid   : 99.9 % ";
-char air_press  [] = "Pressure: 99.9 Pa";
-
-char location_1[] = "QUANG BINH";
-char ifs  [] = "IFS  : 35.6  43.2  30.0";
-char tito [] = "Tito : 35.6  43.2  30.0";
-char vrain[] = "Vrain: 35.6  43.2  30.0";
-
-
 esp_err_t system_display_idle (void)
 {
   drv_sh1106_turn_on();
