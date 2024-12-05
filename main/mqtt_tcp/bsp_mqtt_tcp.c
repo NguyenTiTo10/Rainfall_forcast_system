@@ -2,9 +2,10 @@
 
 #define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
 
-esp_mqtt_event_handle_t event = event_data;
-esp_mqtt_client_handle_t client = event->client;
+esp_mqtt_event_handle_t event;
+esp_mqtt_client_handle_t client;
 int msg_id;
+
 event_data_recieve_t ret_data;
 
 static const char *TAG = "mqtt_example";
@@ -34,7 +35,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
     event = event_data;
     client = event->client;
-    
+
     switch ((esp_mqtt_event_id_t)event_id) 
     {
         case MQTT_EVENT_CONNECTED:
@@ -50,8 +51,6 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
         case MQTT_EVENT_SUBSCRIBED:
             ESP_LOGI(TAG, "MQTT_EVENT_SUBSCRIBED, msg_id=%d", event->msg_id);
-            msg_id = esp_mqtt_client_publish(client, "Test", "Request_data", 0, 0, 0);
-            ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
             break;
 
         case MQTT_EVENT_UNSUBSCRIBED:
@@ -91,12 +90,19 @@ event_data_recieve_t get_event_data ()
 }
 
 
-esp_err_t bsp_mqtt_client_subscribe (char *topic)
+int bsp_mqtt_client_subscribe (char *topic)
 {
-    esp_mqtt_client_subscribe(client, "Test", 0);
+    msg_id = esp_mqtt_client_subscribe(client, topic, 0);
+    return msg_id;
 }
 
 
+int bsp_mqtt_client_subscribe (char *topic, char *data)
+{
+    
+}
+msg_id = esp_mqtt_client_publish(client, "Test", "Request_data", 0, 0, 0);
+            ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
 
 static void mqtt_app_start(void)
 {
