@@ -85,9 +85,6 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
 event_data_recieve_t get_event_data ()
 {
-    if (!bsp_mqtt_get_flag)
-        return;
-        
     event_data_recieve_t ret_data;
     ret_data.topic = event->topic;
     ret_data.data = event->data;
