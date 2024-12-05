@@ -19,8 +19,12 @@ typedef enum
 {
   IDLE,                             // Collect data sensor, mqtt, oled, ...
   BOOT_STATE,                       // Display logo
-  ONLINE_SCREEN_1_STATE,            // 2 display screen: dht11 and rainfall amount
-  ONLINE_SCREEN_2_STATE,
+  HA_TINH_SENSOR_SCREEN,            
+  HA_TINH_RAIN_SCREEN,
+  QUANG_BINH_SENSOR_SCREEN,            
+  QUANG_BINH_RAIN_SCREEN,
+  QUANG_TRI_SENSOR_SCREEN,            
+  QUANG_TRI_RAIN_SCREEN,
   OFFLINE_STATE
 } system_main_state_t;
 
