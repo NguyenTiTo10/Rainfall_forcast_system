@@ -53,7 +53,12 @@ void system_display_screen_sensor    (system_data_display_t data)
   system_display_data_to_screen (data);
 }     
 
-void system_display_screen_rain      (system_data_display_t data); 
+void system_display_screen_rain      (system_data_display_t data)
+{
+  // System check valid data for data rainfall amount
+
+  system_display_data_to_screen (data);
+} 
 
 
 void system_display_offline  (void)
