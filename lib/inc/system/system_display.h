@@ -34,7 +34,11 @@ esp_err_t system_display_hatinh_rain      (system_data_display_t data);
 
 esp_err_t system_display_quangbinh_sensor (system_data_display_t data);       
 
-esp_err_t system_display_quangbinh_rain   (system_data_display_t data);    
+esp_err_t system_display_quangbinh_rain   (system_data_display_t data);
+
+esp_err_t system_display_quangtri_sensor  (system_data_display_t data);       
+
+esp_err_t system_display_quangtri_rain    (system_data_display_t data);    
 
 esp_err_t system_display_offline          (void);  
 
