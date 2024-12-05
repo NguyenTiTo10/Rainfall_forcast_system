@@ -76,10 +76,7 @@ void system_manage_init (void)
 
   ret = drv_sh1106_init();                      // Init driver oled 
   if (ret != ESP_OK)
-  {
     printf("Oled SH1106 ERORR.\n");
-    return ret;
-  }
 
   uint8_t err = drv_dht11_init();               // Init driver dht11
   if (!err)
@@ -89,7 +86,7 @@ void system_manage_init (void)
 
   // Init MQTT
 
-  return ESP_OK;
+  return;
 }
 
 
