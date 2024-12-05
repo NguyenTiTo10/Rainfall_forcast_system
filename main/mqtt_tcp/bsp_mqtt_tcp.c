@@ -9,6 +9,9 @@ esp_mqtt_event_handle_t event;
 esp_mqtt_client_handle_t client;
 int msg_id;
 
+event_data_recieve_t ret_data;
+
+
 bool mqtt_event_data_flag = false;
 
 static const char *TAG = "mqtt_example";
@@ -95,7 +98,6 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
 
 event_data_recieve_t get_event_data (esp_mqtt_event_handle_t event)
 {
-    event_data_recieve_t ret_data;
     
     ret_data.topic = event->topic;
     ret_data.data = event->data;
