@@ -106,6 +106,18 @@ int bsp_mqtt_client_publish (char *topic, char *data)
     return msg_id;
 }
 
+bool bsp_mqtt_get_flag (void)
+{
+    return mqtt_get_data_flag;
+}
+
+
+void bsp_mqtt_set_flag (bool status)
+{
+    mqtt_get_data_flag = status;
+    return;
+}
+
 static void mqtt_app_start(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = 

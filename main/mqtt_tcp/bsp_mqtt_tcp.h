@@ -38,6 +38,8 @@ void mqtt_main (void);
 int bsp_mqtt_client_subscribe (char *topic);
 int bsp_mqtt_client_publish (char *topic, char *data);
 
+bool bsp_mqtt_get_flag (void);
+void bsp_mqtt_set_flag (bool status);
 
 event_data_recieve_t get_event_data (); 
 
