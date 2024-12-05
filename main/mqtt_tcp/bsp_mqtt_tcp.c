@@ -87,6 +87,13 @@ event_data_recieve_t get_event_data ()
 }
 
 
+esp_err_t bsp_mqtt_client_subscribe (char *topic)
+{
+    esp_mqtt_client_subscribe(client, "Test", 0);
+}
+
+
+
 static void mqtt_app_start(void)
 {
     esp_mqtt_client_config_t mqtt_cfg = 
