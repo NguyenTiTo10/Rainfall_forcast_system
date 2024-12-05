@@ -9,6 +9,11 @@ void mqtt_test (void)
   {
     if (bsp_mqtt_get_data_flag())
     {
+      event_data_recieve_t topic_data = get_ret_event_data();
+
+      printf("TOPIC=%.*s\r\n", topic_data.topic_length, topic_data.topic);
+      printf("DATA=%.*s\r\n", topic_data.data_length, topic_data.data);
+
       printf("Received data AAAAAAAAAAAAAAAAAAAAAAAAAA\n");
       bsp_mqtt_set_data_flag(false);
     }
