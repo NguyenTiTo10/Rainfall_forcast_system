@@ -71,94 +71,94 @@ system_main_state_t system_manage_update_state ()
       break;
 
     case BOOT_STATE:
-      next_state = HA_TINH_SENSOR_SCREEN;
+      next_state = HA_TINH_SCREEN_SENSOR;
       break;
 
-    case HA_TINH_SENSOR_SCREEN:
+    case HA_TINH_SCREEN_SENSOR:
       if (btn_pressed == MAIN_BTN_PRESSED)
         next_state = OFFLINE_STATE;
 
       if (btn_pressed == LEFT_BTN_PRESSED)
-        next_state = QUANG_TRI_SENSOR_SCREEN;
+        next_state = QUANG_TRI_SCREEN_SENSOR;
 
       if (btn_pressed == MID_BTN_PRESSED)
-          next_state = HA_TINH_RAIN_SCREEN;
+          next_state = HA_TINH_SCREEN_RAIN;
       
       if (btn_pressed == RIGHT_BTN_PRESSED)
-          next_state = QUANG_BINH_SENSOR_SCREEN;
+          next_state = QUANG_BINH_SCREEN_SENSOR;
 
       break;
 
-    case HA_TINH_RAIN_SCREEN:
+    case HA_TINH_SCREEN_RAIN:
       if (btn_pressed == MAIN_BTN_PRESSED)
           next_state = OFFLINE_STATE;
 
       if (btn_pressed == LEFT_BTN_PRESSED)
-        next_state = QUANG_TRI_RAIN_SCREEN;
+        next_state = QUANG_TRI_SCREEN_RAIN;
 
       if (btn_pressed == MID_BTN_PRESSED)
-          next_state = HA_TINH_SENSOR_SCREEN;
+          next_state = HA_TINH_SCREEN_SENSOR;
       
       if (btn_pressed == RIGHT_BTN_PRESSED)
-          next_state = QUANG_BINH_RAIN_SCREEN;
+          next_state = QUANG_BINH_SCREEN_RAIN;
       break;
 
-    case QUANG_BINH_SENSOR_SCREEN:
+    case QUANG_BINH_SCREEN_SENSOR:
       if (btn_pressed == MAIN_BTN_PRESSED)
         next_state = OFFLINE_STATE;
 
       if (btn_pressed == LEFT_BTN_PRESSED)
-        next_state = HA_TINH_SENSOR_SCREEN;
+        next_state = HA_TINH_SCREEN_SENSOR;
 
       if (btn_pressed == MID_BTN_PRESSED)
-          next_state = QUANG_BINH_RAIN_SCREEN;
+          next_state = QUANG_BINH_SCREEN_RAIN;
       
       if (btn_pressed == RIGHT_BTN_PRESSED)
-          next_state = QUANG_TRI_SENSOR_SCREEN;
+          next_state = QUANG_TRI_SCREEN_SENSOR;
 
       break;
 
-    case QUANG_BINH_RAIN_SCREEN:
+    case QUANG_BINH_SCREEN_RAIN:
       if (btn_pressed == MAIN_BTN_PRESSED)
           next_state = OFFLINE_STATE;
 
       if (btn_pressed == LEFT_BTN_PRESSED)
-        next_state = HA_TINH_RAIN_SCREEN;
+        next_state = HA_TINH_SCREEN_RAIN;
 
       if (btn_pressed == MID_BTN_PRESSED)
-          next_state = QUANG_BINH_SENSOR_SCREEN;
+          next_state = QUANG_BINH_SCREEN_SENSOR;
       
       if (btn_pressed == RIGHT_BTN_PRESSED)
-          next_state = QUANG_TRI_RAIN_SCREEN;
+          next_state = QUANG_TRI_SCREEN_RAIN;
       break;
 
-    case QUANG_TRI_SENSOR_SCREEN:
+    case QUANG_TRI_SCREEN_SENSOR:
       if (btn_pressed == MAIN_BTN_PRESSED)
         next_state = OFFLINE_STATE;
 
       if (btn_pressed == LEFT_BTN_PRESSED)
-        next_state = QUANG_BINH_SENSOR_SCREEN;
+        next_state = QUANG_BINH_SCREEN_SENSOR;
 
       if (btn_pressed == MID_BTN_PRESSED)
-          next_state = QUANG_TRI_RAIN_SCREEN;
+          next_state = QUANG_TRI_SCREEN_RAIN;
       
       if (btn_pressed == RIGHT_BTN_PRESSED)
-          next_state = HA_TINH_SENSOR_SCREEN;
+          next_state = HA_TINH_SCREEN_SENSOR;
 
       break;
 
-    case QUANG_TRI_RAIN_SCREEN:
+    case QUANG_TRI_SCREEN_RAIN:
       if (btn_pressed == MAIN_BTN_PRESSED)
           next_state = OFFLINE_STATE;
 
       if (btn_pressed == LEFT_BTN_PRESSED)
-        next_state = QUANG_BINH_RAIN_SCREEN;
+        next_state = QUANG_BINH_SCREEN_RAIN;
 
       if (btn_pressed == MID_BTN_PRESSED)
-          next_state = QUANG_TRI_SENSOR_SCREEN;
+          next_state = QUANG_TRI_SCREEN_SENSOR;
       
       if (btn_pressed == RIGHT_BTN_PRESSED)
-          next_state = HA_TINH_RAIN_SCREEN;
+          next_state = HA_TINH_SCREEN_RAIN;
       break;
 
     case OFFLINE_STATE:
@@ -182,15 +182,15 @@ void system_manage_loop(void)
   switch (current_state)
   {
     case IDLE:
-      system_manage_idle ();
+      system_display_idle ();
       break;
 
     case BOOT_STATE:
-      system_manage_boot ();
+      system_display_boot ();
       break;
 
-    case ONLINE_SCREEN_1_STATE:
-      system_manage_screen_1 ();
+    case HA_TINH_SCREEN_SENSOR:
+      system_display_screen_sensor ();
       break;
 
     case ONLINE_SCREEN_2_STATE:
