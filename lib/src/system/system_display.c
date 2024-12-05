@@ -2,6 +2,18 @@
 #include "esp_log.h"
 
 
+static void system_display_screen (system_data_display_t data)
+{
+  drv_sh1106_display_time(data.time);
+  drv_sh1106_display_location (data.location);
+  drv_sh1106_display_text(0, 3, data.text_line_1);
+  drv_sh1106_display_text(0, 5, data.text_line_2); 
+  drv_sh1106_display_text(0, 7, data.text_line_3);
+
+  return;
+}
+
+
 void system_display_idle (void)
 {
   drv_sh1106_turn_on();
@@ -35,11 +47,7 @@ void system_display_boot (void)
 
 void system_display_screen_1   (system_data_display_t data)       
 {        
-  drv_sh1106_display_time(data.time);
-  drv_sh1106_display_location (data.location);
-  drv_sh1106_display_text(0, 3, data.text_line_1);
-  drv_sh1106_display_text(0, 5, data.text_line_2); 
-  drv_sh1106_display_text(0, 7, data.text_line_3);
+
   // ------------------Display------------------//
   return ESP_OK;
 }
