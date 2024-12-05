@@ -42,4 +42,8 @@ void bsp_mqtt_set_data_flag (bool status);
 
 event_data_recieve_t get_ret_event_data (void);
 
+int bsp_mqtt_client_subscribe (const char *topic);
+
+int bsp_mqtt_client_publish   (const char *topic, const char *data);
+
 #endif // MQTT_TCP_H
