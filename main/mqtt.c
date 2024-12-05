@@ -1,11 +1,19 @@
 #include "mqtt.h"
+#include "bsp_timer.h"
 
 void mqtt_test (void)
 {
   mqtt_main();
 
-  // event_data_recieve_t data_event = get_event_data();
+  while (1)
+  {
+    if (bsp_mqtt_get_data_flag())
+    {
+      printf("Received data AAAAAAAAAAAAAAAAAAAAAAAAAA\n");
+      bsp_mqtt_set_data_flag(false);
+    }
 
-  // printf("TOPIC=%.*s\r\n", data_event.topic);
-  // printf("DATA=%.*s\r\n", data_event.data);
+    bsp_timer_delay(10);
+  }
+  
 }
