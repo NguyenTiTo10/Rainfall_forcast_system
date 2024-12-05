@@ -1,5 +1,9 @@
 #include "bsp_mqtt_tcp.h"
 
+#define     CONFIG_BROKER_URL   "mqtt://mqtt.flespi.io"
+#define     PORT_ADDRESS        1883
+#define     USERNAME            "KBuTL4GcQIdeStibgS2YOd6YTJq1AydfcAde7ERrlOx1hJGaJjgPgAGe4GMqNVqc" 
+
 static const char *TAG = "mqtt_example";
 
 
@@ -86,7 +90,6 @@ event_data_recieve_t get_event_data (esp_mqtt_event_handle_t event)
     return ret_data;
 }
 
-#define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
 
 static void mqtt_app_start(void)
 {
