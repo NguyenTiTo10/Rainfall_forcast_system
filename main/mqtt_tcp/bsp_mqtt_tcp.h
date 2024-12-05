@@ -27,7 +27,9 @@
 
 typedef struct 
 {
+  int topic_length;
   char *topic;
+  int data_length;
   char *data;
 
 } event_data_recieve_t;
