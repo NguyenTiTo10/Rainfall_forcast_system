@@ -48,7 +48,9 @@ void system_display_boot (void)
 
 void system_display_screen_sensor    (system_data_display_t data)
 {
+  // System check valid data for data sensor
 
+  system_display_data_to_screen (data);
 }     
 
 void system_display_screen_rain      (system_data_display_t data); 
