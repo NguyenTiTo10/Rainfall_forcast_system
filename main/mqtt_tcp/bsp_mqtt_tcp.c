@@ -2,6 +2,9 @@
 
 #define CONFIG_BROKER_URL "mqtt://mqtt.flespi.io"
 
+esp_mqtt_event_handle_t event = event_data;
+esp_mqtt_client_handle_t client = event->client;
+int msg_id;
 event_data_recieve_t ret_data;
 
 static const char *TAG = "mqtt_example";
@@ -28,9 +31,10 @@ static void log_error_if_nonzero(const char *message, int error_code)
 static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_t event_id, void *event_data)
 {
     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%" PRIi32 "", base, event_id);
-    esp_mqtt_event_handle_t event = event_data;
-    esp_mqtt_client_handle_t client = event->client;
-    int msg_id;
+
+    event = event_data;
+    client = event->client;
+    
     switch ((esp_mqtt_event_id_t)event_id) 
     {
         case MQTT_EVENT_CONNECTED:

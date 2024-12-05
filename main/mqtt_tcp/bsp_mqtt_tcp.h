@@ -34,7 +34,11 @@ typedef struct
 
 
 void mqtt_main (void);
+
+esp_err_t bsp_mqtt_client_subscribe (char *topic);
+
 event_data_recieve_t get_event_data (); 
+
 
 
 
