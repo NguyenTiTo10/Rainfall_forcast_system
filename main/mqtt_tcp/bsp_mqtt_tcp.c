@@ -136,7 +136,6 @@ int bsp_mqtt_client_publish   (const char *topic, const char *data)
 {
     msg_id = esp_mqtt_client_publish(client, topic, data, 0, 0, 0);
     ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
-    
     return msg_id;
 }
 

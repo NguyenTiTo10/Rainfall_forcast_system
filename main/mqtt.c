@@ -5,6 +5,14 @@ void mqtt_test (void)
 {
   mqtt_main();
 
+  // bsp_timer_delay(500);
+
+  // bsp_mqtt_client_subscribe("Test");
+
+  // bsp_timer_delay(500);
+
+  // bsp_mqtt_client_publish ("Test", "Request_data");
+
   while (1)
   {
     if (bsp_mqtt_get_data_flag())
