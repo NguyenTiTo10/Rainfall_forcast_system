@@ -2,11 +2,6 @@
 #include "esp_log.h"
 
 
-static void system_manage_idle      (void);
-static void system_manage_boot      (void);
-static void system_manage_screen_1  (void);
-static void system_manage_screen_2  (void);
-static void system_manage_offline   (void);
 static void system_manage_init_data_display(void);
 
 
@@ -276,67 +271,4 @@ void system_manage_loop(void)
   }
 
   return;
-}
-
-
-static void system_manage_idle (void)
-{
-  system_display_idle ();
-}
-
-
-static void system_manage_boot (void)
-{
-  system_display_boot ();
-
-  // Send request to server 
-
-  // Take data from server
-}
-
-
-static void system_manage_screen_1 (void)
-{
-  // Check once again whether the essential data is complete
-
-  // Take from system_update_data
-
-  // Send to system_display
-
-  system_data_display_t data_screen_1 = 
-  {
-    .time = "29.11.2024 - 19:00",
-    .location = "HO CHI MINH",
-    .text_line_1 = "Temp    : 30.6 C       ",
-    .text_line_2 = "Humid   : 80.0 %       ",
-    .text_line_3 = "Pressure: 20.0 Pa      "
-  };
-
-  system_display_screen_1 (screen_ha_tinh_sensor);
-}
-
-
-static void system_manage_screen_2 (void)
-{
-  // Check once again whether the essential data is complete
-
-  // Take from system_update_data
-
-  // Send to system_display
-  system_data_display_t data_screen_2 = 
-  {
-    .time = "29.11.2024 - 19:00",
-    .location = "HO CHI MINH",
-    .text_line_1 = "IFS  : 35.6  43.2  30.0",
-    .text_line_2 = "Tito : 35.6  43.2  30.0",
-    .text_line_3 = "Vrain: 35.6  43.2  30.0",
-  };
-
-  system_display_screen_2(data_screen_2);
-}
-
-
-static void system_manage_offline (void)
-{
-  system_display_offline ();
 }
