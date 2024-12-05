@@ -26,7 +26,7 @@ void system_display_idle (void)
 
   // Start button
 
-  return ESP_OK;
+  return;
 }
 
 
@@ -42,7 +42,7 @@ void system_display_boot (void)
 
   ESP_LOGI("Boot state", "Completed");
 
-  return ESP_OK;
+  return;
 }
 
 
@@ -52,6 +52,7 @@ void system_display_screen_sensor    (system_data_display_t data)
 
   system_display_data_to_screen (data);
 }     
+
 
 void system_display_screen_rain      (system_data_display_t data)
 {
@@ -69,5 +70,5 @@ void system_display_offline  (void)
 
   drv_sh1106_turn_off ();
 
-  return ESP_OK;
+  return;
 }   

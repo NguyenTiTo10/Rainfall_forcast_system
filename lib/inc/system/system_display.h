@@ -34,7 +34,5 @@ void system_display_screen_rain      (system_data_display_t data);
 
 void system_display_offline          (void);  
 
-void system_display_test             (void);
-
 
 #endif
