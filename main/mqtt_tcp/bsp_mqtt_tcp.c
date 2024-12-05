@@ -7,6 +7,9 @@
 
 esp_mqtt_event_handle_t event;
 esp_mqtt_client_handle_t client;
+int msg_id;
+
+bool mqtt_event_data_flag = false;
 
 static const char *TAG = "mqtt_example";
 
@@ -33,7 +36,6 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     ESP_LOGD(TAG, "Event dispatched from event loop base=%s, event_id=%" PRIi32 "", base, event_id);
     event = event_data;
     client = event->client;
-    int msg_id;
     switch ((esp_mqtt_event_id_t)event_id) 
     {
         case MQTT_EVENT_CONNECTED:
