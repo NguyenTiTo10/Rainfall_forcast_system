@@ -6,6 +6,7 @@ esp_mqtt_event_handle_t event;
 esp_mqtt_client_handle_t client;
 int msg_id;
 
+bool mqtt_get_data_flag = false;
 
 static const char *TAG = "mqtt_example";
 
