@@ -19,6 +19,8 @@ static const char *TAG = "mqtt_example";
 void set_mqtt_event_data (void);
 bool bsp_mqtt_get_data_flag (void);
 void bsp_mqtt_set_data_flag (bool status);
+int bsp_mqtt_client_subscribe (const char *topic);
+int bsp_mqtt_client_publish   (const char *topic, const char *data);
 
 
 static void log_error_if_nonzero(const char *message, int error_code)
@@ -122,6 +124,19 @@ void bsp_mqtt_set_data_flag (bool status)
     return;
 }
 
+int bsp_mqtt_client_subscribe (const char *topic)
+{
+    msg_id = esp_mqtt_client_subscribe(client, topic, 0);
+
+    return msg_id;
+}
+
+int bsp_mqtt_client_publish   (const char *topic, const char *data)
+{
+    msg_id = esp_mqtt_client_publish(client, topic, data, 0, 0, 0);
+
+    return msg_id;
+}
 
 
 
