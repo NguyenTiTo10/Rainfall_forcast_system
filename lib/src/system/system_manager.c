@@ -36,21 +36,16 @@ static void system_manage_init_data_display()
   screen_ha_tinh_sensor.text_line_2 = "Humid   : 80.0 %       ";
   screen_ha_tinh_sensor.text_line_3 = "Pressure: 20.0 Pa      ";
 
-  screen_quang_binh_sensor = 
-  {
-    .time = "29.11.2024 - 19:00",
-    .text_line_1 = "Temp    : 30.6 C       ",
-    .text_line_2 = "Humid   : 80.0 %       ",
-    .text_line_3 = "Pressure: 20.0 Pa      "
-  };
+  screen_quang_binh_sensor.time = "29.11.2024 - 19:00";
+  screen_quang_binh_sensor.text_line_1 = "Temp    : 30.6 C       ";
+  screen_quang_binh_sensor.text_line_2 = "Humid   : 80.0 %       ";
+  screen_quang_binh_sensor.text_line_3 = "Pressure: 20.0 Pa      ";
 
-  screen_quang_tri_sensor = 
-  {
-    .time = "29.11.2024 - 19:00",
-    .text_line_1 = "Temp    : 30.6 C       ",
-    .text_line_2 = "Humid   : 80.0 %       ",
-    .text_line_3 = "Pressure: 20.0 Pa      "
-  };
+  screen_quang_tri_sensor.time = "29.11.2024 - 19:00",
+  screen_quang_tri_sensor.text_line_1 = "Temp    : 30.6 C       ";
+  screen_quang_tri_sensor.text_line_2 = "Humid   : 80.0 %       ";
+  screen_quang_tri_sensor.text_line_3 = "Pressure: 20.0 Pa      ";
+
 #endif
 
 #ifdef TEST_DISPLAY_RAIN
