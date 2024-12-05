@@ -32,6 +32,17 @@ static void system_manage_init_data_display()
   screen_quang_tri_sensor.location = "QUANG TRI ";
   screen_quang_tri_rain.location = "QUANG TRI ";
 
+#ifdef TEST_DISPLAY_SCREEN
+  screen_ha_tinh_sensor = 
+  {
+    .time = "29.11.2024 - 19:00",
+    .location = "HO CHI MINH",
+    .text_line_1 = "Temp    : 30.6 C       ",
+    .text_line_2 = "Humid   : 80.0 %       ",
+    .text_line_3 = "Pressure: 20.0 Pa      "
+  }
+#endif
+
   return;
 }
 
