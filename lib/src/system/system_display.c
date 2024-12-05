@@ -2,7 +2,7 @@
 #include "esp_log.h"
 
 
-esp_err_t system_display_idle (void)
+void system_display_idle (void)
 {
   drv_sh1106_turn_on();
 
@@ -18,7 +18,7 @@ esp_err_t system_display_idle (void)
 }
 
 
-esp_err_t system_display_boot (void)
+void system_display_boot (void)
 {
   mid_font_display_logo_uit();
 
@@ -33,7 +33,7 @@ esp_err_t system_display_boot (void)
   return ESP_OK;
 }
 
-esp_err_t system_display_screen_1   (system_data_display_t data)       
+void system_display_screen_1   (system_data_display_t data)       
 {        
   drv_sh1106_display_time(data.time);
   drv_sh1106_display_location (data.location);
@@ -45,7 +45,7 @@ esp_err_t system_display_screen_1   (system_data_display_t data)
 }
 
 
-esp_err_t system_display_screen_2   (system_data_display_t data)       // Could be some parameter later, this is just the code test
+void system_display_screen_2   (system_data_display_t data)       // Could be some parameter later, this is just the code test
 {
   drv_sh1106_display_time(data.time);
   drv_sh1106_display_location (data.location);
@@ -56,7 +56,7 @@ esp_err_t system_display_screen_2   (system_data_display_t data)       // Could 
 }
 
 
-esp_err_t system_display_offline  (void)
+void system_display_offline  (void)
 {
   mid_font_display_logo_ce ();
 
