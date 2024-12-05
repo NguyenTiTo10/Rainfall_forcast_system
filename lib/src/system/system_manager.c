@@ -190,11 +190,11 @@ void system_manage_loop(void)
       break;
 
     case HA_TINH_SCREEN_SENSOR:
-      system_display_screen_sensor ();
+      system_display_screen_sensor (screen_ha_tinh_sensor);
       break;
 
-    case ONLINE_SCREEN_2_STATE:
-      system_manage_screen_2();
+    case HA_TINH_SCREEN_RAIN:
+      system_display_screen_rain  (screen_ha_tinh_rain);
       break;
 
     case OFFLINE_STATE:
