@@ -45,11 +45,11 @@ void system_display_boot (void)
   return ESP_OK;
 }
 
-void system_display_screen_1   (system_data_display_t data)       
-{        
 
-  // ------------------Display------------------//
-  return ESP_OK;
+void system_display_hatinh_sensor   (system_data_display_t data)       
+{        
+  // System check data and topic.
+  system_display_screen(data);
 }
 
 
