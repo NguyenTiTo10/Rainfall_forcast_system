@@ -1,5 +1,7 @@
 #include "system_manager.h"
 #include "esp_log.h"
+#include <string.h>
+
 
 #define DHT11_INTERVAL_US 3000000  // 3 seconds interval in microseconds
 
@@ -210,6 +212,36 @@ system_main_state_t system_manage_update_state ()
 
 void system_manage_update_data (void)
 {
+  int64_t current_time = esp_timer_get_time();
+
+  // Check if 3 seconds have passed
+  if ((current_time - last_time) >= DHT11_INTERVAL_US)
+  {
+      last_time = current_time;  // Update the last time
+
+      if (drv_dht11_start_read())  // Fetch new data from the DHT11
+      {
+          humid = drv_dht11_get_humid();  // Get the latest humidity
+          temp = drv_dht11_get_temp();    // Get the latest temperature
+
+          // Format strings
+          snprintf(temp_str, sizeof(temp_str), "Temp    : %.1f C        ", temp);
+          snprintf(humid_str, sizeof(humid_str), "Humid   : %.1f %%       ", humid);
+
+          // Print the results
+          printf("Count: %lu\n", count);
+          printf("[Temperature]> %.2f  \n", temp);
+          printf("[Humidity]> %.2f \n\n", humid);
+
+          // Print the formatted strings
+          printf("%s\n", temp_str);
+          printf("%s\n\n", humid_str);
+      }
+      else
+      {
+          ESP_LOGE("DHT11", "Failed to read data from DHT11!");
+      }
+  }
   return;
 }
 
