@@ -21,6 +21,8 @@ system_data_display_t screen_quang_tri_rain;
 
 static system_main_state_t current_state = IDLE;
 
+char temp_str[30];            // Buffer to hold the temperature string
+char humid_str[30];           // Buffer to hold the humidity string
 
 
 static void system_manage_init_data_display()
@@ -218,9 +220,7 @@ void system_manage_update_data (void)
   // Check if 3 seconds have passed
   if ((current_time - last_time) >= DHT11_INTERVAL_US)
   {
-    char temp_str[30];  // Buffer to hold the temperature string
-    char humid_str[30]; // Buffer to hold the humidity string
-    last_time = current_time;  // Update the last time
+    last_time = current_time;     // Update the last time
 
     if (drv_dht11_start_read())  // Fetch new data from the DHT11
     {
@@ -234,6 +234,15 @@ void system_manage_update_data (void)
       // Print the formatted strings
       printf("%s\n", temp_str);
       printf("%s\n\n", humid_str);
+
+      screen_ha_tinh_sensor.text_line_1 = temp_str;
+      screen_ha_tinh_sensor.text_line_2 = humid_str;
+
+      screen_quang_binh_sensor.text_line_1 = temp_str;
+      screen_quang_binh_sensor.text_line_2 = humid_str;
+
+      screen_quang_tri_sensor.text_line_1 = temp_str;
+      screen_quang_tri_sensor.text_line_2 = humid_str;
     }
     else
     {
@@ -246,6 +255,7 @@ void system_manage_update_data (void)
 
 void system_manage_loop(void)
 {
+  system_manage_update_data ();
   
   switch (current_state)
   {
