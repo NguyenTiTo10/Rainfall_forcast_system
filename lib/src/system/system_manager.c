@@ -86,6 +86,9 @@ void system_manage_init (void)
 
   // Init MQTT
 
+  // Start Timer
+  last_time = bsp_timer_get_time();  
+
   return;
 }
 
