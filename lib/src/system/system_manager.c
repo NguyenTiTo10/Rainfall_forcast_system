@@ -210,15 +210,13 @@ system_main_state_t system_manage_update_state ()
 
 void system_manage_update_data (void)
 {
-
+  return;
 }
 
 
 void system_manage_loop(void)
 {
-  system_main_state_t next_state = system_manage_update_state();
-  current_state = next_state;
-
+  
   switch (current_state)
   {
     case IDLE:
@@ -260,6 +258,9 @@ void system_manage_loop(void)
     default:
       break;
   }
+
+  system_main_state_t next_state = system_manage_update_state();
+  current_state = next_state;
 
   return;
 }
