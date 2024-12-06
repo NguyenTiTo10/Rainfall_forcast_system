@@ -201,7 +201,10 @@ system_main_state_t system_manage_update_state ()
 }
 
 
-
+void system_manage_update_data (void)
+{
+  
+}
 
 
 void system_manage_loop(void)
