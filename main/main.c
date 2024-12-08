@@ -132,7 +132,7 @@ esp_err_t app_init (void)
 
 #include "drv_bmp180.h"
 // #define TEST_MQTT
-#define TEST_BMP180
+// #define TEST_BMP180
 
 void app_main(void) 
 {

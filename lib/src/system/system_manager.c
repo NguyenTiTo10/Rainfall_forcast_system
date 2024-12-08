@@ -2,6 +2,7 @@
 #include "esp_log.h"
 #include <string.h>
 #include "bsp_timer.h"
+#include "drv_bmp180.h"
 
 
 #define DHT11_INTERVAL_US 3000000  // 3 seconds interval in microseconds
@@ -86,8 +87,11 @@ void system_manage_init (void)
 
   if (!drv_dht11_init())
     printf("DHT11 Initialization failed! \n");
+
+  if (drv_bmp180_init() != DRV_BMP180_OK)
+    printf("BMP180 Initialization failed! \n");
   
-  system_manage_init_data_display();            // Init driver 
+  system_manage_init_data_display();            // Init test data 
 
   // Init MQTT
 
