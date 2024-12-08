@@ -229,30 +229,34 @@ void system_manage_update_data (void)
 
     drv_dht11_start_read();                     
     
-    float temp  = drv_dht11_get_temp();         
     float humid = drv_dht11_get_humid();   
 
-
     drv_bmp180_start_read();     
-    float press = drv_bmp180_get_press();      
+    float press = drv_bmp180_get_press(); 
+    float temp  = drv_bmp180_get_temp();         
 
     // Format strings
-    snprintf(temp_str, sizeof(temp_str),    "Temp    : %.1f C        ", temp);
-    snprintf(humid_str, sizeof(humid_str),  "Humid   : %.1f %%       ", humid);
-    snprintf(humid_str, sizeof(humid_str),  "Humid   : %.1f %%       ", humid);
+    snprintf(temp_str , sizeof(temp_str),   "Temp   : %.1f C         ", temp);
+    snprintf(humid_str, sizeof(humid_str),  "Humid  : %.1f %%        ", humid);
+    snprintf(press_str, sizeof(press_str),  "Presure: %.1f hPa       ", press);
 
     // Print the formatted strings
     printf("%s\n", temp_str);
-    printf("%s\n\n", humid_str);
+    printf("%s\n", humid_str);
+    printf("%s\n\n", press_str);
 
     screen_ha_tinh_sensor.text_line_1 = temp_str;
     screen_ha_tinh_sensor.text_line_2 = humid_str;
+    screen_ha_tinh_sensor.text_line_3 = press_str;
 
     screen_quang_binh_sensor.text_line_1 = temp_str;
     screen_quang_binh_sensor.text_line_2 = humid_str;
+    screen_quang_binh_sensor.text_line_3 = press_str;
 
     screen_quang_tri_sensor.text_line_1 = temp_str;
     screen_quang_tri_sensor.text_line_2 = humid_str;
+    screen_quang_tri_sensor.text_line_3 = press_str;
+
   }
   return;
 }
