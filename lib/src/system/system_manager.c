@@ -24,6 +24,7 @@ static system_main_state_t current_state = IDLE;
 
 char temp_str[30];            // Buffer to hold the temperature string
 char humid_str[30];           // Buffer to hold the humidity string
+char press_str[30];
 
 
 static void system_manage_init_data_display()
@@ -224,34 +225,34 @@ void system_manage_update_data (void)
   // Check if 3 seconds have passed
   if ((current_time - last_time) >= DHT11_INTERVAL_US)
   {
-    last_time = current_time;     // Update the last time
+    last_time = current_time;                   
 
-    if (drv_dht11_start_read())  // Fetch new data from the DHT11
-    {
-      float humid = drv_dht11_get_humid();  // Get the latest humidity
-      float temp = drv_dht11_get_temp();    // Get the latest temperature
+    drv_dht11_start_read();                     
+    
+    float temp  = drv_dht11_get_temp();         
+    float humid = drv_dht11_get_humid();   
 
-      // Format strings
-      snprintf(temp_str, sizeof(temp_str), "Temp    : %.1f C        ", temp);
-      snprintf(humid_str, sizeof(humid_str), "Humid   : %.1f %%       ", humid);
 
-      // Print the formatted strings
-      printf("%s\n", temp_str);
-      printf("%s\n\n", humid_str);
+    drv_bmp180_start_read();     
+    float press = drv_bmp180_get_press();      
 
-      screen_ha_tinh_sensor.text_line_1 = temp_str;
-      screen_ha_tinh_sensor.text_line_2 = humid_str;
+    // Format strings
+    snprintf(temp_str, sizeof(temp_str),    "Temp    : %.1f C        ", temp);
+    snprintf(humid_str, sizeof(humid_str),  "Humid   : %.1f %%       ", humid);
+    snprintf(humid_str, sizeof(humid_str),  "Humid   : %.1f %%       ", humid);
 
-      screen_quang_binh_sensor.text_line_1 = temp_str;
-      screen_quang_binh_sensor.text_line_2 = humid_str;
+    // Print the formatted strings
+    printf("%s\n", temp_str);
+    printf("%s\n\n", humid_str);
 
-      screen_quang_tri_sensor.text_line_1 = temp_str;
-      screen_quang_tri_sensor.text_line_2 = humid_str;
-    }
-    else
-    {
-      ESP_LOGE("DHT11", "Failed to read data from DHT11!");
-    }
+    screen_ha_tinh_sensor.text_line_1 = temp_str;
+    screen_ha_tinh_sensor.text_line_2 = humid_str;
+
+    screen_quang_binh_sensor.text_line_1 = temp_str;
+    screen_quang_binh_sensor.text_line_2 = humid_str;
+
+    screen_quang_tri_sensor.text_line_1 = temp_str;
+    screen_quang_tri_sensor.text_line_2 = humid_str;
   }
   return;
 }
