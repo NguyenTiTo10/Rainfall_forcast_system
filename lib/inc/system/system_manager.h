@@ -4,7 +4,9 @@
 #include <stdio.h>
 
 // #include"esp_err.h"
+#include "bsp_timer.h"
 
+#include "drv_bmp180.h"
 #include "drv_sh1106.h"
 #include "drv_dht11.h"
 #include "drv_button.h"

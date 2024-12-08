@@ -1,8 +1,6 @@
 #include "system_manager.h"
 #include "esp_log.h"
 #include <string.h>
-#include "bsp_timer.h"
-#include "drv_bmp180.h"
 
 
 #define DHT11_INTERVAL_US 3000000  // 3 seconds interval in microseconds
