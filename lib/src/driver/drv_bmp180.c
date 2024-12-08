@@ -233,7 +233,7 @@ float drv_bmp180_get_temp   (void)
 float drv_bmp180_get_press  (void)
 {
     float ret_press;
-    ret_press = bmp180_ret.pressure;
+    ret_press = bmp180_ret.pressure * 2;
 
     return ret_press;
 }
