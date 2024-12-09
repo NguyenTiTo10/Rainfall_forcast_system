@@ -4,6 +4,9 @@
 #define     TOPIC               "RAINFALL_FORCAST_SYSTEM"
 
 
+
+
+
 void mqtt_test (void)
 {
   mqtt_main();
@@ -21,7 +24,6 @@ void mqtt_test (void)
       printf("TOPIC=%.*s\r\n", topic_data.topic_length, topic_data.topic);
       printf("DATA=%.*s\r\n", topic_data.data_length, topic_data.data);
 
-      printf("Received data AAAAAAAAAAAAAAAAAAAAAAAAAA\n");
       bsp_mqtt_set_data_flag(false);
     }
 
