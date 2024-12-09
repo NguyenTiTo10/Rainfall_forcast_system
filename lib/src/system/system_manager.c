@@ -23,8 +23,8 @@ static system_main_state_t current_state = IDLE;
 
 static void system_manage_init_data_display()
 {
-  screen_ha_tinh_sensor.location = "HA TINH   ";
-  screen_ha_tinh_rain.location = "HA TINH   ";
+  screen_ha_tinh_sensor.location = " HA TINH  ";
+  screen_ha_tinh_rain.location = " HA TINH  ";
 
   screen_quang_binh_sensor.location = "QUANG BINH";
   screen_quang_binh_rain.location = "QUANG BINH";
@@ -223,17 +223,17 @@ void system_manage_update_data (void)
 
     system_data_start_update_sensor();                
 
-    screen_ha_tinh_sensor.text_line_1 = system_data_get_update_temp;
-    screen_ha_tinh_sensor.text_line_2 = system_data_get_update_humid;
-    screen_ha_tinh_sensor.text_line_3 = system_data_get_update_press;
+    screen_ha_tinh_sensor.text_line_1 = system_data_get_update_temp();
+    screen_ha_tinh_sensor.text_line_2 = system_data_get_update_humid();
+    screen_ha_tinh_sensor.text_line_3 = system_data_get_update_press();
 
-    screen_quang_binh_sensor.text_line_1 = system_data_get_update_temp;
-    screen_quang_binh_sensor.text_line_2 = system_data_get_update_humid;
-    screen_quang_binh_sensor.text_line_3 = system_data_get_update_press;
+    screen_quang_binh_sensor.text_line_1 = system_data_get_update_temp();
+    screen_quang_binh_sensor.text_line_2 = system_data_get_update_humid();
+    screen_quang_binh_sensor.text_line_3 = system_data_get_update_press();
 
-    screen_quang_tri_sensor.text_line_1 = system_data_get_update_temp;
-    screen_quang_tri_sensor.text_line_2 = system_data_get_update_humid;
-    screen_quang_tri_sensor.text_line_3 = system_data_get_update_press;
+    screen_quang_tri_sensor.text_line_1 = system_data_get_update_temp();
+    screen_quang_tri_sensor.text_line_2 = system_data_get_update_humid();
+    screen_quang_tri_sensor.text_line_3 = system_data_get_update_press();
 
   }
   return;
