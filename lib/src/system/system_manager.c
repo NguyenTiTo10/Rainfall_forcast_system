@@ -20,10 +20,6 @@ system_data_display_t screen_quang_tri_rain;
 
 static system_main_state_t current_state = IDLE;
 
-char temp_str[30];            // Buffer to hold the temperature string
-char humid_str[30];           // Buffer to hold the humidity string
-char press_str[30];
-
 
 static void system_manage_init_data_display()
 {
@@ -224,24 +220,6 @@ void system_manage_update_data (void)
   if ((current_time - last_time) >= DHT11_INTERVAL_US)
   {
     last_time = current_time;                   
-
-    drv_dht11_start_read();                     
-    
-    float humid = drv_dht11_get_humid();   
-
-    drv_bmp180_start_read();     
-    float press = drv_bmp180_get_press(); 
-    float temp  = drv_bmp180_get_temp();         
-
-    // Format strings
-    snprintf(temp_str , sizeof(temp_str),   "Temp   : %.1f C         ", temp);
-    snprintf(humid_str, sizeof(humid_str),  "Humid  : %.1f %%        ", humid);
-    snprintf(press_str, sizeof(press_str),  "Presure: %.1f hPa       ", press);
-
-    // Print the formatted strings
-    printf("%s\n", temp_str);
-    printf("%s\n", humid_str);
-    printf("%s\n\n", press_str);
 
     screen_ha_tinh_sensor.text_line_1 = temp_str;
     screen_ha_tinh_sensor.text_line_2 = humid_str;

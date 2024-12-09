@@ -12,5 +12,7 @@ typedef struct
   float pressure;
 } sys_data_sensor_update_t;
 
+void system_data_start_update_sensor (void);
+
 
 #endif
