@@ -1,6 +1,8 @@
 #ifndef SYSTEM_DATA_H
 #define SYSTEM_DATA_H
 
+#include "string.h"
+
 #include "drv_bmp180.h"
 #include "drv_dht11.h"
 #include "drv_button.h"
