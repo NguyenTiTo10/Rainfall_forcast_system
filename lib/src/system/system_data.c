@@ -27,7 +27,7 @@ char *system_data_get_update_temp (void)
 }
 
 
-char *system_data_get_update_hunid (void)
+char *system_data_get_update_humid (void)
 {
   char humid_str[30];           // Buffer to hold the humidity string
 
