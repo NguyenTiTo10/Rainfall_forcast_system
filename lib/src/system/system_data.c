@@ -1,7 +1,6 @@
 #include "system_data.h"
 
 
-char press_str[30];
 
 void system_data_start_update_sensor (void)
 {
@@ -12,9 +11,6 @@ void system_data_start_update_sensor (void)
   drv_bmp180_start_read();     
   float press = drv_bmp180_get_press(); 
   float temp  = drv_bmp180_get_temp();         
-
-  // Print the formatted strings
-  printf("%s\n\n", press_str);
 
 }
 
@@ -42,5 +38,14 @@ char *system_data_get_update_hunid (void)
   return humid_str;
 }
 
-// Format strings
+
+char *system_data_get_update_press (void)
+{
+  char press_str[30];
+
   snprintf(press_str, sizeof(press_str),  "Presure: %.1f hPa       ", press);
+
+  printf("%s\n\n", press_str);
+
+  return press_str;
+}
