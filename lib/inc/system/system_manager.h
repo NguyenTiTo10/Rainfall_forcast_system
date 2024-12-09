@@ -11,6 +11,7 @@
 #include "drv_dht11.h"
 #include "drv_button.h"
 
+#include "system_data.h"
 #include "system_display.h"
 
 

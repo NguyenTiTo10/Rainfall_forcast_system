@@ -221,7 +221,7 @@ void system_manage_update_data (void)
   {
     last_time = current_time;                   
 
-    screen_ha_tinh_sensor.text_line_1 = temp_str;
+    screen_ha_tinh_sensor.text_line_1 = system_data_get_update_temp;
     screen_ha_tinh_sensor.text_line_2 = humid_str;
     screen_ha_tinh_sensor.text_line_3 = press_str;
 
