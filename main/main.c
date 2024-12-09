@@ -130,9 +130,8 @@ esp_err_t app_init (void)
     return ESP_OK;
 }
 
-#include "drv_bmp180.h"
-// #define TEST_MQTT
 
+// #define TEST_MQTT
 void app_main(void) 
 {
     app_init();                     // Init (I2C), Button (GPIO and ISR GPIO)
