@@ -19,7 +19,7 @@ char *system_data_get_update_temp (void)
 {
   char temp_str[30];            // Buffer to hold the temperature string
 
-  snprintf(temp_str , sizeof(temp_str),   "Temp   : %.1f C         ", temp);
+  snprintf(temp_str , sizeof(temp_str),   "Temp   : %.1f C         ", data_sensor_update.temp);
 
   printf("%s\n", temp_str);
 
@@ -31,7 +31,7 @@ char *system_data_get_update_hunid (void)
 {
   char humid_str[30];           // Buffer to hold the humidity string
 
-  snprintf(humid_str, sizeof(humid_str),  "Humid  : %.1f %%        ", humid);
+  snprintf(humid_str, sizeof(humid_str),  "Humid  : %.1f %%        ", data_sensor_update.humid);
 
   printf("%s\n", humid_str);
 
@@ -43,7 +43,7 @@ char *system_data_get_update_press (void)
 {
   char press_str[30];
 
-  snprintf(press_str, sizeof(press_str),  "Presure: %.1f hPa       ", press);
+  snprintf(press_str, sizeof(press_str),  "Presure: %.1f hPa       ", data_sensor_update.pressure);
 
   printf("%s\n\n", press_str);
 
