@@ -2,16 +2,25 @@
 #include "bsp_timer.h"
 
 #define     TOPIC               "RAINFALL_FORCAST_SYSTEM"
+#define     REQUEST_UPDATE      "START"
 
 
+void middle_mqtt_init()
+{
+  mqtt_main();
 
+  bsp_mqtt_client_publish (TOPIC, REQUEST_UPDATE);
+}
+
+void middle_mqtt_request_update ()
+{
+  
+}
 
 
 void mqtt_test (void)
 {
-  mqtt_main();
-
-  bsp_mqtt_client_publish (TOPIC, "Request_data");
+  middle_mqtt_init();
 
   bsp_mqtt_client_publish (TOPIC, "35,40.9,15.0");
 
