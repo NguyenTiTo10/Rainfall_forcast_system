@@ -1,17 +1,17 @@
 #include "system_data.h"
 
 
+sys_data_sensor_update_t data_sensor_update;
 
 void system_data_start_update_sensor (void)
 {
   drv_dht11_start_read();                     
     
-  float humid = drv_dht11_get_humid();   
+  data_sensor_update.humid = drv_dht11_get_humid();   
 
   drv_bmp180_start_read();     
-  float press = drv_bmp180_get_press(); 
-  float temp  = drv_bmp180_get_temp();         
-
+  data_sensor_update.pressure = drv_bmp180_get_press(); 
+  data_sensor_update.temp  = drv_bmp180_get_temp();         
 }
 
 
