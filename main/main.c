@@ -132,7 +132,6 @@ esp_err_t app_init (void)
 
 #include "drv_bmp180.h"
 // #define TEST_MQTT
-// #define TEST_BMP180
 
 void app_main(void) 
 {
@@ -143,18 +142,6 @@ void app_main(void)
 
 #ifdef TEST_MQTT
   mqtt_test();
-#elif defined(TEST_BMP180)
-    drv_bmp180_init();
-
-    while (1)
-    {
-        drv_bmp180_start_read ();
-
-        ESP_LOGI("BMP180", "Temperature: %.1f °C", drv_bmp180_get_temp());
-        ESP_LOGI("BMP180", "Pressure: %.2f hPa", drv_bmp180_get_press());
-
-        bsp_timer_delay(2000);
-    }
 #else
     while (1)
     {
