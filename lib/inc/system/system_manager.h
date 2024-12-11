@@ -30,9 +30,10 @@ typedef enum
 
 typedef enum
 {
-  UPDATE_TIME,
-  UPDATE_SENSOR_DATA,
-  UPDATE_RAIN,
+  TIME_UPDATE,
+  HATINH_RAIN_UPDATE,
+  QUANGBINH_RAIN_UPDATE,
+  HATINH_RAIN_UPDATE
 } system_update_state_t;
 
 

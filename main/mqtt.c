@@ -1,11 +1,14 @@
 #include "mqtt.h"
 #include "bsp_timer.h"
+#include "system_manager.h"
 
 #define     TOPIC               "RAINFALL_FORCAST_SYSTEM"
 #define     REQUEST_UPDATE      "START"
 
 
-event_data_recieve_t recieved_data;
+event_data_recieve_t  recieved_data;
+
+system_update_state_t update_state;
 
 void middle_mqtt_init()
 {
@@ -38,6 +41,8 @@ bool middle_mqtt_get_data ()
   return true;
 }
 
+system_update_state_t
+
 
 void mqtt_test (void)
 {
@@ -47,11 +52,9 @@ void mqtt_test (void)
 
   while (1)
   {
-    if (bsp_mqtt_get_data_flag())
+    if (middle_mqtt_get_data())
     {
-      
-
-      
+      bsp_timer_delay(10);
     }
 
     bsp_timer_delay(10);
