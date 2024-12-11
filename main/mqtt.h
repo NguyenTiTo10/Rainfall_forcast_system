@@ -10,7 +10,8 @@ typedef enum
   TIME_UPDATE,
   HATINH_RAIN_UPDATE,
   QUANGBINH_RAIN_UPDATE,
-  HATINH_RAIN_UPDATE
+  QUANGTRI_RAIN_UPDATE,
+  UNKNOWN_UPDATE
 } middle_mqtt_update_state_t;
 
 void middle_mqtt_init();
