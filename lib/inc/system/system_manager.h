@@ -28,13 +28,7 @@ typedef enum
   OFFLINE_STATE
 } system_main_state_t;
 
-typedef enum
-{
-  TIME_UPDATE,
-  HATINH_RAIN_UPDATE,
-  QUANGBINH_RAIN_UPDATE,
-  HATINH_RAIN_UPDATE
-} system_update_state_t;
+
 
 
 

@@ -29,7 +29,8 @@
     "system_display.h": "c",
     "string.h": "c",
     "mqtt.h": "c",
-    "esp_err.h": "c"
+    "esp_err.h": "c",
+    "bsp_mqtt_tcp.h": "c"
   },
   "idf.flashType": "UART",
   "C_Cpp.dimInactiveRegions": false

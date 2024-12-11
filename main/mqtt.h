@@ -5,6 +5,14 @@
 #include "bsp_mqtt_tcp.h"
 
 
+typedef enum
+{
+  TIME_UPDATE,
+  HATINH_RAIN_UPDATE,
+  QUANGBINH_RAIN_UPDATE,
+  HATINH_RAIN_UPDATE
+} middle_mqtt_update_state_t;
+
 void middle_mqtt_init();
 
 void middle_mqtt_send_sensor_data ();

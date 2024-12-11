@@ -8,7 +8,7 @@
 
 event_data_recieve_t  recieved_data;
 
-system_update_state_t update_state;
+middle_mqtt_update_state_t update_state;
 
 void middle_mqtt_init()
 {
@@ -17,9 +17,30 @@ void middle_mqtt_init()
   bsp_mqtt_client_publish (TOPIC, REQUEST_UPDATE);
 }
 
-void middle_mqtt_request_update ()
+void middle_mqtt_detect_update_type ()
 {
-  
+  char update_type[4];
+
+  // Split the string
+  strncpy(update_type, recieved_data.data, 3); // Copy the first 3 characters
+  update_type[3] = '\0';         // Null-terminate the string
+
+  printf ("First part: %s\n", update_type);
+
+  switch (update_type)
+  {
+    case "100":
+      printf ("Update time \n");
+      return TIME_UPDATE;
+      break;
+
+    case "110":
+      printf ("Update rain HATINH_RAIN_UPDATE \n")
+      return ;
+    
+    default:
+      break;
+  }
 }
 
 bool middle_mqtt_get_data ()
@@ -41,8 +62,10 @@ bool middle_mqtt_get_data ()
   return true;
 }
 
-system_update_state_t
+middle_mqtt_update_state_t middle_mqtt_detect_type_update()
+{
 
+} 
 
 void mqtt_test (void)
 {
