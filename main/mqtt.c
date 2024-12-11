@@ -49,19 +49,25 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 
   printf ("First part: %s\n", update_type);
 
-  switch (update_type)
+  if (strcmp(update_type, "100") == 0) 
   {
-    case "100":
-      printf ("Update time \n");
-      return TIME_UPDATE;
-      break;
-
-    case "110":
-      printf ("Update rain HATINH_RAIN_UPDATE \n")
-      return ;
-    
-    default:
-      break;
+      printf("Update time\n");
+      return TIME_UPDATE;        
+  } 
+  else if (strcmp(update_type, "110") == 0) 
+  {
+      printf("Update rain Ha Tinh\n");
+      return HATINH_RAIN_UPDATE;  
+  } 
+  else if (strcmp(update_type, "111") == 0) 
+  {
+      printf("Update rain Quang Binh\n");
+      return QUANGBINH_RAIN_UPDATE;  
+  }
+  else if (strcmp(update_type, "112") == 0) 
+  {
+      printf("Update rain Quang Binh\n");
+      return QUANGBINH_RAIN_UPDATE;  
   }
 }
 
@@ -76,6 +82,8 @@ void mqtt_test (void)
   {
     if (middle_mqtt_get_data())
     {
+      middle_mqtt_detect_update_type();
+      
       bsp_timer_delay(10);
     }
 
