@@ -5,6 +5,8 @@
 #define     REQUEST_UPDATE      "START"
 
 
+event_data_recieve_t recieved_data;
+
 void middle_mqtt_init()
 {
   mqtt_main();
@@ -15,6 +17,11 @@ void middle_mqtt_init()
 void middle_mqtt_request_update ()
 {
   
+}
+
+bool middle_mqtt_get_data ()
+{
+  if 
 }
 
 
@@ -28,10 +35,11 @@ void mqtt_test (void)
   {
     if (bsp_mqtt_get_data_flag())
     {
-      event_data_recieve_t topic_data = get_ret_event_data();
+      recieved_data = get_ret_event_data();
 
-      printf("TOPIC=%.*s\r\n", topic_data.topic_length, topic_data.topic);
-      printf("DATA=%.*s\r\n", topic_data.data_length, topic_data.data);
+      printf("TOPIC=%.*s\r\n", recieved_data.topic_length, recieved_data.topic);
+      printf("DATA=%.*s\r\n", recieved_data.data_length, recieved_data.data);
+      printf("DATA LENGTH=%d\r\n", recieved_data.data_length);
 
       bsp_mqtt_set_data_flag(false);
     }
