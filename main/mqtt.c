@@ -17,7 +17,29 @@ void middle_mqtt_init()
   bsp_mqtt_client_publish (TOPIC, REQUEST_UPDATE);
 }
 
-void middle_mqtt_detect_update_type ()
+
+
+bool middle_mqtt_get_data ()
+{
+  if (bsp_mqtt_get_data_flag())
+  {
+    recieved_data = get_ret_event_data();
+
+    printf("TOPIC=%.*s\r\n", recieved_data.topic_length, recieved_data.topic);
+    printf("DATA=%.*s\r\n", recieved_data.data_length, recieved_data.data);
+    printf("DATA LENGTH=%d\r\n", recieved_data.data_length);
+
+    bsp_mqtt_set_data_flag(false);
+
+  }
+  else
+    return false;
+    
+  return true;
+}
+
+
+middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 {
   char update_type[4];
 
@@ -43,29 +65,6 @@ void middle_mqtt_detect_update_type ()
   }
 }
 
-bool middle_mqtt_get_data ()
-{
-  if (bsp_mqtt_get_data_flag())
-  {
-    recieved_data = get_ret_event_data();
-
-    printf("TOPIC=%.*s\r\n", recieved_data.topic_length, recieved_data.topic);
-    printf("DATA=%.*s\r\n", recieved_data.data_length, recieved_data.data);
-    printf("DATA LENGTH=%d\r\n", recieved_data.data_length);
-
-    bsp_mqtt_set_data_flag(false);
-
-  }
-  else
-    return false;
-    
-  return true;
-}
-
-middle_mqtt_update_state_t middle_mqtt_detect_type_update()
-{
-
-} 
 
 void mqtt_test (void)
 {
