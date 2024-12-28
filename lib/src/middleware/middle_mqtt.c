@@ -2,8 +2,14 @@
 #include "bsp_timer.h"
 #include "system_manager.h"
 
-#define     TOPIC               "RAINFALL_FORCAST_SYSTEM"
-#define     REQUEST_UPDATE      "START"
+#define     MAIN_TOPIC                "RAINFALL_FORCAST_SYSTEM"
+
+#define     UPDATE_TIME_TOPIC         "TIME_UPDATE"
+#define     HATINH_RAIN_TOPIC         "HATINH_RAIN_UPDATE"
+#define     QUANGBINH_RAIN_TOPIC      "QUANGBINH_RAIN_UPDATE"
+#define     QUANGTRI_RAIN_TOPIC       "QUANGTRI_RAIN_UPDATE"
+
+#define     REQUEST_UPDATE            "START"
 
 
 event_data_recieve_t  recieved_data;
