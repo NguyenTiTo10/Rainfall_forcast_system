@@ -23,17 +23,25 @@ static void system_manage_init_data_display()
 {
   screen_location_sensor.location = "HO CHI MINH";
 
-  screen_ha_tinh_rain.location      = "HA TINH ";
+  screen_ha_tinh_rain.location      = "HA TINH";
 
   screen_quang_binh_rain.location   = "QUANG BINH";
 
   screen_quang_tri_rain.location    = "QUANG TRI";
 
+
+  // Init the time display
+  screen_location_sensor.time = "27.12.2024 - 02:05";
+  screen_ha_tinh_rain.time = "27.12.2024 - 02:05";
+  screen_quang_binh_rain.time = "27.12.2024 - 02:05";
+  screen_quang_tri_rain.time = "27.12.2024 - 02:05";
+
+  
+
 #define TEST_DISPLAY_SENSOR
 #define TEST_DISPLAY_RAIN
 
 #ifdef TEST_DISPLAY_SENSOR
-  screen_ha_tinh_sensor.time = "27.12.2024 - 02:05";
   screen_ha_tinh_sensor.text_line_1 = "Temp    : 30.6 C       ";
   screen_ha_tinh_sensor.text_line_2 = "Humid   : 80.0 %       ";
   screen_ha_tinh_sensor.text_line_3 = "Pressure: 20.0 Pa      ";
@@ -51,17 +59,14 @@ static void system_manage_init_data_display()
 #endif
 
 #ifdef TEST_DISPLAY_RAIN
-  screen_ha_tinh_rain.time = "27.12.2024 - 02:05";
   screen_ha_tinh_rain.text_line_1 = "IFS  :  0.2   1.3   0.7";
   screen_ha_tinh_rain.text_line_2 = "Tito :  0.3   0.9   0.5";
   screen_ha_tinh_rain.text_line_3 = "Vrain:  1.6   0.9   0.8";
 
-  screen_quang_binh_rain.time = "27.12.2024 - 02:05";
   screen_quang_binh_rain.text_line_1 = "IFS  : 35.6  43.2  30.0";
   screen_quang_binh_rain.text_line_2 = "Tito : 35.6  43.2  30.0";
   screen_quang_binh_rain.text_line_3 = "Vrain: 35.6  43.2  30.0";
 
-  screen_quang_tri_rain.time = "27.12.2024 - 02:05";
   screen_quang_tri_rain.text_line_1 = "IFS  : 35.6  43.2  30.0";
   screen_quang_tri_rain.text_line_2 = "Tito : 35.6  43.2  30.0";
   screen_quang_tri_rain.text_line_3 = "Vrain: 35.6  43.2  30.0";
