@@ -35,7 +35,7 @@ typedef struct
 } event_data_recieve_t;
 
 
-void mqtt_main (void);
+void bsp_mqtt_start (void);
 
 bool bsp_mqtt_get_data_flag (void);
 void bsp_mqtt_set_data_flag (bool status);

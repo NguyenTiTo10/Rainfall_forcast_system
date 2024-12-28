@@ -173,7 +173,7 @@ void esp_log_connect (void)
 }
 
 
-void mqtt_main(void)
+void bsp_mqtt_start(void)
 {
     // esp_log_connect();
 

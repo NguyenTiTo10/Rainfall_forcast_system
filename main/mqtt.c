@@ -12,7 +12,7 @@ middle_mqtt_update_state_t update_state;
 
 void middle_mqtt_init()
 {
-  mqtt_main();
+  bsp_mqtt_start();
 
   bsp_mqtt_client_publish (TOPIC, REQUEST_UPDATE);
 }
