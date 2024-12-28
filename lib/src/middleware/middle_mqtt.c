@@ -85,33 +85,75 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 
 void middle_mqtt_extract_rain (void)
 {
-  char result[3][6]; // To store formatted numbers
-  char *token = strtok(recieved_data.data, "|");
-  int count = 0;
+  char delim[] = "|";
+  char *token;
 
-  // Skip "111" and empty token after "||"
-  while (token && strcmp(token, "111") == 0) 
+
+  // Get the first token (the first number before double ||)
+  token = strtok(str, delim);
+  printf("First part: %s\n", token);
+
+
+  // Create string IFS
+  for (int i = 0; i < 3; i++)
   {
-    token = strtok(NULL, "|");
+    token = strtok(NULL, delim);  
+
+    if (strlen(token) == 3)
+      strcat(update_rainfall_line_1, " ");
+
+    strcat(update_rainfall_line_1, token);
+
+    if (i < 2)
+      strcat(update_rainfall_line_1, "  ");
   }
 
-  // Extract first three numbers
-  while (token && count < 3) 
+
+  // Create string Tito
+  for (int i = 0; i < 3; i++)
   {
-    if (strlen(token) == 3) 
-      snprintf(result[count], sizeof(result[count]), " %s", token);
-    else snprintf(result[count], sizeof(result[count]), "%s", token);
-    count++;
-    token = strtok(NULL, "|");
+    token = strtok(NULL, delim);  
+
+    if (strlen(token) == 3)
+      strcat(update_rainfall_line_2, " ");
+
+    strcat(update_rainfall_line_2, token);
+
+    if (i < 2)
+      strcat(update_rainfall_line_2, "  ");
   }
 
-  // Print results
-  for (int i = 0; i < count; i++) printf("%s\n", result[i]);
-  return;
+
+  // Create string Vrain
+  for (int i = 0; i < 3; i++)
+  {
+    token = strtok(NULL, delim);  
+
+    if (strlen(token) == 3)
+      strcat(update_rainfall_line_3, " ");
+
+    strcat(update_rainfall_line_3, token);
+
+    if (i < 2)
+      strcat(update_rainfall_line_3, "  ");
+  }
+
+  printf("%s\n", update_rainfall_line_1);
+  printf("Size: %d\n", strlen(update_rainfall_line_1));
+
+  printf("%s\n", update_rainfall_line_2);
+  printf("Size: %d\n", strlen(update_rainfall_line_2));
+
+  printf("%s\n", update_rainfall_line_3);
+  printf("Size: %d\n", strlen(update_rainfall_line_3));
+
+  return 0;
 }
 
 void middle_mqtt_extract_data(void)
 {
+  update_state = middle_mqtt_detect_update_type();
+
   switch (update_state)
   {
     case TIME_UPDATE:
