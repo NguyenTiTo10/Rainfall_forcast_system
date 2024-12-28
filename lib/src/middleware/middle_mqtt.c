@@ -81,6 +81,31 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 }
 
 
+void middle_mqtt_extract_data(void)
+{
+  switch (update_state)
+  {
+    case TIME_UPDATE:
+      middle_mqtt_extract_time_data();
+      break;
+
+    case HATINH_RAIN_UPDATE:
+      middle_mqtt_extract_rain_data();
+      break;
+
+    case QUANGBINH_RAIN_UPDATE:
+      middle_mqtt_extract_rain_data();
+      break;
+
+    case QUANGTRI_RAIN_UPDATE:
+      middle_mqtt_extract_rain_data();
+      break;
+
+    default:
+      break;
+  }
+}
+
 void middle_mqtt_extract_rain_data (void)
 {
   char result[3][6]; // To store formatted numbers
@@ -119,7 +144,7 @@ void mqtt_test (void)
     {
       middle_mqtt_detect_update_type();
 
-      middle_mqtt_extract_rain_data();
+      middle_mqtt_extract_data();
 
       bsp_timer_delay(10);
     }
