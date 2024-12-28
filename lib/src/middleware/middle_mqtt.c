@@ -146,16 +146,26 @@ void middle_mqtt_extract_rain (void)
   printf("%s\n", update_rainfall_line_3);
   printf("Size: %d\n", strlen(update_rainfall_line_3));
 
-  return 0;
+  return;
 }
 
 void middle_mqtt_extract_time (void)
 {
-  strcpy(update_time, recieved_data.data);
+  char delim[] = "|";
+  char *token;
 
-  printf("Time: %s\n", update_time);
+  // Get the first token (the first number before double ||)
+  token = strtok(buffer_data, delim);
+  printf("First part: %s\n", token);
 
-  return 0;
+  token = strtok(NULL, delim);
+
+  strcat(update_time, token);
+
+  printf("%s\n", update_time);
+  printf("Size: %d\n", strlen(update_time));
+
+  return;
 }
 
 
