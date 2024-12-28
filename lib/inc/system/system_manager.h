@@ -18,12 +18,10 @@
 typedef enum
 {
   IDLE,                             
-  BOOT_STATE,                       
-  HA_TINH_SCREEN_SENSOR,            
-  HA_TINH_SCREEN_RAIN,
-  QUANG_BINH_SCREEN_SENSOR,            
+  BOOT_STATE,   
+  CURRENT_LOCATION_SCREEN_SENSOR,                    
+  HA_TINH_SCREEN_RAIN,        
   QUANG_BINH_SCREEN_RAIN,
-  QUANG_TRI_SCREEN_SENSOR,            
   QUANG_TRI_SCREEN_RAIN,
   OFFLINE_STATE
 } system_main_state_t;
