@@ -30,7 +30,9 @@
     "string.h": "c",
     "mqtt.h": "c",
     "esp_err.h": "c",
-    "bsp_mqtt_tcp.h": "c"
+    "bsp_mqtt_tcp.h": "c",
+    "sstream": "c",
+    "regex": "c"
   },
   "idf.flashType": "UART",
   "C_Cpp.dimInactiveRegions": false

@@ -11,7 +11,7 @@ event_data_recieve_t  recieved_data;
 
 middle_mqtt_update_state_t update_state;
 
-char buffer_dât[100];
+char buffer_data[100];
 
 char update_time[30];
 char update_rainfall_line_1[30]  =   "IFS  : ";
@@ -88,9 +88,8 @@ void middle_mqtt_extract_rain (void)
   char delim[] = "|";
   char *token;
 
-
-  // Get the first token (the first number before double ||)
-  token = strtok(str, delim);
+  // Skip the first token (the first number before double ||)
+  token = strtok(buffer_data, delim);
   printf("First part: %s\n", token);
 
 
@@ -150,6 +149,16 @@ void middle_mqtt_extract_rain (void)
   return 0;
 }
 
+void middle_mqtt_extract_time (void)
+{
+  strcpy(update_time, recieved_data.data);
+
+  printf("Time: %s\n", update_time);
+
+  return 0;
+}
+
+
 void middle_mqtt_extract_data(void)
 {
   update_state = middle_mqtt_detect_update_type();
@@ -185,6 +194,8 @@ void mqtt_test (void)
   {
     if (middle_mqtt_get_data())
     {
+      strcpy(buffer_data, recieved_data.data);
+
       middle_mqtt_extract_data();
     }
 
