@@ -11,7 +11,7 @@ int64_t last_time;
 static void system_manage_init_data_display(void);
 
 
-system_data_display_t screen_current_location_sensor;
+system_data_display_t screen_location_sensor;
 system_data_display_t screen_ha_tinh_rain;
 system_data_display_t screen_quang_binh_rain;
 system_data_display_t screen_quang_tri_rain;
@@ -21,7 +21,7 @@ static system_main_state_t current_state = IDLE;
 
 static void system_manage_init_data_display()
 {
-  screen_current_location_sensor.location = "HO CHI MINH";
+  screen_location_sensor.location = "HO CHI MINH";
 
   screen_ha_tinh_rain.location      = "HA TINH ";
 
