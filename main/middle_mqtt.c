@@ -18,7 +18,6 @@ void middle_mqtt_init()
 }
 
 
-
 bool middle_mqtt_get_data ()
 {
   if (bsp_mqtt_get_data_flag())
@@ -45,6 +44,7 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 
   // Split the string
   strncpy(update_type, recieved_data.data, 3);  // Copy the first 3 characters
+
   update_type[3] = '\0';                        // Null-terminate the string
 
   printf ("First part: %s\n", update_type);
@@ -78,8 +78,6 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 void mqtt_test (void)
 {
   middle_mqtt_init();
-
-  bsp_mqtt_client_publish (TOPIC, "35,40.9,15.0");
 
   while (1)
   {
