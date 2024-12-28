@@ -131,7 +131,7 @@ esp_err_t app_init (void)
 }
 
 
-// #define TEST_MQTT
+#define TEST_MQTT
 
 void app_main(void) 
 {

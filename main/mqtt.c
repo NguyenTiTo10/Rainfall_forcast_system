@@ -44,8 +44,8 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
   char update_type[4];
 
   // Split the string
-  strncpy(update_type, recieved_data.data, 3); // Copy the first 3 characters
-  update_type[3] = '\0';         // Null-terminate the string
+  strncpy(update_type, recieved_data.data, 3);  // Copy the first 3 characters
+  update_type[3] = '\0';                        // Null-terminate the string
 
   printf ("First part: %s\n", update_type);
 
