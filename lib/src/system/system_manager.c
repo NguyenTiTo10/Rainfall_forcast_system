@@ -74,7 +74,7 @@ void system_manage_init (void)
   if (drv_bmp180_init() != DRV_BMP180_OK)
     printf("BMP180 Initialization failed! \n");
   
-  system_manage_init_data_display();            // Init test data 
+  system_manage_init_data_display();            // Init display data 
 
   // Init MQTT
 
@@ -175,18 +175,9 @@ void system_manage_update_data (void)
 
     system_data_start_update_sensor();                
 
-    screen_ha_tinh_sensor.text_line_1 = system_data_get_update_temp();
-    screen_ha_tinh_sensor.text_line_2 = system_data_get_update_humid();
-    screen_ha_tinh_sensor.text_line_3 = system_data_get_update_press();
-
-    screen_quang_binh_sensor.text_line_1 = system_data_get_update_temp();
-    screen_quang_binh_sensor.text_line_2 = system_data_get_update_humid();
-    screen_quang_binh_sensor.text_line_3 = system_data_get_update_press();
-
-    screen_quang_tri_sensor.text_line_1 = system_data_get_update_temp();
-    screen_quang_tri_sensor.text_line_2 = system_data_get_update_humid();
-    screen_quang_tri_sensor.text_line_3 = system_data_get_update_press();
-
+    screen_location_sensor.text_line_1 = system_data_get_update_temp();
+    screen_location_sensor.text_line_2 = system_data_get_update_humid();
+    screen_location_sensor.text_line_3 = system_data_get_update_press();
   }
   return;
 }
