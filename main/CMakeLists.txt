@@ -1,7 +1,7 @@
 # idf_component_register(SRCS "mqtt_tcp.c" "main.c"
 #                     INCLUDE_DIRS ".")
 
-idf_component_register(SRCS "main.c" "mqtt_tcp/bsp_mqtt_tcp.c" 
+idf_component_register(SRCS "main.c" 
 
                         "../lib/src/system/system_manager.c"      
                         "../lib/src/system/system_display.c"  
@@ -18,9 +18,10 @@ idf_component_register(SRCS "main.c" "mqtt_tcp/bsp_mqtt_tcp.c"
                         "../lib/src/bsp/bsp_i2c.c" 
                         "../lib/src/bsp/bsp_timer.c"
                         "../lib/src/bsp/bsp_gpio.c"
+                        "../lib/src/bsp/bsp_mqtt_tcp.c"
 
 
-                    INCLUDE_DIRS "." "mqtt_tcp" 
+                    INCLUDE_DIRS "."
                         "../lib/inc/system"
 
                         "../lib/inc/middleware"
