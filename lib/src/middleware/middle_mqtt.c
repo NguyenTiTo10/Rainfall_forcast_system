@@ -11,6 +11,8 @@ event_data_recieve_t  recieved_data;
 
 middle_mqtt_update_state_t update_state;
 
+char buffer_dât[100];
+
 char *update_time;
 char *update_rainfall_line_1;
 char *update_rainfall_line_2;
@@ -106,7 +108,7 @@ void middle_mqtt_extract_data(void)
   }
 }
 
-void middle_mqtt_extract_rain_data (void)
+void middle_mqtt_extract_rain (void)
 {
   char result[3][6]; // To store formatted numbers
   char *token = strtok(recieved_data.data, "|");
