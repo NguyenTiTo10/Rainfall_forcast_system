@@ -41,26 +41,8 @@ static void system_manage_init_data_display()
   screen_location_sensor.text_line_2 = "Humid   : 99.9 %       ";
   screen_location_sensor.text_line_3 = "Pressure: 99.9 Pa      ";
   
-
-#define TEST_DISPLAY_SENSOR
 #define TEST_DISPLAY_RAIN
 
-#ifdef TEST_DISPLAY_SENSOR
-  screen_ha_tinh_sensor.text_line_1 = "Temp    : 30.6 C       ";
-  screen_ha_tinh_sensor.text_line_2 = "Humid   : 80.0 %       ";
-  screen_ha_tinh_sensor.text_line_3 = "Pressure: 20.0 Pa      ";
-
-  screen_quang_binh_sensor.time = "27.12.2024 - 02:05";
-  screen_quang_binh_sensor.text_line_1 = "Temp    : 30.6 C       ";
-  screen_quang_binh_sensor.text_line_2 = "Humid   : 80.0 %       ";
-  screen_quang_binh_sensor.text_line_3 = "Pressure: 20.0 Pa      ";
-
-  screen_quang_tri_sensor.time = "27.12.2024 - 02:05",
-  screen_quang_tri_sensor.text_line_1 = "Temp    : 30.6 C       ";
-  screen_quang_tri_sensor.text_line_2 = "Humid   : 80.0 %       ";
-  screen_quang_tri_sensor.text_line_3 = "Pressure: 20.0 Pa      ";
-
-#endif
 
 #ifdef TEST_DISPLAY_RAIN
   screen_ha_tinh_rain.text_line_1 = "IFS  :  0.2   1.3   0.7";
