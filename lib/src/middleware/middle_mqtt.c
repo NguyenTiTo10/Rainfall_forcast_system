@@ -2,16 +2,16 @@
 #include "bsp_timer.h"
 #include "system_manager.h"
 
-#define     MAIN_TOPIC                "RAINFALL_FORCAST_SYSTEM"
+#define     MAIN_TOPIC                  "RAINFALL_FORCAST_SYSTEM"
 
-#define     SENSOR_DATA_TOPIC         "SENSOR_DATA"
+#define     SENSOR_DATA_TOPIC           "SENSOR_DATA"
 
-#define     UPDATE_TIME_TOPIC         "TIME_UPDATE"
-#define     HATINH_RAIN_TOPIC         "HATINH_RAIN_UPDATE"
-#define     QUANGBINH_RAIN_TOPIC      "QUANGBINH_RAIN_UPDATE"
-#define     QUANGTRI_RAIN_TOPIC       "QUANGTRI_RAIN_UPDATE"
+#define     UPDATE_TIME_TOPIC           "TIME_UPDATE"
+#define     HATINH_RAIN_TOPIC           "HATINH_RAIN_UPDATE"
+#define     QUANGBINH_RAIN_TOPIC        "QUANGBINH_RAIN_UPDATE"
+#define     QUANGTRI_RAIN_TOPIC         "QUANGTRI_RAIN_UPDATE"
 
-#define     REQUEST_UPDATE            "START"
+#define     REQUEST_UPDATE_MESSAGE      "START"
 
 
 event_data_recieve_t  recieved_data;
@@ -22,9 +22,17 @@ void middle_mqtt_init()
 {
   bsp_mqtt_start();
 
-  bsp_mqtt_client_publish (MAIN_TOPIC, REQUEST_UPDATE);
+  bsp_mqtt_client_publish (MAIN_TOPIC, REQUEST_UPDATE_MESSAGE);
+
+  bsp_mqtt_client_subscribe(SENSOR_DATA_TOPIC);
 
   bsp_mqtt_client_subscribe(UPDATE_TIME_TOPIC);
+
+  bsp_mqtt_client_subscribe(HATINH_RAIN_TOPIC);
+
+  bsp_mqtt_client_subscribe(QUANGBINH_RAIN_TOPIC);
+
+  bsp_mqtt_client_subscribe(QUANGTRI_RAIN_TOPIC);
 }
 
 
