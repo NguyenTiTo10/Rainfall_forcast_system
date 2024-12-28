@@ -179,6 +179,9 @@ void system_manage_update_data (void)
     screen_location_sensor.text_line_2 = system_data_get_update_humid();
     screen_location_sensor.text_line_3 = system_data_get_update_press();
   }
+
+  // Check if recive data from MQTT
+
   return;
 }
 
@@ -197,8 +200,8 @@ void system_manage_loop(void)
       system_display_boot ();
       break;
 
-    case HA_TINH_SCREEN_SENSOR:
-      system_display_screen_sensor(screen_ha_tinh_sensor);
+    case CURRENT_LOCATION_SCREEN_SENSOR:
+      system_display_screen_sensor(screen_location_sensor);
       break;
 
     case HA_TINH_SCREEN_RAIN:
