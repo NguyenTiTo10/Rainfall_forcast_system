@@ -31,11 +31,15 @@ static void system_manage_init_data_display()
 
 
   // Init the time display
-  screen_location_sensor.time = "27.12.2024 - 02:05";
-  screen_ha_tinh_rain.time = "27.12.2024 - 02:05";
-  screen_quang_binh_rain.time = "27.12.2024 - 02:05";
-  screen_quang_tri_rain.time = "27.12.2024 - 02:05";
+  screen_location_sensor.time =   "27.12.2024 - 02:05";
+  screen_ha_tinh_rain.time    =   "27.12.2024 - 02:05";
+  screen_quang_binh_rain.time =   "27.12.2024 - 02:05";
+  screen_quang_tri_rain.time  =   "27.12.2024 - 02:05";
 
+  // Init the sensor display
+  screen_location_sensor.text_line_1 = "Temp    : 99.9 C       ";
+  screen_location_sensor.text_line_2 = "Humid   : 99.9 %       ";
+  screen_location_sensor.text_line_3 = "Pressure: 99.9 Pa      ";
   
 
 #define TEST_DISPLAY_SENSOR
