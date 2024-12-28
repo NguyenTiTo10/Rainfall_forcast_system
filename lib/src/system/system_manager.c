@@ -21,14 +21,13 @@ static system_main_state_t current_state = IDLE;
 
 static void system_manage_init_data_display()
 {
-  screen_ha_tinh_sensor.location    = " HA TINH  ";
-  screen_ha_tinh_rain.location      = " HA TINH  ";
+  screen_current_location_sensor.location = "HO CHI MINH";
 
-  screen_quang_binh_sensor.location = "QUANG BINH";
+  screen_ha_tinh_rain.location      = "HA TINH ";
+
   screen_quang_binh_rain.location   = "QUANG BINH";
 
-  screen_quang_tri_sensor.location  = "QUANG TRI ";
-  screen_quang_tri_rain.location    = "QUANG TRI ";
+  screen_quang_tri_rain.location    = "QUANG TRI";
 
 #define TEST_DISPLAY_SENSOR
 #define TEST_DISPLAY_RAIN
