@@ -13,10 +13,10 @@ middle_mqtt_update_state_t update_state;
 
 char buffer_dât[100];
 
-char *update_time;
-char *update_rainfall_line_1  =   "IFS  : ";
-char *update_rainfall_line_2  =   "Tito : ";
-char *update_rainfall_line_3  =   "Vrain: ";
+char update_time[30];
+char update_rainfall_line_1[30]  =   "IFS  : ";
+char update_rainfall_line_2[30]  =   "Tito : ";
+char update_rainfall_line_3[30]  =   "Vrain: ";
 
 void middle_mqtt_init()
 {
