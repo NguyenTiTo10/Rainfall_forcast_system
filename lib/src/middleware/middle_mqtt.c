@@ -166,19 +166,19 @@ void middle_mqtt_extract_data(void)
   switch (update_state)
   {
     case TIME_UPDATE:
-      middle_mqtt_extract_time_data();
+      middle_mqtt_extract_time();
       break;
 
     case HATINH_RAIN_UPDATE:
-      middle_mqtt_extract_rain_data();
+      middle_mqtt_extract_rain();
       break;
 
     case QUANGBINH_RAIN_UPDATE:
-      middle_mqtt_extract_rain_data();
+      middle_mqtt_extract_rain();
       break;
 
     case QUANGTRI_RAIN_UPDATE:
-      middle_mqtt_extract_rain_data();
+      middle_mqtt_extract_rain();
       break;
 
     default:
