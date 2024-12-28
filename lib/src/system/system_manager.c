@@ -21,13 +21,13 @@ static system_main_state_t current_state = IDLE;
 
 static void system_manage_init_data_display()
 {
-  screen_location_sensor.location = "HO CHI MINH";
+  screen_location_sensor.location   = "HO CHI MINH";
 
-  screen_ha_tinh_rain.location      = "HA TINH";
+  screen_ha_tinh_rain.location      = "  HA TINH  ";
 
-  screen_quang_binh_rain.location   = "QUANG BINH";
+  screen_quang_binh_rain.location   = "QUANG BINH ";
 
-  screen_quang_tri_rain.location    = "QUANG TRI";
+  screen_quang_tri_rain.location    = " QUANG TRI ";
 
 
   // Init the time display
