@@ -11,6 +11,11 @@ event_data_recieve_t  recieved_data;
 
 middle_mqtt_update_state_t update_state;
 
+char *update_time;
+char *update_rainfall_line_1;
+char *update_rainfall_line_2;
+char *update_rainfall_line_3;
+
 void middle_mqtt_init()
 {
   bsp_mqtt_start();
