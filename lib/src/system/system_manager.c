@@ -109,7 +109,7 @@ system_main_state_t system_manage_update_state ()
       break;
 
     case BOOT_STATE:
-      next_state = HA_TINH_SCREEN_SENSOR;
+      next_state = CURRENT_LOCATION_SCREEN_SENSOR;
       break;
 
     case HA_TINH_SCREEN_SENSOR:
