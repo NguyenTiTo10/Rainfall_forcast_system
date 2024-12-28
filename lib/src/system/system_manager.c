@@ -135,21 +135,6 @@ system_main_state_t system_manage_update_state ()
           next_state = QUANG_BINH_SCREEN_RAIN;
       break;
 
-    case QUANG_BINH_SCREEN_SENSOR:
-      if (btn_pressed == MAIN_BTN_PRESSED)
-        next_state = OFFLINE_STATE;
-
-      if (btn_pressed == LEFT_BTN_PRESSED)
-        next_state = HA_TINH_SCREEN_SENSOR;
-
-      if (btn_pressed == MID_BTN_PRESSED)
-          next_state = QUANG_BINH_SCREEN_RAIN;
-      
-      if (btn_pressed == RIGHT_BTN_PRESSED)
-          next_state = QUANG_TRI_SCREEN_SENSOR;
-
-      break;
-
     case QUANG_BINH_SCREEN_RAIN:
       if (btn_pressed == MAIN_BTN_PRESSED)
           next_state = OFFLINE_STATE;
@@ -158,7 +143,7 @@ system_main_state_t system_manage_update_state ()
         next_state = HA_TINH_SCREEN_RAIN;
 
       if (btn_pressed == MID_BTN_PRESSED)
-          next_state = QUANG_BINH_SCREEN_SENSOR;
+          next_state = CURRENT_LOCATION_SCREEN_SENSOR;
       
       if (btn_pressed == RIGHT_BTN_PRESSED)
           next_state = QUANG_TRI_SCREEN_RAIN;
