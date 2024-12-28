@@ -4,6 +4,8 @@
 
 #define     MAIN_TOPIC                "RAINFALL_FORCAST_SYSTEM"
 
+#define     SENSOR_DATA_TOPIC         "SENSOR_DATA"
+
 #define     UPDATE_TIME_TOPIC         "TIME_UPDATE"
 #define     HATINH_RAIN_TOPIC         "HATINH_RAIN_UPDATE"
 #define     QUANGBINH_RAIN_TOPIC      "QUANGBINH_RAIN_UPDATE"
@@ -20,7 +22,9 @@ void middle_mqtt_init()
 {
   bsp_mqtt_start();
 
-  bsp_mqtt_client_publish (TOPIC, REQUEST_UPDATE);
+  bsp_mqtt_client_publish (MAIN_TOPIC, REQUEST_UPDATE);
+
+  bsp_mqtt_client_subscribe(UPDATE_TIME_TOPIC);
 }
 
 
