@@ -42,10 +42,9 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 {
   char update_type[4];
 
-  // Split the string
-  strncpy(update_type, recieved_data.data, 3);  // Copy the first 3 characters
+  strncpy(update_type, recieved_data.data, 3);  
 
-  update_type[3] = '\0';                        // Null-terminate the string
+  update_type[3] = '\0';                        
 
   printf ("First part: %s\n", update_type);
 
@@ -75,6 +74,34 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 }
 
 
+void middle_mqtt_extract_rain_data (void)
+{
+  char result[3][6]; // To store formatted numbers
+  char *token = strtok(recieved_data.data, "|");
+  int count = 0;
+
+  // Skip "111" and empty token after "||"
+  while (token && strcmp(token, "111") == 0) 
+  {
+    token = strtok(NULL, "|");
+  }
+
+  // Extract first three numbers
+  while (token && count < 3) 
+  {
+    if (strlen(token) == 3) 
+      snprintf(result[count], sizeof(result[count]), " %s", token);
+    else snprintf(result[count], sizeof(result[count]), "%s", token);
+    count++;
+    token = strtok(NULL, "|");
+  }
+
+  // Print results
+  for (int i = 0; i < count; i++) printf("%s\n", result[i]);
+  return;
+}
+
+
 void mqtt_test (void)
 {
   middle_mqtt_init();
@@ -84,6 +111,8 @@ void mqtt_test (void)
     if (middle_mqtt_get_data())
     {
       middle_mqtt_detect_update_type();
+
+      middle_mqtt_extract_rain_data();
 
       bsp_timer_delay(10);
     }
