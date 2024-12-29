@@ -160,6 +160,10 @@ void middle_mqtt_extract_rain (void)
       strcat(buffer_line_3, "  ");
   }
 
+  snprintf(update_rainfall_line_1, sizeof(update_rainfall_line_1), "%s", buffer_line_1);
+  snprintf(update_rainfall_line_2, sizeof(update_rainfall_line_2), "%s", buffer_line_2);
+  snprintf(update_rainfall_line_3, sizeof(update_rainfall_line_3), "%s", buffer_line_3);
+
   printf("%s\n", buffer_line_1); 
   printf("%s\n", buffer_line_2); 
   printf("%s\n", buffer_line_3); 
