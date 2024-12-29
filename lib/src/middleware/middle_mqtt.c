@@ -11,9 +11,10 @@ event_data_recieve_t  recieved_data;
 middle_mqtt_update_state_t update_state;
 
 char update_data_time[30];
-char update_data_line_1[50] = "IFS  : ";
-char update_data_line_2[50] = "Tito : ";
-char update_data_line_3[50] = "Vrain: ";
+char update_data_line_1[50];
+char update_data_line_2[50];
+char update_data_line_3[50];
+
 
 void middle_mqtt_init()
 {
@@ -123,7 +124,6 @@ void middle_mqtt_extract_rain (void)
   return;
 }
 
-
 void middle_mqtt_extract_data()
 {
   update_state = middle_mqtt_detect_update_type();
@@ -131,18 +131,22 @@ void middle_mqtt_extract_data()
   switch (update_state)
   {
     case TIME_UPDATE:
+      strcpy(update_data_time, "");
       middle_mqtt_extract_time();
       break;
 
     case HATINH_RAIN_UPDATE:
+      strcpy(update_data_line_1, "IFS  : ");
       middle_mqtt_extract_rain();
       break;
 
     case QUANGBINH_RAIN_UPDATE:
+      strcpy(update_data_line_2, "Tito : ");
       middle_mqtt_extract_rain();
       break;
 
     case QUANGTRI_RAIN_UPDATE:
+      strcpy(update_data_line_3, "Vrain: ");
       middle_mqtt_extract_rain();
       break;
     
