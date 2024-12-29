@@ -12,9 +12,9 @@ event_data_recieve_t  recieved_data;
 char buffer_data[100];
 
 char update_time[30];
-char update_rainfall_line_1[30]  =   "IFS  : ";
-char update_rainfall_line_2[30]  =   "Tito : ";
-char update_rainfall_line_3[30]  =   "Vrain: ";
+char update_rainfall_line_1[30];
+char update_rainfall_line_2[30];
+char update_rainfall_line_3[30];
 
 void middle_mqtt_init()
 {
@@ -177,3 +177,7 @@ void middle_mqtt_extract_rain (void)
 }
 
 
+char *middle_mqtt_get_time (void)
+{
+  return update_time;
+}
