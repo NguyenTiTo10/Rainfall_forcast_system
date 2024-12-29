@@ -185,9 +185,31 @@ void system_manage_update_data (void)
   if (middle_mqtt_get_data())
   {
 
-    middle_mqtt_extract_data();
+    middle_mqtt_update_state_t update_state = middle_mqtt_detect_update_type();
 
-    bsp_timer_delay(10);
+    switch (update_state)
+    {
+      case TIME_UPDATE:
+        middle_mqtt_extract_time();
+        break;
+
+      case HATINH_RAIN_UPDATE:
+        middle_mqtt_extract_rain();
+        break;
+
+      case QUANGBINH_RAIN_UPDATE:
+        middle_mqtt_extract_rain();
+        break;
+
+      case QUANGTRI_RAIN_UPDATE:
+        middle_mqtt_extract_rain();
+        break;
+      
+      default:
+        break;
+    }
+
+  return;
   }
 
   return;
