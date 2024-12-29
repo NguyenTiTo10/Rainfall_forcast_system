@@ -132,10 +132,17 @@ void middle_mqtt_extract_rain (void)
       strcat(buffer_line_3, "  ");
   }
 
-  // Tính độ dài chuỗi và in ra kết quả
-  int length = strlen(buffer_line_1);
-  printf("%s\n", buffer_line_1); // In chuỗi định dạng
-  printf("Length of the new string: %d\n", length); // In độ dài
+  int length;
+  
+  length = strlen(buffer_line_1);
+  printf("%s\n", buffer_line_1); 
+  printf("Length of the new string: %d\n", length); 
+
+  printf("%s\n", buffer_line_1); 
+  printf("Length of the new string: %d\n", length); 
+
+  printf("%s\n", buffer_line_1); 
+  printf("Length of the new string: %d\n", length); 
 
   return;
 }
