@@ -191,6 +191,12 @@ void system_manage_update_data (void)
     {
       case TIME_UPDATE:
         middle_mqtt_extract_time();
+
+        screen_location_sensor.time = middle_mqtt_get_time();
+        screen_ha_tinh_rain.time    = middle_mqtt_get_time();
+        screen_quang_binh_rain.time = middle_mqtt_get_time(); 
+        screen_quang_tri_rain.time  = middle_mqtt_get_time();
+        
         break;
 
       case HATINH_RAIN_UPDATE:
