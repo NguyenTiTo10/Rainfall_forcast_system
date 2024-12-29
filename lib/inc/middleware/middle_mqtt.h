@@ -18,10 +18,6 @@ void middle_mqtt_init();
 
 void middle_mqtt_send_sensor_data ();
 
-void middle_mqtt_get_time_update ();
-
-void middle_mqtt_get_rainfall_update ();
-
 void middle_mqtt_extract_time (void);
 
 void middle_mqtt_extract_rain (void);
