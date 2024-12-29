@@ -93,7 +93,10 @@ void middle_mqtt_extract_time (void)
   char buffer_time[50] = "";
 
   if (token != NULL) 
-    strcpy(buffer_time, token); 
+  {
+    strcat(buffer_time, token);
+    buffer_time[sizeof(buffer_time) - 1] = '\0'; // Đảm bảo kết thúc bằng ký tự null
+  }
 
 
   uint8_t length = strlen(buffer_time);
@@ -107,7 +110,7 @@ void middle_mqtt_extract_time (void)
 
 void middle_mqtt_extract_rain (void)
 {
-  char result[3][6];
+  char result[9][6];
   char *token = strtok(recieved_data.data, "|");
   int count = 0;
 
@@ -138,10 +141,10 @@ void middle_mqtt_extract_rain (void)
 
   for (int i = 0; i < 3; i++) 
   {
-    if (strlen(result[i]) == 3)
+    if (strlen(result[i + 3]) == 3)
       strcat(buffer_line_2, " ");
 
-    strcat(buffer_line_2, result[i]);
+    strcat(buffer_line_2, result[i + 3]);
 
     if (i < 2)
       strcat(buffer_line_2, "  ");
@@ -149,10 +152,10 @@ void middle_mqtt_extract_rain (void)
 
   for (int i = 0; i < 3; i++) 
   {
-    if (strlen(result[i]) == 3)
+    if (strlen(result[i + 6]) == 3)
       strcat(buffer_line_3, " ");
 
-    strcat(buffer_line_3, result[i]);
+    strcat(buffer_line_3, result[i + 6]);
 
     if (i < 2)
       strcat(buffer_line_3, "  ");
