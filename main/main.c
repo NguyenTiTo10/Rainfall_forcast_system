@@ -135,6 +135,8 @@ void app_main(void)
 {
     app_init();                     // Init (I2C), Button (GPIO and ISR GPIO)
 
+    middle_mqtt_init();                           // Init MQTT         
+
     system_manage_init();           // Init driver OLED, driver DHT11
 
     while (1)
