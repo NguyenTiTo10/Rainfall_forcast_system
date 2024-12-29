@@ -133,15 +133,17 @@ void middle_mqtt_extract_rain (void)
   }
 
   int length;
-  
+
   length = strlen(buffer_line_1);
   printf("%s\n", buffer_line_1); 
   printf("Length of the new string: %d\n", length); 
 
-  printf("%s\n", buffer_line_1); 
+  length = strlen(buffer_line_2);
+  printf("%s\n", buffer_line_2); 
   printf("Length of the new string: %d\n", length); 
 
-  printf("%s\n", buffer_line_1); 
+  length = strlen(buffer_line_3);
+  printf("%s\n", buffer_line_3); 
   printf("Length of the new string: %d\n", length); 
 
   return;
