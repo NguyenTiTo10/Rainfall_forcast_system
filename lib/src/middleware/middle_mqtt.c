@@ -81,13 +81,15 @@ void middle_mqtt_extract_time (void)
   if (token != NULL)
     token = strtok(NULL, "|");
 
-  char buffer_time[20];
+  char buffer_time[50] = "";
 
-  strcpy(buffer_time, token);
+  if (token != NULL) {
+        strcpy(buffer_time, token); // Sao chép chuỗi vào buffer_time
+    }
 
   uint8_t length = strlen(buffer_time);
 
-  printf("Time: %s\n", buffer_time);
+  printf("%s\n", buffer_time);
   printf("Length of the new string: %d\n", length);
 
   
