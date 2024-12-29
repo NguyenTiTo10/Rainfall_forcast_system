@@ -76,6 +76,21 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 
 void middle_mqtt_extract_time (void)
 {
+  char *token = strtok(recieved_data.data, "|");
+
+  if (token != NULL)
+    token = strtok(NULL, "|");
+
+  char buffer_time[20];
+
+  strcpy(buffer_time, token);
+
+  uint8_t length = strlen(buffer_time);
+
+  printf("Time: %s\n", buffer_time);
+  printf("Length of the new string: %d\n", length);
+
+  
   return;
 }
 
