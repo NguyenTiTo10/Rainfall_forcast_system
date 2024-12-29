@@ -10,12 +10,6 @@ event_data_recieve_t  recieved_data;
 
 middle_mqtt_update_state_t update_state;
 
-char update_data_time[30];
-char update_data_line_1[50];
-char update_data_line_2[50];
-char update_data_line_3[50];
-
-
 void middle_mqtt_init()
 {
   bsp_mqtt_start();
@@ -87,16 +81,11 @@ void middle_mqtt_extract_time (void)
 
 void middle_mqtt_extract_rain (void)
 {
-  memset(update_data_time, '\0', sizeof(update_data_time));
-  memset(update_data_line_1, '\0', sizeof(update_data_line_1));
-  memset(update_data_line_2, '\0', sizeof(update_data_line_2)); 
-  memset(update_data_line_3, '\0', sizeof(update_data_line_3));
-
-  char result[3][6];                                  // To store formatted numbers
+  char result[3][6]; // To store formatted numbers
   char *token = strtok(recieved_data.data, "|");
   int count = 0;
 
-  // Trích xuất 9 số từ chuỗi nhận được
+  // Trích xuất 3 số đầu tiên sau "||"
   while (token && count < 9) 
   {
     token = strtok(NULL, "|");
@@ -105,24 +94,26 @@ void middle_mqtt_extract_rain (void)
     count++;
   }
 
+  // Tạo chuỗi định dạng đầu ra
+  char buffer_line_1[50] = "IFS  :";
+  char buffer_line_2[50] = "Tito :";
+  char buffer_line_3[50] = "Vrain:";
+
+  
   for (int i = 0; i < 3; i++) 
   {
-    if (strlen(result[i]) == 3)
-      strcat(update_data_line_1, " ");
-
-    strcat(update_data_line_1, result[i]);
-    
-    if (i < 2)
-      strcat(update_data_line_1, "  ");
+    strcat(buffer_line_1, "  ");
+    strcat(buffer_line_1, result[i]);
   }
 
   // Tính độ dài chuỗi và in ra kết quả
-  int length = strlen(update_data_line_1);
-  printf("%s\n", update_data_line_1); // In chuỗi định dạng
+  int length = strlen(buffer_line_1);
+  printf("%s\n", buffer_line_1); // In chuỗi định dạng
   printf("Length of the new string: %d\n", length); // In độ dài
 
   return;
 }
+
 
 void middle_mqtt_extract_data()
 {
@@ -131,22 +122,18 @@ void middle_mqtt_extract_data()
   switch (update_state)
   {
     case TIME_UPDATE:
-      strcpy(update_data_time, "");
       middle_mqtt_extract_time();
       break;
 
     case HATINH_RAIN_UPDATE:
-      strcpy(update_data_line_1, "IFS  : ");
       middle_mqtt_extract_rain();
       break;
 
     case QUANGBINH_RAIN_UPDATE:
-      strcpy(update_data_line_2, "Tito : ");
       middle_mqtt_extract_rain();
       break;
 
     case QUANGTRI_RAIN_UPDATE:
-      strcpy(update_data_line_3, "Vrain: ");
       middle_mqtt_extract_rain();
       break;
     
