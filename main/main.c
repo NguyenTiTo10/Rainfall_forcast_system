@@ -131,23 +131,17 @@ esp_err_t app_init (void)
 }
 
 
-#define TEST_MQTT
-
 void app_main(void) 
 {
     app_init();                     // Init (I2C), Button (GPIO and ISR GPIO)
 
     system_manage_init();           // Init driver OLED, driver DHT11
 
-
-#ifdef TEST_MQTT
-  mqtt_test();
-#else
     while (1)
     {
         system_manage_loop();  
         bsp_timer_delay(10);
     }
-#endif
+
 
 }
