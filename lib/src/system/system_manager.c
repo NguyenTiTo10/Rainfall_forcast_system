@@ -182,6 +182,13 @@ void system_manage_update_data (void)
   }
 
   // Check if recive data from MQTT
+  if (middle_mqtt_get_data())
+  {
+
+    middle_mqtt_extract_data();
+
+    bsp_timer_delay(10);
+  }
 
   return;
 }
