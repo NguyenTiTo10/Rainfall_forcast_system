@@ -85,24 +85,32 @@ void middle_mqtt_extract_rain (void)
   char *token = strtok(recieved_data.data, "|");
   int count = 0;
 
-  // Skip "111" and empty token after "||"
-  while (token && strcmp(token, "111") == 0) 
-  {
-    token = strtok(NULL, "|");
+    // Bỏ qua "111" và dấu "||"
+  while (token && (strcmp(token, "111") == 0 || strlen(token) == 0)) {
+      token = strtok(NULL, "|");
   }
 
-  // Extract first three numbers
+  // Trích xuất 3 số đầu tiên sau "||"
   while (token && count < 3) 
   {
-    if (strlen(token) == 3) 
-      snprintf(result[count], sizeof(result[count]), " %s", token);
-    else snprintf(result[count], sizeof(result[count]), "%s", token);
-    count++;
-    token = strtok(NULL, "|");
+      snprintf(result[count], sizeof(result[count]), "%s", token);
+      count++;
+      token = strtok(NULL, "|");
   }
 
-  // Print results
-  for (int i = 0; i < count; i++) printf("%s\n", result[i]);
+  // Tạo chuỗi định dạng đầu ra
+  char output[50] = "IFS  :";
+  for (int i = 0; i < count; i++) 
+  {
+      strcat(output, "  ");
+      strcat(output, result[i]);
+  }
+
+  // Tính độ dài chuỗi và in ra kết quả
+  int length = strlen(output);
+  printf("%s\n", output); // In chuỗi định dạng
+  printf("Length of the new string: %d\n", length); // In độ dài
+
   return;
 }
 
