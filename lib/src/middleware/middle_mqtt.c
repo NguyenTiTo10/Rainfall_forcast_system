@@ -81,11 +81,10 @@ void middle_mqtt_extract_time (void)
 
 void middle_mqtt_extract_rain (void)
 {
-  char result[3][6]; // To store formatted numbers
+  char result[3][6];
   char *token = strtok(recieved_data.data, "|");
   int count = 0;
 
-  // Trích xuất 3 số đầu tiên sau "||"
   while (token && count < 9) 
   {
     token = strtok(NULL, "|");
@@ -109,6 +108,28 @@ void middle_mqtt_extract_rain (void)
 
     if (i < 2)
       strcat(buffer_line_1, "  ");
+  }
+
+  for (int i = 0; i < 3; i++) 
+  {
+    if (strlen(result[i]) == 3)
+      strcat(buffer_line_2, " ");
+
+    strcat(buffer_line_2, result[i]);
+
+    if (i < 2)
+      strcat(buffer_line_2, "  ");
+  }
+
+  for (int i = 0; i < 3; i++) 
+  {
+    if (strlen(result[i]) == 3)
+      strcat(buffer_line_3, " ");
+
+    strcat(buffer_line_3, result[i]);
+
+    if (i < 2)
+      strcat(buffer_line_3, "  ");
   }
 
   // Tính độ dài chuỗi và in ra kết quả
