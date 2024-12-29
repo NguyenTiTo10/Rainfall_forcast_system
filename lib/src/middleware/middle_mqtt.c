@@ -95,15 +95,20 @@ void middle_mqtt_extract_rain (void)
   }
 
   // Tạo chuỗi định dạng đầu ra
-  char buffer_line_1[50] = "IFS  :";
-  char buffer_line_2[50] = "Tito :";
-  char buffer_line_3[50] = "Vrain:";
+  char buffer_line_1[50] = "IFS  : ";
+  char buffer_line_2[50] = "Tito : ";
+  char buffer_line_3[50] = "Vrain: ";
 
-  
+
   for (int i = 0; i < 3; i++) 
   {
-    strcat(buffer_line_1, "  ");
+    if (strlen(result[i]) == 3)
+      strcat(buffer_line_1, " ");
+
     strcat(buffer_line_1, result[i]);
+
+    if (i < 2)
+      strcat(buffer_line_1, "  ");
   }
 
   // Tính độ dài chuỗi và in ra kết quả
