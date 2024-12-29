@@ -9,8 +9,6 @@
 
 event_data_recieve_t  recieved_data;
 
-middle_mqtt_update_state_t update_state;
-
 char buffer_data[100];
 
 char update_time[30];
@@ -179,50 +177,3 @@ void middle_mqtt_extract_rain (void)
 }
 
 
-void middle_mqtt_extract_data()
-{
-  update_state = middle_mqtt_detect_update_type();
-
-  switch (update_state)
-  {
-    case TIME_UPDATE:
-      middle_mqtt_extract_time();
-      break;
-
-    case HATINH_RAIN_UPDATE:
-      middle_mqtt_extract_rain();
-      break;
-
-    case QUANGBINH_RAIN_UPDATE:
-      middle_mqtt_extract_rain();
-      break;
-
-    case QUANGTRI_RAIN_UPDATE:
-      middle_mqtt_extract_rain();
-      break;
-    
-    default:
-      break;
-  }
-
-  return;
-}
-
-void mqtt_test (void)
-{
-  middle_mqtt_init();
-
-  while (1)
-  {
-    if (middle_mqtt_get_data())
-    {
-
-      middle_mqtt_extract_data();
-
-      bsp_timer_delay(10);
-    }
-
-    bsp_timer_delay(10);
-  }
-  
-}
