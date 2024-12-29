@@ -18,16 +18,21 @@ void middle_mqtt_init();
 
 void middle_mqtt_send_sensor_data ();
 
+bool middle_mqtt_get_data ();
+
 void middle_mqtt_extract_time (void);
 
 void middle_mqtt_extract_rain (void);
 
 middle_mqtt_update_state_t middle_mqtt_detect_update_type ();
 
-bool middle_mqtt_get_data ();
+char *middle_mqtt_get_time (void);
 
+char *middle_mqtt_get_rainfall_line_1 (void);
 
+char *middle_mqtt_get_rainfall_line_2 (void);
 
-void mqtt_test(void);
+char *middle_mqtt_get_rainfall_line_3 (void);
+
 
 #endif
