@@ -11,9 +11,9 @@ event_data_recieve_t  recieved_data;
 middle_mqtt_update_state_t update_state;
 
 char update_data_time[30];
-char update_data_line_1[30] = "IFS  : ";
-char update_data_line_2[30] = "Tito : ";
-char update_data_line_3[30] = "Vrain: ";
+char update_data_line_1[50] = "IFS  : ";
+char update_data_line_2[50] = "Tito : ";
+char update_data_line_3[50] = "Vrain: ";
 
 void middle_mqtt_init()
 {
@@ -90,8 +90,8 @@ void middle_mqtt_extract_rain (void)
   char *token = strtok(recieved_data.data, "|");
   int count = 0;
 
-  // Trích xuất 3 số đầu tiên sau "||"
-  while (token && count < 3) 
+  // Trích xuất 9 số từ chuỗi nhận được
+  while (token && count < 9) 
   {
     token = strtok(NULL, "|");
 
@@ -99,17 +99,15 @@ void middle_mqtt_extract_rain (void)
     count++;
   }
 
-  // Tạo chuỗi định dạng đầu ra
-  char output[50] = "IFS  :";
-  for (int i = 0; i < count; i++) 
+  for (int i = 0; i < 3; i++) 
   {
-      strcat(output, "  ");
-      strcat(output, result[i]);
+      strcat(update_data_line_1, "  ");
+      strcat(update_data_line_1, result[i]);
   }
 
   // Tính độ dài chuỗi và in ra kết quả
-  int length = strlen(output);
-  printf("%s\n", output); // In chuỗi định dạng
+  int length = strlen(update_data_line_1);
+  printf("%s\n", update_data_line_1); // In chuỗi định dạng
   printf("Length of the new string: %d\n", length); // In độ dài
 
   return;
