@@ -22,6 +22,9 @@ void middle_mqtt_get_time_update ();
 
 void middle_mqtt_get_rainfall_update ();
 
+bool middle_mqtt_get_data ();
+
+
 
 void mqtt_test(void);
 
