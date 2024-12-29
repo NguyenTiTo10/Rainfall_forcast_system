@@ -76,7 +76,8 @@ void system_manage_init (void)
   
   system_manage_init_data_display();            // Init display data 
 
-  // Init MQTT
+  
+  middle_mqtt_init();                           // Init MQTT         
 
   // Start Timer
   last_time = bsp_timer_get_time();  
