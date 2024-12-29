@@ -85,17 +85,13 @@ void middle_mqtt_extract_rain (void)
   char *token = strtok(recieved_data.data, "|");
   int count = 0;
 
-    // Bỏ qua "111" và dấu "||"
-  while (token && (strcmp(token, "111") == 0 || strlen(token) == 0)) {
-      token = strtok(NULL, "|");
-  }
-
   // Trích xuất 3 số đầu tiên sau "||"
   while (token && count < 3) 
   {
-      snprintf(result[count], sizeof(result[count]), "%s", token);
-      count++;
-      token = strtok(NULL, "|");
+    token = strtok(NULL, "|");
+
+    snprintf(result[count], sizeof(result[count]), "%s", token);
+    count++;
   }
 
   // Tạo chuỗi định dạng đầu ra
