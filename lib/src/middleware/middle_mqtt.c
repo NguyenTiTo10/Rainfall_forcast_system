@@ -11,10 +11,10 @@ event_data_recieve_t  recieved_data;
 
 char buffer_data[100];
 
-char update_time[19];
-char update_rainfall_line_1[24];
-char update_rainfall_line_2[24];
-char update_rainfall_line_3[24];
+char update_time[50];
+char update_rainfall_line_1[50];
+char update_rainfall_line_2[50];
+char update_rainfall_line_3[50];
 
 void middle_mqtt_init()
 {
@@ -176,7 +176,9 @@ char *middle_mqtt_get_time (void)
 {
   if (strlen(update_time) == 0)
     return "No data";
-  return update_time;
+
+  char *ret_time = update_time;
+  return ret_time;
 }
 
 char *middle_mqtt_get_rainfall_line_1 (void)
