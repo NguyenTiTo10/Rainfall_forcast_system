@@ -83,93 +83,100 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 }
 
 
-void middle_mqtt_extract_rain (void)
-{
-  char delim[] = "|";
-  char *token;
-
-  // Skip the first token (the first number before double ||)
-  token = strtok(buffer_data, delim);
-  printf("First part: %s\n", token);
-
-
-  // Create string IFS
-  for (int i = 0; i < 3; i++)
-  {
-    token = strtok(NULL, delim);  
-
-    if (strlen(token) == 3)
-      strcat(update_rainfall_line_1, " ");
-
-    strcat(update_rainfall_line_1, token);
-
-    if (i < 2)
-      strcat(update_rainfall_line_1, "  ");
-  }
-
-
-  // Create string Tito
-  for (int i = 0; i < 3; i++)
-  {
-    token = strtok(NULL, delim);  
-
-    if (strlen(token) == 3)
-      strcat(update_rainfall_line_2, " ");
-
-    strcat(update_rainfall_line_2, token);
-
-    if (i < 2)
-      strcat(update_rainfall_line_2, "  ");
-  }
-
-
-  // Create string Vrain
-  for (int i = 0; i < 3; i++)
-  {
-    token = strtok(NULL, delim);  
-
-    if (strlen(token) == 3)
-      strcat(update_rainfall_line_3, " ");
-
-    strcat(update_rainfall_line_3, token);
-
-    if (i < 2)
-      strcat(update_rainfall_line_3, "  ");
-  }
-
-  printf("%s\n", update_rainfall_line_1);
-  printf("Size: %d\n", strlen(update_rainfall_line_1));
-
-  printf("%s\n", update_rainfall_line_2);
-  printf("Size: %d\n", strlen(update_rainfall_line_2));
-
-  printf("%s\n", update_rainfall_line_3);
-  printf("Size: %d\n", strlen(update_rainfall_line_3));
-
-  return;
-}
-
 void middle_mqtt_extract_time (void)
 {
-  char delim[] = "|";
-  char *token;
+  char *token = strtok(recieved_data.data, "|");
 
-  // Get the first token (the first number before double ||)
-  token = strtok(buffer_data, delim);
-  printf("First part: %s\n", token);
+  if (token != NULL)
+    token = strtok(NULL, "|");
 
-  token = strtok(NULL, delim);
+  char buffer_time[50] = "";
 
-  strcat(update_time, token);
+  if (token != NULL) 
+    strcpy(buffer_time, token); 
 
-  printf("%s\n", update_time);
-  printf("Size: %d\n", strlen(update_time));
+
+  uint8_t length = strlen(buffer_time);
+
+  printf("%s\n", buffer_time);
+  printf("Length of the new string: %d\n", length);
+
+  
+  return;
+}
+
+void middle_mqtt_extract_rain (void)
+{
+  char result[3][6];
+  char *token = strtok(recieved_data.data, "|");
+  int count = 0;
+
+  while (token && count < 9) 
+  {
+    token = strtok(NULL, "|");
+
+    snprintf(result[count], sizeof(result[count]), "%s", token);
+    count++;
+  }
+
+  // Tạo chuỗi định dạng đầu ra
+  char buffer_line_1[50] = "IFS  : ";
+  char buffer_line_2[50] = "Tito : ";
+  char buffer_line_3[50] = "Vrain: ";
+
+
+  for (int i = 0; i < 3; i++) 
+  {
+    if (strlen(result[i]) == 3)
+      strcat(buffer_line_1, " ");
+
+    strcat(buffer_line_1, result[i]);
+
+    if (i < 2)
+      strcat(buffer_line_1, "  ");
+  }
+
+  for (int i = 0; i < 3; i++) 
+  {
+    if (strlen(result[i]) == 3)
+      strcat(buffer_line_2, " ");
+
+    strcat(buffer_line_2, result[i]);
+
+    if (i < 2)
+      strcat(buffer_line_2, "  ");
+  }
+
+  for (int i = 0; i < 3; i++) 
+  {
+    if (strlen(result[i]) == 3)
+      strcat(buffer_line_3, " ");
+
+    strcat(buffer_line_3, result[i]);
+
+    if (i < 2)
+      strcat(buffer_line_3, "  ");
+  }
+
+  int length;
+
+  length = strlen(buffer_line_1);
+  printf("%s\n", buffer_line_1); 
+  printf("Length of the new string: %d\n", length); 
+
+  length = strlen(buffer_line_2);
+  printf("%s\n", buffer_line_2); 
+  printf("Length of the new string: %d\n", length); 
+
+  length = strlen(buffer_line_3);
+  printf("%s\n", buffer_line_3); 
+  printf("Length of the new string: %d\n", length); 
 
   return;
 }
 
 
-void middle_mqtt_extract_data(void)
+void middle_mqtt_extract_data()
 {
   update_state = middle_mqtt_detect_update_type();
 
@@ -190,10 +197,12 @@ void middle_mqtt_extract_data(void)
     case QUANGTRI_RAIN_UPDATE:
       middle_mqtt_extract_rain();
       break;
-
+    
     default:
       break;
   }
+
+  return;
 }
 
 void mqtt_test (void)
@@ -204,9 +213,10 @@ void mqtt_test (void)
   {
     if (middle_mqtt_get_data())
     {
-      strcpy(buffer_data, recieved_data.data);
 
       middle_mqtt_extract_data();
+
+      bsp_timer_delay(10);
     }
 
     bsp_timer_delay(10);
