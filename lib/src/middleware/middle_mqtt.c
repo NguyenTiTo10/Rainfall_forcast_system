@@ -10,6 +10,11 @@ event_data_recieve_t  recieved_data;
 
 middle_mqtt_update_state_t update_state;
 
+char update_data_time[30];
+char update_data_line_1[30] = "IFS  : ";
+char update_data_line_2[30] = "Tito : ";
+char update_data_line_3[30] = "Vrain: ";
+
 void middle_mqtt_init()
 {
   bsp_mqtt_start();
@@ -81,7 +86,7 @@ void middle_mqtt_extract_time (void)
 
 void middle_mqtt_extract_rain (void)
 {
-  char result[3][6]; // To store formatted numbers
+  char result[3][6];                                  // To store formatted numbers
   char *token = strtok(recieved_data.data, "|");
   int count = 0;
 
