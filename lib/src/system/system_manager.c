@@ -196,11 +196,18 @@ void system_manage_update_data (void)
         screen_ha_tinh_rain.time    = middle_mqtt_get_time();
         screen_quang_binh_rain.time = middle_mqtt_get_time(); 
         screen_quang_tri_rain.time  = middle_mqtt_get_time();
-        
+
         break;
 
       case HATINH_RAIN_UPDATE:
         middle_mqtt_extract_rain();
+
+        screen_ha_tinh_rain.text_line_1 = middle_mqtt_get_rainfall_line_1();
+
+        screen_ha_tinh_rain.text_line_2 = middle_mqtt_get_rainfall_line_2();
+
+        screen_ha_tinh_rain.text_line_3 = middle_mqtt_get_rainfall_line_3();
+
         break;
 
       case QUANGBINH_RAIN_UPDATE:
