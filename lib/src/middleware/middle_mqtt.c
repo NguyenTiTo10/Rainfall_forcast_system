@@ -174,5 +174,28 @@ void middle_mqtt_extract_rain (void)
 
 char *middle_mqtt_get_time (void)
 {
+  if (strlen(update_time) == 0)
+    return "No data";
   return update_time;
+}
+
+char *middle_mqtt_get_rainfall_line_1 (void)
+{
+  if (strlen(update_rainfall_line_1) == 0)
+    return "No data";
+  return update_rainfall_line_1;
+}
+
+char *middle_mqtt_get_rainfall_line_2 (void)
+{
+  if (strlen(update_rainfall_line_2) == 0)
+    return "No data";
+  return update_rainfall_line_2;
+}
+
+char *middle_mqtt_get_rainfall_line_3 (void)
+{
+  if (strlen(update_rainfall_line_3) == 0)
+    return "No data";
+  return update_rainfall_line_3;
 }
