@@ -11,10 +11,10 @@ event_data_recieve_t  recieved_data;
 
 char buffer_data[100];
 
-char update_time[30];
-char update_rainfall_line_1[30];
-char update_rainfall_line_2[30];
-char update_rainfall_line_3[30];
+char update_time[19];
+char update_rainfall_line_1[24];
+char update_rainfall_line_2[24];
+char update_rainfall_line_3[24];
 
 void middle_mqtt_init()
 {
@@ -102,6 +102,7 @@ void middle_mqtt_extract_time (void)
   printf("%s\n", buffer_time);
   printf("Length of the new string: %d\n", length);
 
+  snprintf(update_time, sizeof(update_time), "%s", buffer_time);
   
   return;
 }
