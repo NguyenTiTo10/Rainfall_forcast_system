@@ -74,7 +74,12 @@ middle_mqtt_update_state_t middle_mqtt_detect_update_type ()
 }
 
 
-void middle_mqtt_extract_rain_data (void)
+void middle_mqtt_extract_time (void)
+{
+  return;
+}
+
+void middle_mqtt_extract_rain (void)
 {
   char result[3][6]; // To store formatted numbers
   char *token = strtok(recieved_data.data, "|");
@@ -102,6 +107,35 @@ void middle_mqtt_extract_rain_data (void)
 }
 
 
+void middle_mqtt_extract_data()
+{
+  update_state = middle_mqtt_detect_update_type();
+
+  switch (update_state)
+  {
+    case TIME_UPDATE:
+      middle_mqtt_extract_time();
+      break;
+
+    case HATINH_RAIN_UPDATE:
+      middle_mqtt_extract_rain();
+      break;
+
+    case QUANGBINH_RAIN_UPDATE:
+      middle_mqtt_extract_rain();
+      break;
+
+    case QUANGTRI_RAIN_UPDATE:
+      middle_mqtt_extract_rain();
+      break;
+    
+    default:
+      break;
+  }
+
+  return;
+}
+
 void mqtt_test (void)
 {
   middle_mqtt_init();
@@ -110,9 +144,8 @@ void mqtt_test (void)
   {
     if (middle_mqtt_get_data())
     {
-      middle_mqtt_detect_update_type();
 
-      middle_mqtt_extract_rain_data();
+      middle_mqtt_extract_data();
 
       bsp_timer_delay(10);
     }
