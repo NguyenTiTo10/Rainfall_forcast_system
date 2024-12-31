@@ -20,6 +20,7 @@ void system_data_start_update_sensor (void)
   data_sensor_update.temp  = drv_bmp180_get_temp();
 
   // Add test code send to flespi.io
+  middle_mqtt_send_sensor_data(data_sensor_update.temp, data_sensor_update.humid, data_sensor_update.pressure);
 
   return;         
 }
