@@ -19,6 +19,8 @@ void system_data_start_update_sensor (void)
   data_sensor_update.pressure = drv_bmp180_get_press(); 
   data_sensor_update.temp  = drv_bmp180_get_temp();
 
+  // Add test code send to flespi.io
+
   return;         
 }
 

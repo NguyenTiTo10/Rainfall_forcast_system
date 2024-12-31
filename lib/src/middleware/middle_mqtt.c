@@ -171,6 +171,17 @@ void middle_mqtt_extract_rain (void)
   return;
 }
 
+void middle_mqtt_send_sensor_data (float temp, float humid, float pressure)
+{
+  char buffer_data[50];
+
+  snprintf(buffer_data, sizeof(buffer_data), "000||%.1f|%.1f|%.1f|", temp, humid, pressure);
+
+  bsp_mqtt_client_publish (MAIN_TOPIC, buffer_data);
+
+  return;
+}
+
 
 char *middle_mqtt_get_time (void)
 {
