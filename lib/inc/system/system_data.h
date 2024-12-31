@@ -7,6 +7,8 @@
 #include "drv_dht11.h"
 #include "drv_button.h"
 
+#include "middle_mqtt.h"
+
 typedef struct 
 {
   float temp;
