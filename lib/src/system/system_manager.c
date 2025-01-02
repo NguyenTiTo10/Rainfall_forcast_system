@@ -177,12 +177,12 @@ system_main_state_t system_manage_update_state ()
 
 void system_manage_update_data (void)
 {
-  current_time_update_sensor = esp_timer_get_time();
+  int64_t current_time_update_sensor = esp_timer_get_time();
 
   // Check if 3 seconds have passed
   if ((current_time_update_sensor - last_time_update_sensor) >= UPDATE_SENSOR_DATA)
   {
-    last_time = current_time;   
+    last_time_update_sensor = current_time_update_sensor;   
 
     system_data_start_update_sensor();                
 
@@ -191,59 +191,7 @@ void system_manage_update_data (void)
     screen_location_sensor.text_line_3 = system_data_get_update_press();
   }
 
-  // Check if recive data from MQTT
-  if (middle_mqtt_get_data())
-  {
-
-    middle_mqtt_update_state_t update_state = middle_mqtt_detect_update_type();
-
-    switch (update_state)
-    {
-      case TIME_UPDATE:
-        middle_mqtt_extract_time();
-
-        screen_location_sensor.time = middle_mqtt_get_time();
-        screen_ha_tinh_rain.time    = middle_mqtt_get_time();
-        screen_quang_binh_rain.time = middle_mqtt_get_time(); 
-        screen_quang_tri_rain.time  = middle_mqtt_get_time();
-
-        break;
-
-      case HATINH_RAIN_UPDATE:
-        middle_mqtt_extract_rain();
-
-        screen_ha_tinh_rain.text_line_1 = middle_mqtt_get_rainfall_line_1();
-        screen_ha_tinh_rain.text_line_2 = middle_mqtt_get_rainfall_line_2();
-        screen_ha_tinh_rain.text_line_3 = middle_mqtt_get_rainfall_line_3();
-
-        break;
-
-      case QUANGBINH_RAIN_UPDATE:
-        middle_mqtt_extract_rain();
-
-        screen_quang_binh_rain.text_line_1 = middle_mqtt_get_rainfall_line_1();
-        screen_quang_binh_rain.text_line_2 = middle_mqtt_get_rainfall_line_2();
-        screen_quang_binh_rain.text_line_3 = middle_mqtt_get_rainfall_line_3();
-
-        break;
-
-      case QUANGTRI_RAIN_UPDATE:
-        middle_mqtt_extract_rain();
-
-        screen_quang_tri_rain.text_line_1 = middle_mqtt_get_rainfall_line_1();
-        screen_quang_tri_rain.text_line_2 = middle_mqtt_get_rainfall_line_2();
-        screen_quang_tri_rain.text_line_3 = middle_mqtt_get_rainfall_line_3();
-
-        break;
-      
-      default:
-        break;
-    }
-
-  return;
-  }
-
-  return;
+  int64_t current_time_send_sensor = esp_timer_get_time();
 }
 
 
