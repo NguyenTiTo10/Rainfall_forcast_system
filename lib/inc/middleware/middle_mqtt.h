@@ -16,6 +16,8 @@ typedef enum
 
 void middle_mqtt_init();
 
+void middle_mqtt_request_update_rain (void);
+
 bool middle_mqtt_get_data ();
 
 void middle_mqtt_extract_time (void);
