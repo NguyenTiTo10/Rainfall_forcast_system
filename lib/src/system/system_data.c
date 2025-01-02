@@ -22,6 +22,14 @@ void system_data_start_update_sensor (void)
   return;         
 }
 
+void system_data_send_data_sensor     (void)
+{
+  middle_mqtt_send_sensor_data(data_sensor_update.temp, data_sensor_update.humid, data_sensor_update.pressure);
+
+  return;
+}
+
+
 
 char *system_data_get_update_temp (void)
 {
