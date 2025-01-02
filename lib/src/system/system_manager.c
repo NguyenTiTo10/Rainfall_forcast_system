@@ -272,6 +272,8 @@ void system_manage_update_rain (void)
 void system_manage_loop(void)
 {
   system_manage_update_data ();
+
+  system_manage_update_rain ();
   
   switch (current_state)
   {
