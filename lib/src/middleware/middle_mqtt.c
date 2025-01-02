@@ -4,7 +4,7 @@
 
 #define     MAIN_TOPIC                  "RAINFALL_FORCAST_SYSTEM"
 
-#define     REQUEST_UPDATE_MESSAGE      "START"
+#define     REQUEST_UPDATE_MESSAGE      "Hello from ESP32"
 
 
 event_data_recieve_t  recieved_data;
