@@ -180,26 +180,23 @@ void system_manage_update_data (void)
   int64_t current_time_update_sensor = esp_timer_get_time();
 
   // Check if 3 seconds have passed
-  if ((current_time_update_sensor - last_time_update_sensor) >= UPDATE_SENSOR_DATA)
+  if ((current_time_update_sensor - last_time_update_sensor) >= UPDATE_SENSOR_DATA_INTERVAL)
   {
-    last_time_update_sensor = current_time_update_sensor;   
-
-    system_data_start_update_sensor();                
+    last_time_update_sensor = current_time_update_sensor;                 
 
     screen_location_sensor.text_line_1 = system_data_get_update_temp();
     screen_location_sensor.text_line_2 = system_data_get_update_humid();
     screen_location_sensor.text_line_3 = system_data_get_update_press();
   }
 
+
+  // Update the sensor data every 40 seconds
   int64_t current_time_send_sensor = esp_timer_get_time();
-  if ((current_time_send_sensor - last_time_send_sensor) >= SEND_SENSOR_DATA)
+  if ((current_time_send_sensor - last_time_send_sensor) >= SEND_SENSOR_DATA_INTERVAL)
   {
     last_time_send_sensor = current_time_send_sensor;
 
-    float temp, humid, pressure;
-    drv_bmp180_get_data(&temp, &humid, &pressure);
-
-    middle_mqtt_send_sensor_data(temp, humid, pressure);
+    system_data_start_update_sensor();  
   }
 }
 
