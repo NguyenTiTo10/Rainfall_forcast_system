@@ -9,13 +9,13 @@
 
 #define UPDATE_RAIN_DATA    60000000   // 60 seconds interval in microseconds
 
-static int64_t current_time_update_sensor;
+// static int64_t current_time_update_sensor;
 static int64_t last_time_update_sensor;  
 
-static int64_t current_time_send_sensor;
+// static int64_t current_time_send_sensor;
 static int64_t last_time_send_sensor; 
 
-static int64_t current_time_update_rain;
+// static int64_t current_time_update_rain;
 static int64_t last_time_update_rain; 
 
 static void system_manage_init_data_display(void);
@@ -177,10 +177,10 @@ system_main_state_t system_manage_update_state ()
 
 void system_manage_update_data (void)
 {
-  int64_t current_time = esp_timer_get_time();
+  current_time_update_sensor = esp_timer_get_time();
 
   // Check if 3 seconds have passed
-  if ((current_time - last_time) >= UPDATE_SENSOR_DATA)
+  if ((current_time_update_sensor - last_time_update_sensor) >= UPDATE_SENSOR_DATA)
   {
     last_time = current_time;   
 
