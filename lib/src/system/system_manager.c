@@ -221,6 +221,7 @@ void system_manage_update_rain (void)
 
     middle_mqtt_update_state_t update_state = middle_mqtt_detect_update_type();
 
+
     switch (update_state)
     {
       case TIME_UPDATE:
@@ -236,33 +237,36 @@ void system_manage_update_rain (void)
       case HATINH_RAIN_UPDATE:
         middle_mqtt_extract_rain();
 
-        screen_ha_tinh_rain.text_line_1 = middle_mqtt_get_rainfall_line_1();
-        screen_ha_tinh_rain.text_line_2 = middle_mqtt_get_rainfall_line_2();
-        screen_ha_tinh_rain.text_line_3 = middle_mqtt_get_rainfall_line_3();
+        screen_ha_tinh_rain.text_line_1 = strdup(middle_mqtt_get_rainfall_line_1());
+        screen_ha_tinh_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
+        screen_ha_tinh_rain.text_line_3 = strdup(middle_mqtt_get_rainfall_line_3());
 
         break;
 
       case QUANGBINH_RAIN_UPDATE:
         middle_mqtt_extract_rain();
 
-        screen_quang_binh_rain.text_line_1 = middle_mqtt_get_rainfall_line_1();
-        screen_quang_binh_rain.text_line_2 = middle_mqtt_get_rainfall_line_2();
-        screen_quang_binh_rain.text_line_3 = middle_mqtt_get_rainfall_line_3();
+        screen_quang_binh_rain.text_line_1 = strdup(middle_mqtt_get_rainfall_line_1());
+        screen_quang_binh_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
+        screen_quang_binh_rain.text_line_3 = strdup(middle_mqtt_get_rainfall_line_3());
+
 
         break;
 
       case QUANGTRI_RAIN_UPDATE:
         middle_mqtt_extract_rain();
 
-        screen_quang_tri_rain.text_line_1 = middle_mqtt_get_rainfall_line_1();
-        screen_quang_tri_rain.text_line_2 = middle_mqtt_get_rainfall_line_2();
-        screen_quang_tri_rain.text_line_3 = middle_mqtt_get_rainfall_line_3();
+        screen_quang_tri_rain.text_line_1 = strdup(middle_mqtt_get_rainfall_line_1());
+        screen_quang_tri_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
+        screen_quang_tri_rain.text_line_3 = strdup(middle_mqtt_get_rainfall_line_3());
 
         break;
       
       default:
         break;
     }
+
+    return;
   }
 
   return;
