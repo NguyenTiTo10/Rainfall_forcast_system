@@ -182,7 +182,9 @@ void system_manage_update_data (void)
   // Check if 3 seconds have passed
   if ((current_time_update_sensor - last_time_update_sensor) >= UPDATE_SENSOR_DATA_INTERVAL)
   {
-    last_time_update_sensor = current_time_update_sensor;                 
+    last_time_update_sensor = current_time_update_sensor;  
+
+    system_data_update_sensor();               
 
     screen_location_sensor.text_line_1 = system_data_get_update_temp();
     screen_location_sensor.text_line_2 = system_data_get_update_humid();
