@@ -26,7 +26,18 @@ void middle_mqtt_init()
 
 }
 
-void middle_mqtt_send_re
+void middle_mqtt_request_update_rain (void)
+{
+  int msg = bsp_mqtt_client_publish (MAIN_TOPIC, UPDATE_RAIN_MESSAGE);
+
+  while (msg != 0)
+  {
+    msg = bsp_mqtt_client_publish (MAIN_TOPIC, UPDATE_RAIN_MESSAGE);
+    bsp_timer_delay(100);
+  }
+  
+  return;
+}
 
 
 bool middle_mqtt_get_data ()
