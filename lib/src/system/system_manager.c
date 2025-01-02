@@ -3,7 +3,11 @@
 #include <string.h>
 
 
-#define UPDATE_SENSOR_DATA 3000000  // 3 seconds interval in microseconds
+#define UPDATE_SENSOR_DATA  3000000   // 3 seconds interval in microseconds
+
+#define SEND_SENSOR_DATA    40000000   // 40 seconds interval in microseconds
+
+#define UPDATE_RAIN_DATA    60000000   // 60 seconds interval in microseconds
 
 int64_t current_time;
 int64_t last_time;  
