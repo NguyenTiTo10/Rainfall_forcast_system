@@ -3,11 +3,11 @@
 #include <string.h>
 
 
-#define UPDATE_SENSOR_DATA  3000000   // 3 seconds interval in microseconds
+#define UPDATE_SENSOR_DATA_INTERVAL  3000000   // 3 seconds interval in microseconds
 
-#define SEND_SENSOR_DATA    40000000   // 40 seconds interval in microseconds
+#define SEND_SENSOR_DATA_INTERVAL    40000000   // 40 seconds interval in microseconds
 
-#define UPDATE_RAIN_DATA    60000000   // 60 seconds interval in microseconds
+#define UPDATE_RAIN_DATA_INTERVAL    60000000   // 60 seconds interval in microseconds
 
 // static int64_t current_time_update_sensor;
 static int64_t last_time_update_sensor;  
@@ -192,6 +192,15 @@ void system_manage_update_data (void)
   }
 
   int64_t current_time_send_sensor = esp_timer_get_time();
+  if ((current_time_send_sensor - last_time_send_sensor) >= SEND_SENSOR_DATA)
+  {
+    last_time_send_sensor = current_time_send_sensor;
+
+    float temp, humid, pressure;
+    drv_bmp180_get_data(&temp, &humid, &pressure);
+
+    middle_mqtt_send_sensor_data(temp, humid, pressure);
+  }
 }
 
 
