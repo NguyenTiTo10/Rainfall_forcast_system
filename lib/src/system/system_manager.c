@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-#define DHT11_INTERVAL_US 3000000  // 3 seconds interval in microseconds
+#define UPDATE_SENSOR_DATA 3000000  // 3 seconds interval in microseconds
 
 int64_t current_time;
 int64_t last_time;  
@@ -168,7 +168,7 @@ void system_manage_update_data (void)
   int64_t current_time = esp_timer_get_time();
 
   // Check if 3 seconds have passed
-  if ((current_time - last_time) >= DHT11_INTERVAL_US)
+  if ((current_time - last_time) >= UPDATE_SENSOR_DATA)
   {
     last_time = current_time;   
 
