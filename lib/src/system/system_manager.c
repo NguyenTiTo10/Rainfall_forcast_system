@@ -200,7 +200,7 @@ void system_manage_update_data (void)
   }
 }
 
-void system_manager_update_rain (void)
+void system_manage_update_rain (void)
 {
   int64_t current_time_update_rain = esp_timer_get_time();
 
@@ -209,7 +209,7 @@ void system_manager_update_rain (void)
   {
     last_time_update_rain = current_time_update_rain;
 
-    
+
   }
 }
 

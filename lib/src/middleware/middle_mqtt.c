@@ -6,6 +6,8 @@
 
 #define     INIT_MQTT_MESSAGE           "Hello from ESP32"
 
+#define     UPDATE_RAIN_MESSAGE         "START"   
+
 
 event_data_recieve_t  recieved_data;
 
@@ -23,6 +25,8 @@ void middle_mqtt_init()
   bsp_mqtt_client_publish (MAIN_TOPIC, INIT_MQTT_MESSAGE);
 
 }
+
+void middle_mqtt_send_re
 
 
 bool middle_mqtt_get_data ()
