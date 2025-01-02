@@ -200,6 +200,19 @@ void system_manage_update_data (void)
   }
 }
 
+void system_manager_update_rain (void)
+{
+  int64_t current_time_update_rain = esp_timer_get_time();
+
+  // Check if 60 seconds have passed
+  if ((current_time_update_rain - last_time_update_rain) >= UPDATE_RAIN_DATA_INTERVAL)
+  {
+    last_time_update_rain = current_time_update_rain;
+
+    
+  }
+}
+
 
 void system_manage_loop(void)
 {
