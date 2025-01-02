@@ -196,7 +196,7 @@ void system_manage_update_data (void)
   {
     last_time_send_sensor = current_time_send_sensor;
 
-    system_data_start_update_sensor();  
+    system_data_send_data_sensor();  
   }
 }
 
