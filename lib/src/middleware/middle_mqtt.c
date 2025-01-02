@@ -4,7 +4,7 @@
 
 #define     MAIN_TOPIC                  "RAINFALL_FORCAST_SYSTEM"
 
-#define     REQUEST_UPDATE_MESSAGE      "Hello from ESP32"
+#define     INIT_MQTT_MESSAGE           "Hello from ESP32"
 
 
 event_data_recieve_t  recieved_data;
@@ -20,7 +20,7 @@ void middle_mqtt_init()
 {
   bsp_mqtt_start();
 
-  bsp_mqtt_client_publish (MAIN_TOPIC, REQUEST_UPDATE_MESSAGE);
+  bsp_mqtt_client_publish (MAIN_TOPIC, INIT_MQTT_MESSAGE);
 
 }
 
