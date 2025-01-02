@@ -9,8 +9,8 @@
 
 #define UPDATE_RAIN_DATA    60000000   // 60 seconds interval in microseconds
 
-int64_t current_time;
-int64_t last_time;  
+static int64_t current_time_update_sensor;
+static int64_t last_time_update_sensor;  
 
 static void system_manage_init_data_display(void);
 
