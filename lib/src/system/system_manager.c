@@ -184,7 +184,7 @@ void system_manage_update_data (void)
   {
     last_time_update_sensor = current_time_update_sensor;  
 
-    system_data_update_sensor();               
+    system_data_start_update_sensor();               
 
     screen_location_sensor.text_line_1 = system_data_get_update_temp();
     screen_location_sensor.text_line_2 = system_data_get_update_humid();
