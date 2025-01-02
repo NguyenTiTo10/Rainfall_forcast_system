@@ -88,7 +88,9 @@ void system_manage_init (void)
 
   
   // Start Timer
-  last_time = bsp_timer_get_time();  
+  last_time_send_sensor = bsp_timer_get_time();  
+  last_time_update_sensor = bsp_timer_get_time();
+  last_time_update_rain = bsp_timer_get_time();
 
   return;
 }
