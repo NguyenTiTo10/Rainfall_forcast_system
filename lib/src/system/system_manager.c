@@ -238,7 +238,7 @@ void system_manage_update_rain (void)
         middle_mqtt_extract_rain();
 
         screen_ha_tinh_rain.text_line_1 = strdup(middle_mqtt_get_rainfall_line_1());
-        screen_ha_tinh_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
+        // screen_ha_tinh_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
         screen_ha_tinh_rain.text_line_3 = strdup(middle_mqtt_get_rainfall_line_3());
 
         break;
@@ -247,7 +247,7 @@ void system_manage_update_rain (void)
         middle_mqtt_extract_rain();
 
         screen_quang_binh_rain.text_line_1 = strdup(middle_mqtt_get_rainfall_line_1());
-        screen_quang_binh_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
+        // screen_quang_binh_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
         screen_quang_binh_rain.text_line_3 = strdup(middle_mqtt_get_rainfall_line_3());
 
 
@@ -257,7 +257,7 @@ void system_manage_update_rain (void)
         middle_mqtt_extract_rain();
 
         screen_quang_tri_rain.text_line_1 = strdup(middle_mqtt_get_rainfall_line_1());
-        screen_quang_tri_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
+        // screen_quang_tri_rain.text_line_2 = strdup(middle_mqtt_get_rainfall_line_2());
         screen_quang_tri_rain.text_line_3 = strdup(middle_mqtt_get_rainfall_line_3());
 
         break;
