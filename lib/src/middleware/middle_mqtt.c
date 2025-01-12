@@ -214,6 +214,12 @@ void middle_mqtt_send_sensor_data (float temp, float humid, float pressure)
 
   snprintf(buffer_data, sizeof(buffer_data), "000||%.1f|%.1f|%.1f|", temp, humid, pressure);
 
+  if (bsp_mqtt_get_wifi_flag() == false)
+  {
+    ESP_LOGW("middle_mqtt", "Cannot send data. MQTT is not connected.");
+    return;
+  }
+
   bsp_mqtt_client_publish (MAIN_TOPIC, buffer_data);
 
   return;
