@@ -44,6 +44,12 @@ void middle_mqtt_init()
 
 void middle_mqtt_request_update_rain (void)
 {
+  if (bsp_mqtt_get_wifi_flag() == false)
+  {
+    ESP_LOGW("middle_mqtt", "MQTT is not connected. Skipping request.");
+    return;
+  }
+
   int msg = bsp_mqtt_client_publish (MAIN_TOPIC, UPDATE_RAIN_MESSAGE);
 
   while (msg != 0)
