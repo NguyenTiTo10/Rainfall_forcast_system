@@ -20,10 +20,26 @@ char update_rainfall_line_3[50];
 
 void middle_mqtt_init()
 {
+  // Check if MQTT is already connected
+  if (bsp_mqtt_get_wifi_flag() == true)
+  {
+      ESP_LOGW("middle_mqtt", "MQTT is already connected. Skipping initialization.");
+      return;
+  }
+
+  // Reset flags and ensure clean state
+  bsp_mqtt_set_wifi_flag(false);
+  bsp_mqtt_set_data_flag(false);
+
+
+  bsp_mqtt_stop();
+
+  // Start MQTT connection
+  printf("Initializing MQTT...\n");
   bsp_mqtt_start();
 
-  bsp_mqtt_client_publish (MAIN_TOPIC, INIT_MQTT_MESSAGE);
-
+  // Publish initial message
+  bsp_mqtt_client_publish(MAIN_TOPIC, INIT_MQTT_MESSAGE);
 }
 
 void middle_mqtt_request_update_rain (void)
