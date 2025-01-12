@@ -10,7 +10,6 @@
 #include "nvs_flash.h"
 #include "esp_event.h"
 #include "esp_netif.h"
-#include "protocol_examples_common.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -36,9 +35,14 @@ typedef struct
 
 
 void bsp_mqtt_start (void);
+void bsp_mqtt_stop  (void);
+
 
 bool bsp_mqtt_get_data_flag (void);
 void bsp_mqtt_set_data_flag (bool status);
+
+bool bsp_mqtt_get_wifi_flag (void);
+void bsp_mqtt_set_wifi_flag (bool status);
 
 event_data_recieve_t get_ret_event_data (void);
 
