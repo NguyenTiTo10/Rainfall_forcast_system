@@ -40,6 +40,8 @@ void middle_mqtt_init()
 
   // Publish initial message
   bsp_mqtt_client_publish(MAIN_TOPIC, INIT_MQTT_MESSAGE);
+
+  middle_mqtt_request_update_rain();
 }
 
 void middle_mqtt_request_update_rain (void)
