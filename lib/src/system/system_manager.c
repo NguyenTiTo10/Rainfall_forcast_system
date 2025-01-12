@@ -41,10 +41,10 @@ static void system_manage_init_data_display()
 
 
   // Init the time display
-  screen_location_sensor.time =   "27.12.2024 - 02:05";
-  screen_ha_tinh_rain.time    =   "27.12.2024 - 02:05";
-  screen_quang_binh_rain.time =   "27.12.2024 - 02:05";
-  screen_quang_tri_rain.time  =   "27.12.2024 - 02:05";
+  screen_location_sensor.time =   "01.01.2025 - 00:00";
+  screen_ha_tinh_rain.time    =   "01.01.2025 - 00:00";
+  screen_quang_binh_rain.time =   "01.01.2025 - 00:00";
+  screen_quang_tri_rain.time  =   "01.01.2025 - 00:00";
 
   // Init the sensor display
   screen_location_sensor.text_line_1 = "Temp    : 99.9 C       ";
@@ -56,15 +56,15 @@ static void system_manage_init_data_display()
 
 #ifdef TEST_DISPLAY_RAIN
   screen_ha_tinh_rain.text_line_1     =   "IFS  :  0.2   1.3   0.7";
-  screen_ha_tinh_rain.text_line_2     =   "Tito :  0.3   0.9   0.5";
+  screen_ha_tinh_rain.text_line_2     =   "LSTM :                 ";
   screen_ha_tinh_rain.text_line_3     =   "Vrain:  1.6   0.9   0.8";
 
   screen_quang_binh_rain.text_line_1  =   "IFS  : 35.6  43.2  30.0";
-  screen_quang_binh_rain.text_line_2  =   "Tito : 35.6  43.2  30.0";
+  screen_quang_binh_rain.text_line_2  =   "LSTM :                 ";
   screen_quang_binh_rain.text_line_3  =   "Vrain: 35.6  43.2  30.0";
 
   screen_quang_tri_rain.text_line_1   =   "IFS  : 35.6  43.2  30.0";
-  screen_quang_tri_rain.text_line_2   =   "Tito : 35.6  43.2  30.0";
+  screen_quang_tri_rain.text_line_2   =   "LSTM :                 ";
   screen_quang_tri_rain.text_line_3   =   "Vrain: 35.6  43.2  30.0";
 
 #endif
