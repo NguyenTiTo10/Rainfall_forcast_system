@@ -9,6 +9,8 @@
 
 #include "system_manager.h"
 
+#include "middle_mqtt.h"
+
 typedef struct 
 {
   char *time;

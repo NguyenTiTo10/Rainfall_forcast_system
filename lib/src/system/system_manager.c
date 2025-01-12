@@ -283,7 +283,6 @@ void system_manage_loop(void)
   {
     case IDLE:
       system_display_idle ();
-      middle_mqtt_init();                             // Init MQTT 
       break;
 
     case BOOT_STATE:

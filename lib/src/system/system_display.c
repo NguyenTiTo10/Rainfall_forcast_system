@@ -36,6 +36,8 @@ void system_display_boot (void)
 
   drv_sh1106_delay_screen (500);
 
+  middle_mqtt_init();                             // Init MQTT 
+
   drv_sh1106_clear_screen();
 
   drv_sh1106_draw_border_top ();
