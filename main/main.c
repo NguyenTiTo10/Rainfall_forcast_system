@@ -143,6 +143,8 @@ void app_main(void)
     {
         system_manage_loop();  
         bsp_timer_delay(10);
+
+        // Test comment
     }
 
 
