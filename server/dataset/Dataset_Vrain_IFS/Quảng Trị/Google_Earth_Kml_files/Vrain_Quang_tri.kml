@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Vrain_Quang_tri</name>
+	<visibility>0</visibility>
+	<Placemark>
+		<name>Tân Long</name>
+		<Point>
+			<coordinates>106.6548,16.5973,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cửa Tùng</name>
+		<Point>
+			<coordinates>107.1064,17.0289,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Đầu mối hồ Trúc Kinh</name>
+		<Point>
+			<coordinates>107.062518,16.870882,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Lao Bảo</name>
+		<Point>
+			<coordinates>106.5986,16.6157,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Thanh</name>
+		<Point>
+			<coordinates>106.6659,16.4917,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Linh Thượng</name>
+		<Point>
+			<coordinates>106.9612,16.92,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Bến Quan</name>
+		<Point>
+			<coordinates>106.903036,17.022209,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Lìa</name>
+		<Point>
+			<coordinates>106.717482,16.472272,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Triệu Hòa</name>
+		<Point>
+			<coordinates>107.191912,16.802214,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>TT Phòng tránh và Giảm nhẹ thiên tai</name>
+		<Point>
+			<coordinates>107.1002,16.7903,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hướng Phùng</name>
+		<Point>
+			<coordinates>106.5816,16.7422,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Đập, thủy điện La Tó</name>
+		<Point>
+			<coordinates>107.02954,16.505871,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>A Dơi</name>
+		<Point>
+			<coordinates>106.7442,16.4815,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Húc</name>
+		<Point>
+			<coordinates>106.760565,16.599192,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Đầu mối hồ Đá Mài</name>
+		<Point>
+			<coordinates>106.940752,16.82012,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hướng Linh</name>
+		<Point>
+			<coordinates>106.7441,16.7119,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>A Bung</name>
+		<Point>
+			<coordinates>107.0264,16.3687,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Vĩnh Khê</name>
+		<Point>
+			<coordinates>106.8636,17.0774,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Nam Thạch Hãn</name>
+		<Point>
+			<coordinates>107.1466,16.6949,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hải Lâm</name>
+		<Point>
+			<coordinates>107.2403,16.6905,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hướng Lập</name>
+		<Point>
+			<coordinates>106.5687,16.8868,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Trung Sơn</name>
+		<Point>
+			<coordinates>107.0405,16.9628,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hải Phong</name>
+		<Point>
+			<coordinates>107.319168,16.663073,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Đầu mối hồ Bảo Đài</name>
+		<Point>
+			<coordinates>106.927852,17.058025,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Tà Long</name>
+		<Point>
+			<coordinates>106.9547,16.575,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hướng Lộc</name>
+		<Point>
+			<coordinates>106.7125,16.5461,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09874C48073383181F23">
+		<name>Vĩnh Tú</name>
+		<Point>
+			<coordinates>107.0106,17.1123,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Triệu Ái</name>
+		<Point>
+			<coordinates>107.1352,16.758,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hướng Việt</name>
+		<Point>
+			<coordinates>106.564405,16.829757,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Ba Nang</name>
+		<Point>
+			<coordinates>106.8664,16.5854,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>A Vao</name>
+		<Point>
+			<coordinates>106.9492,16.3893,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hải An</name>
+		<Point>
+			<coordinates>107.3296,16.7771,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cam Tuyền</name>
+		<Point>
+			<coordinates>106.9835,16.8187,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Thủy điện Hạ Rào Quán</name>
+		<Point>
+			<coordinates>106.770278,16.646636,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Cam Chính</name>
+		<Point>
+			<coordinates>106.9677,16.7444,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hải Thái</name>
+		<Point>
+			<coordinates>106.9834,16.8746,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Đầu mối hồ La Ngà</name>
+		<Point>
+			<coordinates>106.9536,17.0254,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Quang_Tri_Forcast</name>
+	<gx:CascadingStyle kml:id="__managed_style_086BA5DA8134139A763A">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_19BDF113C934139A7639">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0ABC2F82FB34139A7639">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_19BDF113C934139A7639</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_086BA5DA8134139A763A</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="0F32ECC46034138B30BA">
+		<name>17°00&apos;00.0&quot;N 107°07&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107.125,17,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E0C4007BF34138B587E">
+		<name>16°45&apos;00.0&quot;N 106°45&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.75,16.75,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="047EF890EE34138B87B0">
+		<name>16°52&apos;30.0&quot;N 107°00&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107,16.875,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09D2FA1EC634138BADBB">
+		<name>16°45&apos;00.0&quot;N 107°07&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107.125,16.75,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09AA9F2D1734138BDE4E">
+		<name>16°37&apos;30.0&quot;N 106°37&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.625,16.625,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E0892EC4834138D8949">
+		<name>16°30&apos;00.0&quot;N 107°07&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107.125,16.5,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0ACF3EAF3C34138DCAC8">
+		<name>16°45&apos;00.0&quot;N 107°15&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107.25,16.75,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0930C9BED634138DFEEB">
+		<name>17°00&apos;00.0&quot;N 106°45&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.75,17,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="067110269E34138E6C92">
+		<name>17°00&apos;00.0&quot;N 107°00&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107,17,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="012FDB801634139010E4">
+		<name>16°30&apos;00.0&quot;N 106°45&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_0ABC2F82FB34139A7639</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.75,16.5,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

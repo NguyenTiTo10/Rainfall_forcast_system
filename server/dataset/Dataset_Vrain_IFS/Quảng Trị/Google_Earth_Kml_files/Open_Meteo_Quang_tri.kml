@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="1sz1TD1tQ5wlYHrZhmliUg5bA4nR8XxfP">
+	<name>Open_Meteo_Quang_tri</name>
+	<visibility>0</visibility>
+	<gx:CascadingStyle kml:id="__managed_style_23034E761233C119DFE8">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1A0D79D70C33C119DFE8">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0CCA77589D33C119DFE8">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1A0D79D70C33C119DFE8</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_23034E761233C119DFE8</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_1340F2A21F33C119DFDE">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_2ED54B88FC33C119DFDE">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0B4AB4A7EE33C119DFDE">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1340F2A21F33C119DFDE</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2ED54B88FC33C119DFDE</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="03B2F64675336E72C392">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.62857,16.836554,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BB4E1AFD4336E733BF5">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107.052635,16.836554,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D2BF7FC57336E738E35">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.82646,16.977152,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01503C8D37336E75AD20">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.928986,17.047451,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01EF7538D1336E761769">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107.0317,17.11775,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DB9DD7698336E77A7C9">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107.10173,17.047451,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09ABA2629B336E78C76D">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>107.01536,17.047451,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="00494DB862336E7A1E34">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.945244,17.11775,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="012A8D789F336E7B283C">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.91275,16.977152,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="00B5D08D63336E73D0A0">
+		<styleUrl>#__managed_style_0B4AB4A7EE33C119DFDE</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.960335,16.836554,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

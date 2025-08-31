@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Vrain_Quang_Binh</name>
+	<visibility>0</visibility>
+	<Placemark id="07FA450A2033C3B3C2BB">
+		<name>Hồ Đồng Ran</name>
+		<Point>
+			<coordinates>106.44,17.7015,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BC16200E033C3B3C2CA">
+		<name>Hồ Thác Chuối</name>
+		<Point>
+			<coordinates>106.4611,17.4378,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="17C821AF9A33C3B3C2CA">
+		<name>Đầu mối hồ Trung Thuần</name>
+		<Point>
+			<coordinates>106.3436,17.8186,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="24A08F6E7F33C3B3C2CA">
+		<name>Lâm Hóa</name>
+		<Point>
+			<coordinates>105.8128,17.9308,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="015E1E535F33C3B3C2CB">
+		<name>Trường Sơn</name>
+		<Point>
+			<coordinates>106.452,17.2188,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1C0F46471F33C3B3C2CB">
+		<name>Thái Thủy</name>
+		<Point>
+			<coordinates>106.8589,17.1503,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="24C5BE238A33C3B3C2CB">
+		<name>Trung Hóa</name>
+		<Point>
+			<coordinates>105.9617,17.7392,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="38D87BD75533C3B3C2CB">
+		<name>Tú Làn Lodge</name>
+		<Point>
+			<coordinates>106.0508,17.7695,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="00A4FF5CB133C3B3C2CC">
+		<name>Trọng Hóa</name>
+		<Point>
+			<coordinates>105.8028,17.8581,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1172983B8133C3B3C2CC">
+		<name>Liên Trạch</name>
+		<Point>
+			<coordinates>106.3886,17.6695,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="20C9D1BAB533C3B3C2CC">
+		<name>Hồ Sông Thai</name>
+		<Point>
+			<coordinates>106.4129,17.9283,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="3F4206324C33C3B3C2CC">
+		<name>Hồ An Mã</name>
+		<Point>
+			<coordinates>106.8177,17.1096,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="015C74A14433C3B3C2CD">
+		<name>Vạn Ninh</name>
+		<Point>
+			<coordinates>106.6844,17.2808,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1A49CF4E2233C3B3C2CD">
+		<name>Tân Hóa</name>
+		<Point>
+			<coordinates>106.0945,17.7889,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2787C8CBC333C3B3C2CD">
+		<name>Hồ Cẩm Ly</name>
+		<Point>
+			<coordinates>106.6604,17.2142,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="33260D802033C3B3C2CD">
+		<name>Quảng Tiên</name>
+		<Point>
+			<coordinates>106.3211,17.76,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="45072EC39833C3B3C2CD">
+		<name>Quảng Tiến</name>
+		<Point>
+			<coordinates>106.375,17.8361,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04E10EE70E33C3B0AED7">
+		<name>Xuân Trạch</name>
+		<Point>
+			<coordinates>106.2520298298134,17.6635482417546,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0469B9C06F33C3B3C2CE">
+		<name>Quảng Minh</name>
+		<Point>
+			<coordinates>106.3808,17.7157,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1BEABF33A333C3B3C2CE">
+		<name>Cao Quảng</name>
+		<Point>
+			<coordinates>106.1475,17.7572,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2E668BCF9D33C3B3C2CE">
+		<name>Quán Hàu</name>
+		<Point>
+			<coordinates>106.6403,17.4022,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="39AEC2EBA333C3B3C2CE">
+		<name>Quảng Trạch</name>
+		<Point>
+			<coordinates>106.4075,17.8028,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="046522686F33C3B3C2CF">
+		<name>Hồ Troóc Trâu</name>
+		<Point>
+			<coordinates>106.5877,17.4007,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1DF5C75BF933C3B3C2CF">
+		<name>Hồ Bẹ</name>
+		<Point>
+			<coordinates>106.193,17.8237,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="3095F11DAB33C3B3C2CF">
+		<name>Thủy văn Rào Nan, Cao Quảng</name>
+		<Point>
+			<coordinates>106.1885,17.7699,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="4D1CD7912733C3B3C2CF">
+		<name>Thủy văn Lý Hòa</name>
+		<Point>
+			<coordinates>106.5161,17.6328,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C9284F87333C3B3C2D0">
+		<name>Thủy văn Roòn</name>
+		<Point>
+			<coordinates>106.4243,17.8932,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1F10B55BC233C3B3C2D0">
+		<name>Thủy văn Liên Trạch</name>
+		<Point>
+			<coordinates>106.3948,17.6787,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2FE6B338A133C3B3C2D0">
+		<name>Hồ Vực Tròn</name>
+		<Point>
+			<coordinates>106.3673,17.8816,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="3A6D6CD27433C3B3C2D0">
+		<name>Thanh Hóa</name>
+		<Point>
+			<coordinates>105.8417,17.9833,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04BA19B32A33C3B3C2D1">
+		<name>Vạn Trạch</name>
+		<Point>
+			<coordinates>106.4533,17.6161,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="118EA95F6E33C3B3C2D1">
+		<name>Quảng Tùng</name>
+		<Point>
+			<coordinates>106.4283,17.8678,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B65090A7A33C3B1CC54">
+		<name>Lâm Thủy</name>
+		<Point>
+			<coordinates>106.5092,17.0639,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="2AAAD59C7633C3B3C2D1">
+		<name>Trường Xuân</name>
+		<Point>
+			<coordinates>106.5946,17.2714,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="3D335A419733C3B3C2D1">
+		<name>Hóa Sơn</name>
+		<Point>
+			<coordinates>105.8842,17.7611,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C3D01A88C33C3B71446">
+		<name>Bắc Trạch</name>
+		<Point>
+			<coordinates>106.4546382,17.6979,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

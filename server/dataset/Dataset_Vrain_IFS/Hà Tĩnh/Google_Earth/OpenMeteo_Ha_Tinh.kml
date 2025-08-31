@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>OpenMeteo_Ha_Tinh</name>
+	<visibility>0</visibility>
+	<gx:CascadingStyle kml:id="__managed_style_27D2B3ED2F33E7A3DC4F">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>-
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_137C1EDF8233E7A3DC4F">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0B3AAD91D933E7A3DC4F">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_137C1EDF8233E7A3DC4F</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_27D2B3ED2F33E7A3DC4F</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="036CA8F94F33D081E580">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.79412,18.594023,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0167F1213533D0858300">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.629265,18.242529,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E8EC9321A33D0863C25">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.70175,18.172232,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="047FDBD6D733D08F91E9">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.41096,18.453426,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01F357AC0B33D090315B">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.052635,18.172232,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09DB655F9D33D090C693">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.82031,18.312828,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01C4CD84C133D092CBA1">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.196495,18.031633,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FA7D7805C33D09436AD">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.8772,18.172232,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DAAF3F81D33D094B981">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.8668,18.523726,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02FEA4E2B533D0954DAF">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.10895,18.031633,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0705383A7933D095E1F8">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.9082,18.312828,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0EB36DB92833D09691E5">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.55664,18.312828,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0AE3696F9A33D097B4DC">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.3229,18.453426,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="099F888A5A33D0983CB5">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.747795,18.383127,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04ADF618CD33D098B873">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.778656,18.523726,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DF8B3D49933D099516F">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.28404,18.031633,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="01F7B4FC5E33D099E0C0">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.44118,18.594023,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="083103F4B633D09A578F">
+		<styleUrl>#__managed_style_0B3AAD91D933E7A3DC4F</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.22807,18.172232,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

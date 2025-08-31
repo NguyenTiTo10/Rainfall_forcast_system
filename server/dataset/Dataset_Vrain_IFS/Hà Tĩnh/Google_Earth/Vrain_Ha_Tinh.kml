@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Vrain_Ha_Tinh</name>
+	<visibility>0</visibility>
+	<Placemark>
+		<name>Hồ Xuân Hoa</name>
+		<description>Hồ Xuân Hoa, Nghi Xuân</description>
+		<Point>
+			<coordinates>105.7971332,18.5726053,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Đá Hàn</name>
+		<description>Hồ Đá Hàn, Hương Khê</description>
+		<Point>
+			<coordinates>105.5823,18.2649,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Đồn Biên phòng 571</name>
+		<description>Đồn Biên phòng 571, Hương Khê</description>
+		<Point>
+			<coordinates>105.5832,18.1806,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Kỳ Đồng</name>
+		<description>Kỳ Đồng, Kỳ Anh</description>
+		<Point>
+			<coordinates>106.2382,18.1781,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hương Điền</name>
+		<description>Hương Điền, Vũ Quang</description>
+		<Point>
+			<coordinates>105.4075,18.4253,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Sông Rác</name>
+		<description>Hồ Sông Rác, Cẩm Xuyên</description>
+		<Point>
+			<coordinates>106.0952817,18.1661126,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Thạch Xuân</name>
+		<description>Thạch Xuân, Thạch Hà</description>
+		<Point>
+			<coordinates>105.8614,18.3047,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Thượng Sông Trí</name>
+		<description>Hồ Thượng Sông Trí, Kỳ Anh</description>
+		<Point>
+			<coordinates>106.2658368,18.027223,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Thượng Tuy</name>
+		<description>Hồ Thượng Tuy, Cẩm Xuyên</description>
+		<Point>
+			<coordinates>106.0438935,18.1864002,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Kẻ Gỗ</name>
+		<description>Hồ Kẻ Gỗ, Cẩm Xuyên</description>
+		<Point>
+			<coordinates>105.9180545,18.2061057,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Khe Cò</name>
+		<description>Hồ Khe Cò, Hương Sơn</description>
+		<Point>
+			<coordinates>105.4371868,18.5825361,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Khe Hao</name>
+		<description>Hồ Khe Hao, Lộc Hà</description>
+		<Point>
+			<coordinates>105.843367,18.5215367,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Kỳ Thượng</name>
+		<description>Kỳ Thượng, Kỳ Anh</description>
+		<Point>
+			<coordinates>106.1261,18.02,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Chi cục Thủy lợi</name>
+		<description>Chi cục Thủy lợi, Hà Tĩnh</description>
+		<Point>
+			<coordinates>105.8862,18.3477,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hương Quang</name>
+		<description>Hương Quang, Vũ Quang</description>
+		<Point>
+			<coordinates>105.5405,18.3252,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Sơn Lâm</name>
+		<description>Sơn Lâm, Hương Sơn</description>
+		<Point>
+			<coordinates>105.365,18.5523,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Mạc Khê</name>
+		<description>Hồ Mạc Khê, Kỳ Anh</description>
+		<Point>
+			<coordinates>106.2069527,18.1674999,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ chứa nước Kim Sơn</name>
+		<description>Hồ chứa nước Kim Sơn, Kỳ Anh</description>
+		<Point>
+			<coordinates>106.2717,18.0116,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ Khe Xai</name>
+		<description>Hồ Khe Xai, Thạch Hà</description>
+		<Point>
+			<coordinates>105.825283,18.3013957,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Sơn Kim 1</name>
+		<description>Sơn Kim 1, Hương Sơn</description>
+		<Point>
+			<coordinates>105.2841,18.4452,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Mỹ Lộc</name>
+		<description>Mỹ Lộc, Can Lộc</description>
+		<Point>
+			<coordinates>105.7458,18.3797,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Hồ chứa nước Cù Lây</name>
+		<description>Hồ chứa nước Cù Lây, Can Lộc</description>
+		<Point>
+			<coordinates>105.7965,18.4995,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

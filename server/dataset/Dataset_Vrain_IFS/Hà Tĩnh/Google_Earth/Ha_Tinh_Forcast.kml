@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Ha_Tinh_Forcast</name>
+	<gx:CascadingStyle kml:id="__managed_style_27E2E17CFE34135CF261">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_10D95243CB34135CF261">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_062BD53FF634135CF261">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_10D95243CB34135CF261</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_27E2E17CFE34135CF261</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="04FC85A27234135CE2D4">
+		<name>18°37&apos;30.0&quot;N 105°45&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.75,18.625,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DC2F5D1CC34135D1575">
+		<name>18°15&apos;00.0&quot;N 105°37&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.625,18.25,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0649F324DA34135D4662">
+		<name>18°07&apos;30.0&quot;N 105°37&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.625,18.125,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BDAE1B31E34135D7DD7">
+		<name>18°22&apos;30.0&quot;N 105°30&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.5,18.375,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B2D7091BE34135DB613">
+		<name>18°07&apos;30.0&quot;N 106°07&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.125,18.125,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A6550215934135F854C">
+		<name>18°15&apos;00.0&quot;N 105°52&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.875,18.25,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="055371F96934135FB555">
+		<name>18°00&apos;00.0&quot;N 106°15&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.25,18,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0CE556879534135FE7B4">
+		<name>18°07&apos;30.0&quot;N 106°00&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106,18.125,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="00DC7767BE3413603D49">
+		<name>18°30&apos;00.0&quot;N 105°52&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.875,18.5,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0605E41D7A34136626E6">
+		<name>18°00&apos;00.0&quot;N 106°07&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.125,18,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B22E66BE934136671BE">
+		<name>18°22&apos;30.0&quot;N 105°52&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.875,18.375,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0269013886341366ECEC">
+		<name>18°30&apos;00.0&quot;N 105°22&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.375,18.5,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0082DE0334341369EF27">
+		<name>18°22&apos;30.0&quot;N 105°45&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.75,18.375,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D8D7D2FB034136A2AB2">
+		<name>18°30&apos;00.0&quot;N 105°45&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.75,18.5,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="037F4E210A34136C7FD3">
+		<name>18°07&apos;30.0&quot;N 106°15&apos;00.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.25,18.125,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="030BFFAFC734136CB4B2">
+		<name>18°37&apos;30.0&quot;N 105°22&apos;30.0&quot;E</name>
+		<styleUrl>#__managed_style_062BD53FF634135CF261</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.375,18.625,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

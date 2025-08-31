@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>HaTinh_Vrain_Historical_Forcast</name>
+	<visibility>0</visibility>
+	<gx:CascadingStyle kml:id="__managed_style_12168C7CDF3413C78A31">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_2CAC7B3E243413C78A30">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_017B8BE6EB3413C78A31">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_12168C7CDF3413C78A31</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_23EAB7BBFE3413C78A31</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_1F4837DB083413C78A30">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_23EAB7BBFE3413C78A31">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=d32f2f&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_07400411803413C78A30">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1F4837DB083413C78A30</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2CAC7B3E243413C78A30</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="0A75A9984D3413BF7623">
+		<name>Historical</name>
+		<styleUrl>#__managed_style_07400411803413C78A30</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.10895,18.031633,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="008E553BFA3413BFAF7A">
+		<name>Historical</name>
+		<styleUrl>#__managed_style_07400411803413C78A30</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.9082,18.312828,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E014E956B3413BFD1B0">
+		<name>Historical</name>
+		<styleUrl>#__managed_style_07400411803413C78A30</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.747795,18.383127,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09A99462B83413C0D9EB">
+		<name>Historcal</name>
+		<styleUrl>#__managed_style_07400411803413C78A30</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.196495,18.031633,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="006FC47ECB3413C33040">
+		<name>Forcast</name>
+		<styleUrl>#__managed_style_017B8BE6EB3413C78A31</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.25,18,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C038A5E0F3413C366FD">
+		<name>Forcast</name>
+		<styleUrl>#__managed_style_017B8BE6EB3413C78A31</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>106.1251146859754,18.01073835563468,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A3CC5674D3413C3D008">
+		<name>Forcast</name>
+		<styleUrl>#__managed_style_017B8BE6EB3413C78A31</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.875,18.375,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C85F29B143413C414A6">
+		<name>Forcast</name>
+		<styleUrl>#__managed_style_017B8BE6EB3413C78A31</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>105.75,18.375,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="193767770E3413B70E0A">
+		<name>Hồ Thượng Sông Trí</name>
+		<description>Hồ Thượng Sông Trí, Kỳ Anh</description>
+		<Point>
+			<coordinates>106.2658368,18.027223,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="1A92A1E9753413B70E0B">
+		<name>Kỳ Thượng</name>
+		<description>Kỳ Thượng, Kỳ Anh</description>
+		<Point>
+			<coordinates>106.1261,18.02,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="22E1A3A2EF3413B70E0B">
+		<name>Chi cục Thủy lợi</name>
+		<description>Chi cục Thủy lợi, Hà Tĩnh</description>
+		<Point>
+			<coordinates>105.8862,18.3477,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A3537B4DF3413B70E0D">
+		<name>Mỹ Lộc</name>
+		<description>Mỹ Lộc, Can Lộc</description>
+		<Point>
+			<coordinates>105.7458,18.3797,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
